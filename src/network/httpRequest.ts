@@ -1,6 +1,7 @@
-import querystring from "query-string";
 import { Method, RequestHeaders } from "./types";
 import { config } from "../config";
+import { paramsToQueryString } from "./paramsToQueryString";
+import fetch from "node-fetch";
 
 export type FetchFunction = <T>(
     endpoint: string,
@@ -19,14 +20,14 @@ export class HttpRequest implements IHttpRequest{
         this.apiKey = apiKey;
     }
 
-    async fetch(
+    async fetch<T>(
         endpoint = "",
         params = {},
         method = Method.GET,
     ) {
         const fetchUrl = `${config.apiUrl}/${endpoint}${
             method === Method.GET
-                ? `?${querystring.stringify(params, { arrayFormat: "bracket" })}`
+                ? `?${paramsToQueryString(params)}`
                 : ""
         }`;
         const headers: RequestHeaders = {
@@ -50,7 +51,7 @@ export class HttpRequest implements IHttpRequest{
 
         const data = await response.json();
         if (response.ok) {
-            return data;
+            return data as T;
         }
         throw new Error(data.error);
     }

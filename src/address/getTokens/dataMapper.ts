@@ -1,7 +1,7 @@
 import { TGetTokensResponse, TGetTokensResponseRaw } from "./types";
 
 export const dataMapper = (responseRaw: TGetTokensResponseRaw): TGetTokensResponse => {
-    return responseRaw.result.map(raw => ({
+    const tokens =  responseRaw.result.map(raw => ({
         chainName: raw.chain_name,
         chainId: raw.chain_id,
         address: raw.address,
@@ -14,4 +14,10 @@ export const dataMapper = (responseRaw: TGetTokensResponseRaw): TGetTokensRespon
         isStable: raw.is_stable,
         amount: Number(raw.amount),
     }));
+
+    return {
+        status: responseRaw.status,
+        count: responseRaw.count,
+        result: tokens,
+    }
 }

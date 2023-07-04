@@ -37,6 +37,10 @@ export type TGetTokenResponse = {
     amount: number,
 }
 
-export type TGetTokensResponse = TGetTokenResponse[]
+export type TGetTokensResponse = {
+    count: number,
+    status: number,
+    result: TGetTokenResponse[]
+}
 
 export type TGetTokens = (request: TGetTokensRequest) => Promise<TGetTokensResponse>;

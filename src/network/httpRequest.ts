@@ -1,6 +1,5 @@
 import { Method, RequestHeaders } from "./types";
 import { config } from "../config";
-import { paramsToQueryString } from "./paramsToQueryString";
 import fetch from "node-fetch";
 
 export type FetchFunction = <T>(
@@ -25,11 +24,13 @@ export class HttpRequest implements IHttpRequest{
         params = {},
         method = Method.GET,
     ) {
+        const urlSearchParams = new URLSearchParams(params);
         const fetchUrl = `${config.apiUrl}/${endpoint}${
             method === Method.GET
-                ? `?${paramsToQueryString(params)}`
+                ? `?${urlSearchParams.toString()}`
                 : ""
         }`;
+
         const headers: RequestHeaders = {
             "Content-Type": "application/json",
         };

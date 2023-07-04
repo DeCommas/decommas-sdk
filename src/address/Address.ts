@@ -15,7 +15,7 @@ export class Address implements IAddress {
     }
 
     public async getTokens(request: TGetTokensRequest) {
-        const responseRaw = await this.httpRequest.fetch<TGetTokensResponseRaw>(`tokens/${request.address}`, {});
+        const responseRaw = await this.httpRequest.fetch<TGetTokensResponseRaw>(`tokens/${request.address}`, {verified: request.verified});
         return dataMapper(responseRaw);
     }
 }

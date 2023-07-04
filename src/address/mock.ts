@@ -1,5 +1,4 @@
-import { TGetTokensResponseRaw } from "./getTokens/types";
-import {TGetTokensResponse} from "./getTokens/types";
+import { TGetTokensResponseRaw, TGetTokensResponse } from "./getTokens/types";
 
 export const mockResponseRaw: TGetTokensResponseRaw = {
     "count": 22,

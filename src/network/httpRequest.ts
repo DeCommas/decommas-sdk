@@ -1,6 +1,5 @@
 import { Method, RequestHeaders } from "./types";
 import { config } from "../config";
-import fetch from "node-fetch";
 
 export type FetchFunction = <T>(
     endpoint: string,
@@ -38,7 +37,6 @@ export class HttpRequest implements IHttpRequest{
         if(this.apiKey) {
             headers["x-decommas-key"] = this.apiKey;
         }
-
 
         const response = await fetch(fetchUrl, {
             headers,

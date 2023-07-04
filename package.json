@@ -1,9 +1,9 @@
 {
   "name": "dl-sdk",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "SDK for DataLayer",
-  "main": "./index.js",
-  "types": "./indes.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/indes.d.ts",
   "repository": "git@gitlab.pwlnh.com:dexcommas/dl-sdk.git",
   "author": "Decommas",
   "license": "MIT",

@@ -9,5 +9,5 @@ test("Address: getTokens", async () => {
 
     const address = new Address(httpRequestMock);
 
-    expect(await address.getTokens({ address: "0x9648652A24E513434AEA6B38fF1E4eeB32367699", verified: true })).toStrictEqual(mockResponse);
+    expect(await address.getTokens({ address: "0x0000000000000000000000000000000000000000", verified: true })).toStrictEqual(mockResponse);
 });

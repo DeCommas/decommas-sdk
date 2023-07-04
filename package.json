@@ -1,9 +1,9 @@
 {
   "name": "dl-sdk",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "SDK for DataLayer",
   "main": "dist/index.js",
-  "types": "dist/indes.d.ts",
+  "types": "dist/index.d.ts",
   "repository": "git@gitlab.pwlnh.com:dexcommas/dl-sdk.git",
   "author": "Decommas",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "npx tsc",
+    "build": "npx tsc --build --clean",
     "test": "jest"
   },
   "devDependencies": {

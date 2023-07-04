@@ -1,12 +1,15 @@
 {
   "name": "dl-sdk",
-  "version": "0.0.20",
+  "version": "0.0.22",
   "description": "SDK for DataLayer",
-  "main": "dist/index.js",
-  "types": "dist/indes.d.ts",
+  "main": "./index.js",
+  "types": "./indes.d.ts",
   "repository": "git@gitlab.pwlnh.com:dexcommas/dl-sdk.git",
   "author": "Decommas",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "npx tsc",
     "test": "jest"

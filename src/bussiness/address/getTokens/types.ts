@@ -1,7 +1,9 @@
-export type TGetTokensRequest = {
+import { PaginatedRequest } from "../../../infrastracture/network/types";
+
+export type TGetTokensRequest = PaginatedRequest<{
   address: string;
   verified: boolean;
-};
+}>;
 
 export type TTokenRaw = {
   chain_name: string;

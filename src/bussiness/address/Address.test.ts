@@ -1,5 +1,5 @@
 import { Address } from "./Address";
-import { IHttpRequest } from "../network/httpRequest";
+import { IHttpRequest } from "../../infrastracture/network/httpRequest";
 import { mockResponse, mockResponseRaw } from "./mock";
 
 test("Address: getTokens", async () => {

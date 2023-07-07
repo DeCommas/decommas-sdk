@@ -1,6 +1,6 @@
 import { TGetTokensResponse, TGetTokensResponseRaw } from "./types";
 
-export const dataMapper = (
+export const tokensDataMapper = (
   responseRaw: TGetTokensResponseRaw
 ): TGetTokensResponse => {
   const tokens = responseRaw.result.map((raw) => ({

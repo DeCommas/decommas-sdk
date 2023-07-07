@@ -1,5 +1,7 @@
 import { Method, RequestHeaders } from "./types";
-import { config } from "../config";
+import { config } from "../../config";
+import { ApiError } from "./errors";
+import { getSearchParams } from "./getSearchParams";
 
 export type FetchFunction = <T>(
   endpoint: string,
@@ -18,7 +20,8 @@ export class HttpRequest implements IHttpRequest {
   }
 
   async fetch<T>(endpoint = "", params = {}, method = Method.GET) {
-    const urlSearchParams = new URLSearchParams(params);
+    const urlSearchParams = getSearchParams(params);
+
     const fetchUrl = `${config.apiUrl}/${endpoint}${
       method === Method.GET ? `?${urlSearchParams.toString()}` : ""
     }`;
@@ -42,9 +45,11 @@ export class HttpRequest implements IHttpRequest {
     });
 
     const data = await response.json();
+
     if (response.ok) {
       return data as T;
     }
-    throw new Error(data.error);
+
+    throw new ApiError(response.status, data.message);
   }
 }

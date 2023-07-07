@@ -1,0 +1,32 @@
+import {
+  TGetNftsResponse,
+  TGetNftsResponseRaw,
+} from "../business/address/getNnfts/types";
+import { ChainName } from "../lib/types";
+
+export const mockNftsResponseRaw: TGetNftsResponseRaw = {
+  count: 22,
+  status: 200,
+  result: [
+    {
+      chain_name: ChainName.MAINNET,
+      chain_id: 1,
+      contract_address: "0x76be3b62873462d2142405439777e971754e8e77",
+      token_id: "10397",
+      amount: "1",
+    },
+  ],
+};
+
+export const mockNftsResponse: TGetNftsResponse = {
+  count: 22,
+  result: [
+    {
+      chainName: ChainName.MAINNET,
+      chainId: 1,
+      contractAddress: "0x76be3b62873462d2142405439777e971754e8e77",
+      tokenId: 10397,
+      amount: 1,
+    },
+  ],
+};

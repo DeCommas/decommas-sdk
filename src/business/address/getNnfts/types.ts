@@ -1,9 +1,9 @@
-import { ChainName, TAddress } from "../../../lib/types";
+import { ChainName, TAddress } from "@lib/types";
 import {
   PaginatedRequest,
   PaginatedResponse,
   PaginatedResponseRaw,
-} from "../../../infrastracture/network/types";
+} from "@infrastructure/network/types";
 
 export type TNftRaw = {
   chain_name: ChainName;

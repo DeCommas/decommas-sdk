@@ -1,8 +1,8 @@
-import { PaginatedRequest } from "../../../infrastracture/network/types";
+import { PaginatedRequest } from "@infrastructure/network/types";
 
 export type TGetTokensRequest = PaginatedRequest<{
   address: string;
-  verified: boolean;
+  verified?: boolean;
 }>;
 
 export type TTokenRaw = {

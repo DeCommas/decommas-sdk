@@ -1,15 +1,20 @@
+import { IHttpRequest } from "@infrastructure/network/httpRequest";
 import {
   TGetTokens,
   TGetTokensRequest,
   TGetTokensResponseRaw,
 } from "./getTokens/types";
 import { tokensDataMapper } from "./getTokens/tokensDataMapper";
-import { TGetNftsRequest, TGetNftsResponseRaw } from "./getNnfts/types";
+import {
+  TGetNfts,
+  TGetNftsRequest,
+  TGetNftsResponseRaw,
+} from "./getNnfts/types";
 import { nftsDataMapper } from "./getNnfts/nftsDataMapper";
-import { IHttpRequest } from "../../infrastracture/network/httpRequest";
 
 interface IAddress {
   getTokens: TGetTokens;
+  getNfts: TGetNfts;
 }
 
 export class Address implements IAddress {

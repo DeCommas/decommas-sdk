@@ -10,7 +10,7 @@ export const nftsDataMapper = (
       chainId: raw.chain_id,
       contractAddress: raw.contract_address,
       tokenId: Number(raw.token_id),
-      amount: Number(raw.amount),
+      amount: raw.amount,
     })),
   };
 };

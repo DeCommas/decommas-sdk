@@ -3,7 +3,7 @@ import {
   PaginatedRequest,
   PaginatedResponse,
   PaginatedResponseRaw,
-} from "@infrastructure/network/types";
+} from "@infrastructure/network";
 
 export type TNftRaw = {
   chain_name: ChainName;
@@ -18,7 +18,7 @@ export type TNft = {
   chainId: number;
   contractAddress: TAddress;
   tokenId: number;
-  amount: number;
+  amount: string;
 };
 
 export type TGetNftsRequest = PaginatedRequest<{

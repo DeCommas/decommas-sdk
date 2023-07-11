@@ -1,4 +1,8 @@
-import { PaginatedRequest } from "@infrastructure/network/types";
+import {
+  PaginatedRequest,
+  PaginatedResponse,
+  PaginatedResponseRaw,
+} from "@infrastructure/network";
 
 export type TGetTokensRequest = PaginatedRequest<{
   address: string;
@@ -19,13 +23,7 @@ export type TTokenRaw = {
   amount: string;
 };
 
-export type TGetTokensResponseRaw = {
-  count: number;
-  status: number;
-  result: TTokenRaw[];
-};
-
-export type TGetTokenResponse = {
+export type TToken = {
   chainName: string;
   chainId: number;
   address: string;
@@ -33,17 +31,15 @@ export type TGetTokenResponse = {
   decimals: number;
   symbol: string;
   logoUrl: string;
-  actualPrice: number;
+  actualPrice: string;
   isVerified: boolean;
   isStable: boolean;
-  amount: number;
+  amount: string;
 };
 
-export type TGetTokensResponse = {
-  count: number;
-  status: number;
-  result: TGetTokenResponse[];
-};
+export type TGetTokensResponseRaw = PaginatedResponseRaw<TTokenRaw>;
+
+export type TGetTokensResponse = PaginatedResponse<TToken>;
 
 export type TGetTokens = (
   request: TGetTokensRequest

@@ -1,5 +1,5 @@
-import { Address } from "@business/address/Address";
-import { HttpRequest } from "@infrastructure/network/httpRequest";
+import { Address } from "@business/address";
+import { HttpRequest } from "@infrastructure/network";
 
 export class Decommas {
   public readonly address: Address;

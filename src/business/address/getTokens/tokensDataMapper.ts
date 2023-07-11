@@ -11,14 +11,13 @@ export const tokensDataMapper = (
     decimals: raw.decimals,
     symbol: raw.symbol,
     logoUrl: raw.logo_url,
-    actualPrice: Number(raw.actual_price),
+    actualPrice: raw.actual_price,
     isVerified: raw.is_verified,
     isStable: raw.is_stable,
-    amount: Number(raw.amount),
+    amount: raw.amount,
   }));
 
   return {
-    status: responseRaw.status,
     count: responseRaw.count,
     result: tokens,
   };

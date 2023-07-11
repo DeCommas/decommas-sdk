@@ -1,4 +1,4 @@
-import { IHttpRequest } from "@infrastructure/network/httpRequest";
+import { IHttpRequest } from "@infrastructure/network";
 import {
   TGetTokens,
   TGetTokensRequest,
@@ -11,10 +11,17 @@ import {
   TGetNftsResponseRaw,
 } from "./getNnfts/types";
 import { nftsDataMapper } from "./getNnfts/nftsDataMapper";
+import {
+  TGetCoins,
+  TGetCoinsRequest,
+  TGetCoinsResponseRaw,
+} from "./getCoins/types";
+import { coinsDataMapper } from "./getCoins/coinsDataMapper";
 
 interface IAddress {
   getTokens: TGetTokens;
   getNfts: TGetNfts;
+  getCoins: TGetCoins;
 }
 
 export class Address implements IAddress {
@@ -48,5 +55,16 @@ export class Address implements IAddress {
     );
 
     return nftsDataMapper(responseRaw);
+  }
+
+  public async getCoins(request: TGetCoinsRequest) {
+    const responseRaw = await this.httpRequest.fetch<TGetCoinsResponseRaw>(
+      `coins/${request.address}`,
+      {
+        networks: request.chains,
+      }
+    );
+
+    return coinsDataMapper(responseRaw);
   }
 }

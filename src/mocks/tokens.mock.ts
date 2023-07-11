@@ -1,6 +1,9 @@
-import { TGetTokensResponseRaw, TGetTokensResponse } from "./getTokens/types";
+import {
+  TGetTokensResponseRaw,
+  TGetTokensResponse,
+} from "../business/address/getTokens/types";
 
-export const mockResponseRaw: TGetTokensResponseRaw = {
+export const mockTokensResponseRaw: TGetTokensResponseRaw = {
   count: 22,
   status: 200,
   result: [
@@ -21,7 +24,7 @@ export const mockResponseRaw: TGetTokensResponseRaw = {
   ],
 };
 
-export const mockResponse: TGetTokensResponse = {
+export const mockTokensResponse: TGetTokensResponse = {
   count: 22,
   status: 200,
   result: [

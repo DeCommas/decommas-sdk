@@ -24,6 +24,12 @@
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true,
       "skipLibCheck": true,
-      "moduleResolution":"node"
+      "moduleResolution":"node",
+      "baseUrl": ".",
+      "paths": {
+          "@lib/*": ["./src/lib/*"],
+          "@business/*": ["./src/business/*"],
+          "@infrastructure/*": ["./src/infrastructure/*"]
+      }
     }
   }

@@ -5,9 +5,16 @@ import {
   TGetNftMetadataResponseRaw,
 } from "./getNft/types";
 import { nftMetadataDataMapper } from "./getNft/nftMetadataDataMapper";
+import {
+  TGetTokenMetadata,
+  TGetTokenMetadataRequest,
+  TGetTokenMetadataResponseRaw,
+} from "./getToken/types";
+import { tokenMetadataDataMapper } from "./getToken/tokenMetadataDataMapper";
 
 interface IMetadata {
   getNft: TGetNftMetadata;
+  getToken: TGetTokenMetadata;
 }
 
 export class Metadata implements IMetadata {
@@ -24,5 +31,14 @@ export class Metadata implements IMetadata {
       );
 
     return nftMetadataDataMapper(responseRaw);
+  }
+
+  public async getToken(request: TGetTokenMetadataRequest) {
+    const responseRaw =
+      await this.httpRequest.fetch<TGetTokenMetadataResponseRaw>(
+        `token_metadata/${request.chainName}/${request.contractAddress}`
+      );
+
+    return tokenMetadataDataMapper(responseRaw);
   }
 }

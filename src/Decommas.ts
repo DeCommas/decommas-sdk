@@ -1,6 +1,6 @@
-import { Address } from "@business/address";
 import { HttpRequest } from "@infrastructure/network";
-import { Metadata } from "@business/metadata/Metadata";
+import { Address } from "@business/address";
+import { Metadata } from "@business/metadata";
 
 export class Decommas {
   public readonly address: Address;

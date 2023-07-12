@@ -1,20 +1,29 @@
 import { Address } from "./Address";
 import { IHttpRequest } from "@infrastructure/network";
-import { mockNftsResponse, mockNftsResponseRaw } from "@mocks/ntfts.mock";
-import { mockTokensResponse, mockTokensResponseRaw } from "@mocks/tokens.mock";
-import { mockCoinsResponse, mockCoinsResponseRaw } from "@mocks/coins.mock";
+import {
+  mockNftsResponse,
+  mockNftsResponseRaw,
+} from "@mocks/address/ntfts.mock";
+import {
+  mockTokensResponse,
+  mockTokensResponseRaw,
+} from "@mocks/address/tokens.mock";
+import {
+  mockCoinsResponse,
+  mockCoinsResponseRaw,
+} from "@mocks/address/coins.mock";
 import {
   mockTransactionsResponse,
   mockTransactionsResponseRaw,
-} from "@mocks/transactions.mock";
+} from "@mocks/address/transactions.mock";
 import {
   mockErc20TransfersResponse,
   mockErc20TransfersResponseRaw,
-} from "@mocks/erc20Transfers.mock";
+} from "@mocks/address/erc20Transfers.mock";
 import {
   mockNftTransfersResponse,
   mockNftTransfersResponseRaw,
-} from "@mocks/nftTransfers.mock";
+} from "@mocks/address/nftTransfers.mock";
 
 describe("Address", () => {
   test("getTokens", async () => {

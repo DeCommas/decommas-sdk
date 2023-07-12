@@ -25,7 +25,7 @@ export const mockNftsResponse: TGetNftsResponse = {
       chainName: ChainName.MAINNET,
       chainId: 1,
       contractAddress: "0x76be3b62873462d2142405439777e971754e8e77",
-      tokenId: 10397,
+      tokenId: "10397",
       amount: "1",
     },
   ],

@@ -17,7 +17,7 @@ export type TNft = {
   chainName: ChainName;
   chainId: number;
   contractAddress: TAddress;
-  tokenId: number;
+  tokenId: string;
   amount: string;
 };
 

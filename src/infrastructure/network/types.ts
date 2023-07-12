@@ -11,10 +11,13 @@ export type PaginatedRequest<T> = {
   offset?: number;
 } & T;
 
-export type PaginatedResponseRaw<T> = {
-  count: number;
+export type ApiResponse<T> = {
   status: number;
-  result: T[];
+  result: T;
+};
+
+export type PaginatedResponseRaw<T> = ApiResponse<T[]> & {
+  count: number;
 };
 
 export type PaginatedResponse<T> = {

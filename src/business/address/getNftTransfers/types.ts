@@ -31,7 +31,7 @@ export type TNftTransfer = {
   fromAddress: TAddress;
   toAddress: TAddress;
   contractAddress: TAddress;
-  tokenId: number;
+  tokenId: string;
   contractType: string;
   amount: string;
   transactionHash: string;

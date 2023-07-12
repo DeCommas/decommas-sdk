@@ -38,7 +38,7 @@ export const mockNftTransfersResponse: TGetNftTransfersResponse = {
       fromAddress: "0x0000000000000000000000000000000000000000",
       toAddress: "0x9648652a24e513434aea6b38ff1e4eeb32367699",
       contractAddress: "0xb56ca8173673160e55bd4e57dcc0a84d6ea89ecb",
-      tokenId: 1919,
+      tokenId: "1919",
       contractType: "ERC-1155",
       amount: "1",
       transactionHash:

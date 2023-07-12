@@ -17,11 +17,18 @@ import {
   TGetCoinsResponseRaw,
 } from "./getCoins/types";
 import { coinsDataMapper } from "./getCoins/coinsDataMapper";
+import {
+  TGetTransactions,
+  TGetTransactionsRequest,
+  TGetTransactionsResponseRaw,
+} from "./getTransactions/types";
+import { transactionsDataMapper } from "./getTransactions/transactionsDataMapper";
 
 interface IAddress {
   getTokens: TGetTokens;
   getNfts: TGetNfts;
   getCoins: TGetCoins;
+  getTransactions: TGetTransactions;
 }
 
 export class Address implements IAddress {
@@ -66,5 +73,19 @@ export class Address implements IAddress {
     );
 
     return coinsDataMapper(responseRaw);
+  }
+
+  public async getTransactions(request: TGetTransactionsRequest) {
+    const responseRaw =
+      await this.httpRequest.fetch<TGetTransactionsResponseRaw>(
+        `transactions/${request.address}`,
+        {
+          networks: request.chains,
+          limit: request.limit,
+          offset: request.offset,
+        }
+      );
+
+    return transactionsDataMapper(responseRaw);
   }
 }

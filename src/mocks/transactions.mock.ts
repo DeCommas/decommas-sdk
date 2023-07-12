@@ -5,7 +5,6 @@ import {
 } from "@business/address/getTransactions/types";
 
 export const mockTransactionsResponseRaw: TGetTransactionsResponseRaw = {
-  count: 22,
   status: 200,
   result: [
     {
@@ -27,7 +26,6 @@ export const mockTransactionsResponseRaw: TGetTransactionsResponseRaw = {
 };
 
 export const mockTransactionsResponse: TGetTransactionsResponse = {
-  count: 22,
   result: [
     {
       chainName: ChainName.MAINNET,

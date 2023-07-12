@@ -23,12 +23,19 @@ import {
   TGetTransactionsResponseRaw,
 } from "./getTransactions/types";
 import { transactionsDataMapper } from "./getTransactions/transactionsDataMapper";
+import {
+  TGetErc20Transfers,
+  TGetErc20TransfersRequest,
+  TGetErc20TransfersResponseRaw,
+} from "@business/address/getErc20Transfers/types";
+import { erc20TransfersDataMapper } from "./getErc20Transfers/erc20TransfersDataMapper";
 
 interface IAddress {
   getTokens: TGetTokens;
   getNfts: TGetNfts;
   getCoins: TGetCoins;
   getTransactions: TGetTransactions;
+  getErc20Transfers: TGetErc20Transfers;
 }
 
 export class Address implements IAddress {
@@ -87,5 +94,19 @@ export class Address implements IAddress {
       );
 
     return transactionsDataMapper(responseRaw);
+  }
+
+  public async getErc20Transfers(request: TGetErc20TransfersRequest) {
+    const responseRaw =
+      await this.httpRequest.fetch<TGetErc20TransfersResponseRaw>(
+        `transfers_erc20/${request.address}`,
+        {
+          networks: request.chains,
+          limit: request.limit,
+          offset: request.offset,
+        }
+      );
+
+    return erc20TransfersDataMapper(responseRaw);
   }
 }

@@ -7,6 +7,10 @@ import {
   mockTransactionsResponse,
   mockTransactionsResponseRaw,
 } from "@mocks/transactions.mock";
+import {
+  mockErc20TransfersResponse,
+  mockErc20TransfersResponseRaw,
+} from "@mocks/erc20Transfers.mock";
 
 describe("Address", () => {
   test("getTokens", async () => {
@@ -60,5 +64,18 @@ describe("Address", () => {
         address: "0x0000000000000000000000000000000000000000",
       })
     ).toStrictEqual(mockTransactionsResponse);
+  });
+
+  test("getErc20Transfers", async () => {
+    const httpRequestMock: IHttpRequest = {
+      fetch: jest.fn().mockReturnValue(mockErc20TransfersResponseRaw),
+    };
+    const address = new Address(httpRequestMock);
+
+    expect(
+      await address.getErc20Transfers({
+        address: "0x0000000000000000000000000000000000000000",
+      })
+    ).toStrictEqual(mockErc20TransfersResponse);
   });
 });

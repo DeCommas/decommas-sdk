@@ -29,6 +29,12 @@ import {
   TGetErc20TransfersResponseRaw,
 } from "@business/address/getErc20Transfers/types";
 import { erc20TransfersDataMapper } from "./getErc20Transfers/erc20TransfersDataMapper";
+import {
+  TGetNftTransfers,
+  TGetNftTransfersRequest,
+  TGetNftTransfersResponseRaw,
+} from "@business/address/getNftTransfers/types";
+import { nftTransfersDataMapper } from "./getNftTransfers/nftTransfersDataMapper";
 
 interface IAddress {
   getTokens: TGetTokens;
@@ -36,6 +42,7 @@ interface IAddress {
   getCoins: TGetCoins;
   getTransactions: TGetTransactions;
   getErc20Transfers: TGetErc20Transfers;
+  getNftTransfers: TGetNftTransfers;
 }
 
 export class Address implements IAddress {
@@ -108,5 +115,19 @@ export class Address implements IAddress {
       );
 
     return erc20TransfersDataMapper(responseRaw);
+  }
+
+  public async getNftTransfers(request: TGetNftTransfersRequest) {
+    const responseRaw =
+      await this.httpRequest.fetch<TGetNftTransfersResponseRaw>(
+        `transfers_nft/${request.address}`,
+        {
+          networks: request.chains,
+          limit: request.limit,
+          offset: request.offset,
+        }
+      );
+
+    return nftTransfersDataMapper(responseRaw);
   }
 }

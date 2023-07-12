@@ -11,6 +11,10 @@ import {
   mockErc20TransfersResponse,
   mockErc20TransfersResponseRaw,
 } from "@mocks/erc20Transfers.mock";
+import {
+  mockNftTransfersResponse,
+  mockNftTransfersResponseRaw,
+} from "@mocks/nftTransfers.mock";
 
 describe("Address", () => {
   test("getTokens", async () => {
@@ -77,5 +81,18 @@ describe("Address", () => {
         address: "0x0000000000000000000000000000000000000000",
       })
     ).toStrictEqual(mockErc20TransfersResponse);
+  });
+
+  test("getNftTransfers", async () => {
+    const httpRequestMock: IHttpRequest = {
+      fetch: jest.fn().mockReturnValue(mockNftTransfersResponseRaw),
+    };
+    const address = new Address(httpRequestMock);
+
+    expect(
+      await address.getNftTransfers({
+        address: "0x0000000000000000000000000000000000000000",
+      })
+    ).toStrictEqual(mockNftTransfersResponse);
   });
 });

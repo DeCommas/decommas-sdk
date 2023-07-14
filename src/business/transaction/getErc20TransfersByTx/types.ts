@@ -5,7 +5,7 @@ import {
   PaginatedResponseRaw,
 } from "@infrastructure/network";
 
-export type TErc20TransferByTxRaw = {
+export type TErc20TransfersByTxRaw = {
   block_number: number;
   block_timestamp: number;
   from_address: TAddress;
@@ -15,7 +15,7 @@ export type TErc20TransferByTxRaw = {
   log_index: number;
 };
 
-export type TErc20TransferByTx = {
+export type TErc20TransfersByTx = {
   blockNumber: number;
   blockTimestamp: number;
   fromAddress: TAddress;
@@ -25,21 +25,21 @@ export type TErc20TransferByTx = {
   logIndex: number;
 };
 
-export type TGetErc20TransferByTxsRequest = PaginatedRequest<{
+export type TGetErc20TransfersByTxRequest = PaginatedRequest<{
   txHash: string;
   chainName: ChainName;
 }>;
 
-export type TGetErc20TransferByTxsResponseRaw = Omit<
-  PaginatedResponseRaw<TErc20TransferByTxRaw>,
+export type TGetErc20TransfersByTxResponseRaw = Omit<
+  PaginatedResponseRaw<TErc20TransfersByTxRaw>,
   "count"
 >;
 
-export type TGetErc20TransferByTxsResponse = Omit<
-  PaginatedResponse<TErc20TransferByTx>,
+export type TGetErc20TransfersByTxResponse = Omit<
+  PaginatedResponse<TErc20TransfersByTx>,
   "count"
 >;
 
-export type TGetErc20TransferByTxs = (
-  request: TGetErc20TransferByTxsRequest
-) => Promise<TGetErc20TransferByTxsResponse>;
+export type TGetErc20TransfersByTxs = (
+  request: TGetErc20TransfersByTxRequest
+) => Promise<TGetErc20TransfersByTxResponse>;

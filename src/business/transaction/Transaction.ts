@@ -6,15 +6,15 @@ import {
 } from "./getTxDetail/types";
 import { txDetailDataMapper } from "./getTxDetail/txDetailDataMapper";
 import {
-  TGetErc20TransferByTxs,
-  TGetErc20TransferByTxsRequest,
-  TGetErc20TransferByTxsResponseRaw,
+  TGetErc20TransfersByTxs,
+  TGetErc20TransfersByTxRequest,
+  TGetErc20TransfersByTxResponseRaw,
 } from "./getErc20TransfersByTx/types";
-import { erc20TransfersByTxDataMapper } from "./getErc20TransfersByTx/erc20TransfersByTxDataMapper";
+import { erc20Erc20TransfersByTxDataMapper } from "./getErc20TransfersByTx/erc20TransfersByTxDataMapper";
 
 interface ITransaction {
   getDetail: TGetTxDetail;
-  getErc20TransfersByTx: TGetErc20TransferByTxs;
+  getErc20Erc20TransfersByTx: TGetErc20TransfersByTxs;
 }
 
 export class Transaction implements ITransaction {
@@ -32,9 +32,11 @@ export class Transaction implements ITransaction {
     return txDetailDataMapper(responseRaw);
   }
 
-  public async getErc20TransfersByTx(request: TGetErc20TransferByTxsRequest) {
+  public async getErc20Erc20TransfersByTx(
+    request: TGetErc20TransfersByTxRequest
+  ) {
     const responseRaw =
-      await this.httpRequest.fetch<TGetErc20TransferByTxsResponseRaw>(
+      await this.httpRequest.fetch<TGetErc20TransfersByTxResponseRaw>(
         `transaction_erc20_transfers/${request.chainName}/${request.txHash}`,
         {
           limit: request.limit,
@@ -42,6 +44,21 @@ export class Transaction implements ITransaction {
         }
       );
 
-    return erc20TransfersByTxDataMapper(responseRaw);
+    return erc20Erc20TransfersByTxDataMapper(responseRaw);
+  }
+
+  public async getNftErc20TransfersByTx(
+    request: TGetErc20TransfersByTxRequest
+  ) {
+    const responseRaw =
+      await this.httpRequest.fetch<TGetErc20TransfersByTxResponseRaw>(
+        `transaction_erc20_transfers/${request.chainName}/${request.txHash}`,
+        {
+          limit: request.limit,
+          offset: request.offset,
+        }
+      );
+
+    return erc20Erc20TransfersByTxDataMapper(responseRaw);
   }
 }

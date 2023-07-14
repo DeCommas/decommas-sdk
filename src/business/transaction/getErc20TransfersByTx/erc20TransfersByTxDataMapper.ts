@@ -1,11 +1,13 @@
 import {
-  TGetErc20TransferByTxsResponse,
-  TGetErc20TransferByTxsResponseRaw,
+  TGetErc20TransfersByTxResponse,
+  TGetErc20TransfersByTxResponseRaw,
 } from "./types";
 
-export const erc20TransfersByTxDataMapper = (
-  responseRaw: TGetErc20TransferByTxsResponseRaw
-): TGetErc20TransferByTxsResponse => {
+export const erc20Erc20TransfersByTxDataMapper = (
+  responseRaw: TGetErc20TransfersByTxResponseRaw
+): TGetErc20TransfersByTxResponse => {
+  console.log("mapper");
+  console.log(responseRaw);
   return {
     result: responseRaw.result.map((raw) => ({
       blockNumber: raw.block_number,

@@ -6,15 +6,22 @@ import {
 } from "./getTxDetail/types";
 import { txDetailDataMapper } from "./getTxDetail/txDetailDataMapper";
 import {
-  TGetErc20TransfersByTxs,
+  TGetErc20TransfersByTx,
   TGetErc20TransfersByTxRequest,
   TGetErc20TransfersByTxResponseRaw,
 } from "./getErc20TransfersByTx/types";
-import { erc20Erc20TransfersByTxDataMapper } from "./getErc20TransfersByTx/erc20TransfersByTxDataMapper";
+import { erc20TransfersByTxDataMapper } from "./getErc20TransfersByTx/erc20TransfersByTxDataMapper";
+import {
+  TGetNftTransfersByTxRequest,
+  TGetNftTransfersByTxResponseRaw,
+  TGetNftTransfersByTx,
+} from "./getNftTransfersByTx/types";
+import { nftTransfersByTxDataMapper } from "./getNftTransfersByTx/nftTransfersByTxDataMapper";
 
 interface ITransaction {
   getDetail: TGetTxDetail;
-  getErc20Erc20TransfersByTx: TGetErc20TransfersByTxs;
+  getErc20TransfersByTx: TGetErc20TransfersByTx;
+  getNftTransfersByTx: TGetNftTransfersByTx;
 }
 
 export class Transaction implements ITransaction {
@@ -32,9 +39,7 @@ export class Transaction implements ITransaction {
     return txDetailDataMapper(responseRaw);
   }
 
-  public async getErc20Erc20TransfersByTx(
-    request: TGetErc20TransfersByTxRequest
-  ) {
+  public async getErc20TransfersByTx(request: TGetErc20TransfersByTxRequest) {
     const responseRaw =
       await this.httpRequest.fetch<TGetErc20TransfersByTxResponseRaw>(
         `transaction_erc20_transfers/${request.chainName}/${request.txHash}`,
@@ -44,21 +49,19 @@ export class Transaction implements ITransaction {
         }
       );
 
-    return erc20Erc20TransfersByTxDataMapper(responseRaw);
+    return erc20TransfersByTxDataMapper(responseRaw);
   }
 
-  public async getNftErc20TransfersByTx(
-    request: TGetErc20TransfersByTxRequest
-  ) {
+  public async getNftTransfersByTx(request: TGetNftTransfersByTxRequest) {
     const responseRaw =
-      await this.httpRequest.fetch<TGetErc20TransfersByTxResponseRaw>(
-        `transaction_erc20_transfers/${request.chainName}/${request.txHash}`,
+      await this.httpRequest.fetch<TGetNftTransfersByTxResponseRaw>(
+        `transaction_nft_transfers/${request.chainName}/${request.txHash}`,
         {
           limit: request.limit,
           offset: request.offset,
         }
       );
 
-    return erc20Erc20TransfersByTxDataMapper(responseRaw);
+    return nftTransfersByTxDataMapper(responseRaw);
   }
 }

@@ -5,41 +5,45 @@ import {
   PaginatedResponseRaw,
 } from "@infrastructure/network";
 
-export type TErc20TransfersByTxRaw = {
+export type TNftTransfersByTxRaw = {
   block_number: number;
   block_timestamp: number;
   from_address: TAddress;
   to_address: TAddress;
   token_address: TAddress;
+  token_id: string;
   amount: string;
   log_index: number;
+  contract_type: string;
 };
 
-export type TErc20TransfersByTx = {
+export type TNftTransfersByTx = {
   blockNumber: number;
   blockTimestamp: number;
   fromAddress: TAddress;
   toAddress: TAddress;
   tokenAddress: TAddress;
+  tokenId: string;
   amount: string;
   logIndex: number;
+  contractType: string;
 };
 
-export type TGetErc20TransfersByTxRequest = PaginatedRequest<{
+export type TGetNftTransfersByTxRequest = PaginatedRequest<{
   txHash: string;
   chainName: ChainName;
 }>;
 
-export type TGetErc20TransfersByTxResponseRaw = Omit<
-  PaginatedResponseRaw<TErc20TransfersByTxRaw>,
+export type TGetNftTransfersByTxResponseRaw = Omit<
+  PaginatedResponseRaw<TNftTransfersByTxRaw>,
   "count"
 >;
 
-export type TGetErc20TransfersByTxResponse = Omit<
-  PaginatedResponse<TErc20TransfersByTx>,
+export type TGetNftTransfersByTxResponse = Omit<
+  PaginatedResponse<TNftTransfersByTx>,
   "count"
 >;
 
-export type TGetErc20TransfersByTx = (
-  request: TGetErc20TransfersByTxRequest
-) => Promise<TGetErc20TransfersByTxResponse>;
+export type TGetNftTransfersByTx = (
+  request: TGetNftTransfersByTxRequest
+) => Promise<TGetNftTransfersByTxResponse>;

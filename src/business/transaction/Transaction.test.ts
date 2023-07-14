@@ -9,6 +9,7 @@ import {
   mockErc20TransfersByTxResponse,
   mockErc20TransfersByTxResponseRaw,
 } from "@mocks/transaction/erc20transfersByTx.mock";
+import { mockNftTransfersByTxResponseRaw } from "@mocks/transaction/nftTransfersByTx.mock";
 
 describe("Transaction", () => {
   test("getDetail", async () => {
@@ -33,7 +34,22 @@ describe("Transaction", () => {
     const transaction = new Transaction(httpRequestMock);
 
     expect(
-      await transaction.getErc20Erc20TransfersByTx({
+      await transaction.getErc20TransfersByTx({
+        chainName: ChainName.BSC,
+        txHash:
+          "0xbe055f412ea0cb0af6cd6e1bd72bc755e671ebe6b60e31e8c780364e59e4d7e3",
+      })
+    ).toStrictEqual(mockErc20TransfersByTxResponse);
+  });
+
+  test("getNftTransfers", async () => {
+    const httpRequestMock: IHttpRequest = {
+      fetch: jest.fn().mockReturnValue(mockNftTransfersByTxResponseRaw),
+    };
+    const transaction = new Transaction(httpRequestMock);
+
+    expect(
+      await transaction.getErc20TransfersByTx({
         chainName: ChainName.BSC,
         txHash:
           "0xbe055f412ea0cb0af6cd6e1bd72bc755e671ebe6b60e31e8c780364e59e4d7e3",

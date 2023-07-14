@@ -29,7 +29,9 @@
       "paths": {
           "@lib/*": ["./src/lib/*"],
           "@business/*": ["./src/business/*"],
-          "@infrastructure/*": ["./src/infrastructure/*"]
-      }
-    }
-  }
+          "@infrastructure/*": ["./src/infrastructure/*"],
+          "@mocks/*": ["./src/mocks/*"]
+      },
+    },
+    "include": ["src/**/*"]
+}

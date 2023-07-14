@@ -1,7 +1,7 @@
 import {
   TGetTokensResponseRaw,
   TGetTokensResponse,
-} from "../business/address/getTokens/types";
+} from "@business/address/getTokens/types";
 
 export const mockTokensResponseRaw: TGetTokensResponseRaw = {
   count: 22,
@@ -26,7 +26,6 @@ export const mockTokensResponseRaw: TGetTokensResponseRaw = {
 
 export const mockTokensResponse: TGetTokensResponse = {
   count: 22,
-  status: 200,
   result: [
     {
       chainName: "mainnet",
@@ -37,10 +36,10 @@ export const mockTokensResponse: TGetTokensResponse = {
       symbol: "USDT",
       logoUrl:
         "https://assets.coingecko.com/coins/images/325/large/Tether.png?1668148663",
-      actualPrice: 0.999985,
+      actualPrice: "0.999985",
       isVerified: true,
       isStable: true,
-      amount: 10000000,
+      amount: "10000000",
     },
   ],
 };

@@ -9,4 +9,11 @@ export default {
   coverageDirectory: "coverage",
   coverageProvider: "v8",
   preset: "ts-jest",
+  testPathIgnorePatterns: ["dist"],
+  moduleNameMapper: {
+    "^@lib/(.*)$": "<rootDir>/src/lib/$1",
+    "^@business/(.*)$": "<rootDir>/src/business/$1",
+    "^@infrastructure/(.*)$": "<rootDir>/src/infrastructure/$1",
+    "^@mocks/(.*)$": "<rootDir>/src/mocks/$1",
+  },
 };

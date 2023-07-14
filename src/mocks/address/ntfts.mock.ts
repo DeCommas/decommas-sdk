@@ -1,8 +1,8 @@
 import {
   TGetNftsResponse,
   TGetNftsResponseRaw,
-} from "../business/address/getNnfts/types";
-import { ChainName } from "../lib/types";
+} from "@business/address/getNnfts/types";
+import { ChainName } from "@lib/types";
 
 export const mockNftsResponseRaw: TGetNftsResponseRaw = {
   count: 22,
@@ -25,8 +25,8 @@ export const mockNftsResponse: TGetNftsResponse = {
       chainName: ChainName.MAINNET,
       chainId: 1,
       contractAddress: "0x76be3b62873462d2142405439777e971754e8e77",
-      tokenId: 10397,
-      amount: 1,
+      tokenId: "10397",
+      amount: "1",
     },
   ],
 };

@@ -1,92 +1,176 @@
-# DL-SDK
+# DeCommas API SDK for Javascript
 
+The DeCommas API SDK provides complete and stable access to DeCommas API - the fastest and best-in-class API for cross-chain indexed data.
 
+The SDK covers all available endpoints and features.
 
-## Getting started
+Supported chains (mainnet only):
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- **Ethereum**
+- **Polygon**
+- **Optimism**
+- **Arbitrum**
+- **Binance Smart Chain(BSC)**
+- **Avalanche**
+- **Fantom**
+- **Gnosis(ex-xDai)**
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Quick start
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.pwlnh.com/dexcommas/dl-sdk.git
-git branch -M main
-git push -uf origin main
+npm install @decommas/sdk
 ```
 
-## Integrate with your tools
+After installing the app you can import and use the SDK:
 
-- [ ] [Set up project integrations](https://gitlab.pwlnh.com/dexcommas/dl-sdk/-/settings/integrations)
+```ts
+import { Decommas } from '@decommas/sdk';
 
-## Collaborate with your team
+// Allows to use SDK in DEV-ONLY mode
+const decommas = new Decommas();
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+const getVitalikERC20Balances = async () => {
+const address = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'; // any address
 
-## Test and Deploy
+const tokens = await decommas.address.getTokens({ address });
+console.log(tokens);
+};
 
-Use the built-in continuous integration in GitLab.
+getVitalikERC20Balances();
+```
+And this is it! Now you're ready to build your own project. You can use `decommas.address.getCoins` and `decommas.address.getTokens` freely for development purposes.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+### Quick start with API key
+> When your app is ready for some battle-tests, or you'd like to use all DeCommas API functionality, sugin up on [our dashboard](https://dashboard.decommas.io/) to get API key. It's still free to use but allows calls to all API methods and increases rate limits.
 
-***
 
-# Editing this README
+```ts
+import { Decommas } from '@decommas/sdk';
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+// You can pass your API key to constructor. For security purposes we recommend store API key as environment variable
+const API_KEY = "YOUR_API_KEY";
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+const decommas = new Decommas(API_KEY);
 
-## Name
-Choose a self-explaining name for your project.
+const getVitalikERC20Balances = async () => {
+  const address = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'; // any address
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+  const balances = await decommas.address.getTokens({ address });
+  console.log(balances);
+};
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+getVitalikERC20Balances();
+```
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## Error handling
+It's always a good idea to wrap `async` into a `try catch` structure to deal with any errors and to make your code safe:
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+```ts
+import { Decommas } from '@decommas/sdk';
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+const API_KEY = "YOUR_API_KEY";
+const decommas = new Decommas(API_KEY);
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+const getVitalikERC20Balances = async () => {
+  const address = 'wrong_address';
+  
+  try {
+    const balances = await decommas.address.getTokens({ address });
+    console.log(balances);
+  } catch (error) {
+    console.log(error);
+    // ApiError { status: 400, message: 'Invalid parameters' }
+  }
+};
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+getVitalikERC20Balances();
+```
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+## DeCommas API SDK use cases and overview
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+The DeCommas API SDK currently has these namespaces:
 
-## License
-For open source projects, say how it is licensed.
+- `address`: All methods related to specific address info: ERC20 balances, NFT balances, transactions history etc.
+- `metadata`: All methods related to specific token info: ERC20 token metadata, NFT token metadata
+- `transaction`: All methods related to specific transaction: transaction details, ERC20 transfers inside transaction, NFT transfers inside transaction
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+```ts
+import { Decommas, ChainName } from '@decommas/sdk';
+
+const API_KEY = "YOUR_API_KEY";
+const decommas = new Decommas(API_KEY);
+
+const getNamespacesUseCases = async () => {
+  const getTokensParams = {
+    address: '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'
+  };
+
+  const getTransactionDetailParams = {
+    chainName: ChainName.MAINNET,
+    txHash: '0x1d13160c69bac11b359585f37ffe8ba421e9f775852ea25b5b3b1ffab1f217de'
+  };
+
+  const getNftParams = {
+    chainName: ChainName.MAINNET,
+    contractAddress: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+    tokenId: 1,
+  }
+
+  const tokens = await decommas.address.getTokens(getTokensParams);
+  console.log(tokens);
+
+  const transactionDetails = await decommas.transaction.getDetail(getTransactionDetailParams);
+  console.log(transactionDetails);
+
+  const nftMetadata = await decommas.metadata.getNft(getNftParams);
+  console.log(nftMetadata);
+};
+
+getNamespacesUseCases();
+```
+
+## DeCommas address namespace
+
+The `address` namespace contains all address-related methods:
+
+- `getCoins({ address })`: Gets native coins balances.
+- `getTokens({ address, limit?, offset?, chains? })`: Gets ERC20 tokens balances.
+- `getNfts({ address, limit?, offset?, chains? })`: Gets NFTs balances.
+- `getErc20Transfers({ address, limit?, offset?, chains? })`: Gets ERC20 transfers from and to address.
+- `getNftTransfers({ address, limit?, offset?, chains? })`: Gets NFTs transfers from and to address.
+- `getTransactions({ address, limit?, offset?, chains? })`: Gets transactions made from address.
+
+> ### Pagination and Filters
+> - All methods in `address` namespace, except `getCoins`, accept `limit` and `offset` params. By default `limit: 25` and `offset: 1`. Max value for `limit` is `100`.
+> - All methods in `address` namespace accept `chains` param to make request only for spicific chains. To avoid misspels in chain names we recommend to use `ChainName` enum includet into this SDK:
+> ```ts
+> import { Decommas, ChainName } from '@decommas/sdk';
+> const exampleAddressNamespaceParams = {
+>   address: '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045',
+>   limit: 25,
+>   offset: 1,
+>   chains: [ChainName.OPTIMISM, ChainName.MAINNET],
+> };
+>```
+> By defalult all requests return data for all supported networks.
+
+## DeCommas metadata namespace
+
+The `metadata` namespace contains all metadata-related methods:
+
+- `getNft({ chainName, contractAddress, tokenId })`: Gets NFT metadata: image, collection name etc.
+- `getToken({ chainName, contractAddress })`: Gets ERC20 token metadata: symbol, current price etc.
+
+## DeCommas transaction namespace
+
+The `transaction` namespace contains all transaction-related methods:
+
+- `getErc20TransfersByTx({ chainName, txHash })`: Gets ERC20 transfers made in transaction.
+- `getNFTTransfersByTx({ chainName, txHash })`: Gets NFT transfers made in transaction.
+- `getDetail({ chainName, txHash })`: Gets transaction info: from, to, blocknumber etc.
+
+## **FEATURE REQUEST AND ISSUES**
+We'd really appreciate any ideas and thoughts on our products. We always work on making a better web3 experience for developers and users. So, please fill free to share your feedback in our [Discord](https://discord.gg/N8zTPRepsv).
+If you ran into issue with our SDK open an issue in [SDK GitHub repo](https://github.com/decommas/decommas-sdk/issues).

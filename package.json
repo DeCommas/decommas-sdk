@@ -1,10 +1,17 @@
 {
   "name": "@decommas/sdk",
-  "version": "0.0.1",
-  "description": "SDK for DeCommas Mission Control API",
+  "version": "1.0.0",
+  "description": "DeCommas API SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/decommas/decommas-sdk/dl-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/decommas/decommas-sdk/issues"
+  },
+  "homepage": "https://docs.decommas.io",
   "author": "Decommas",
   "license": "MIT",
   "files": [

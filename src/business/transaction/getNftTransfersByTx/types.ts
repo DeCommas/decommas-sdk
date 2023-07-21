@@ -10,7 +10,7 @@ export type TNftTransfersByTxRaw = {
   block_timestamp: number;
   from_address: TAddress;
   to_address: TAddress;
-  token_address: TAddress;
+  contract_address: TAddress;
   token_id: string;
   amount: string;
   log_index: number;
@@ -22,7 +22,7 @@ export type TNftTransfersByTx = {
   blockTimestamp: number;
   fromAddress: TAddress;
   toAddress: TAddress;
-  tokenAddress: TAddress;
+  contractAddress: TAddress;
   tokenId: string;
   amount: string;
   logIndex: number;

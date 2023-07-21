@@ -3,10 +3,12 @@ import {
   PaginatedResponse,
   PaginatedResponseRaw,
 } from "@infrastructure/network";
+import { ChainName } from "@lib/types";
 
 export type TGetTokensRequest = PaginatedRequest<{
   address: string;
   verified?: boolean;
+  chains?: ChainName[];
 }>;
 
 export type TTokenRaw = {

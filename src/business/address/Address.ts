@@ -52,10 +52,22 @@ export class Address implements IAddress {
     this.httpRequest = httpRequest;
   }
 
+  public async getCoins(request: TGetCoinsRequest) {
+    const responseRaw = await this.httpRequest.fetch<TGetCoinsResponseRaw>(
+      `coins/${request.address}`,
+      {
+        networks: request.chains,
+      }
+    );
+
+    return coinsDataMapper(responseRaw);
+  }
+
   public async getTokens(request: TGetTokensRequest) {
     const responseRaw = await this.httpRequest.fetch<TGetTokensResponseRaw>(
       `tokens/${request.address}`,
       {
+        networks: request.chains,
         verified: request.verified,
         limit: request.limit,
         offset: request.offset,
@@ -76,17 +88,6 @@ export class Address implements IAddress {
     );
 
     return nftsDataMapper(responseRaw);
-  }
-
-  public async getCoins(request: TGetCoinsRequest) {
-    const responseRaw = await this.httpRequest.fetch<TGetCoinsResponseRaw>(
-      `coins/${request.address}`,
-      {
-        networks: request.chains,
-      }
-    );
-
-    return coinsDataMapper(responseRaw);
   }
 
   public async getTransactions(request: TGetTransactionsRequest) {

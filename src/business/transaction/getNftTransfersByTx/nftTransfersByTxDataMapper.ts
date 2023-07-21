@@ -12,7 +12,7 @@ export const nftTransfersByTxDataMapper = (
       blockTimestamp: raw.block_timestamp,
       fromAddress: raw.from_address,
       toAddress: raw.to_address,
-      tokenAddress: raw.token_address,
+      contractAddress: raw.contract_address,
       tokenId: raw.token_id,
       amount: raw.amount,
       logIndex: raw.log_index,

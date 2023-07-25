@@ -6,6 +6,13 @@
 
 ### Minor Changes
 
+## 1.1.0
+
+### Major Changes
+
+### Minor Changes
+- add chains filter to `address.getTokens()`
+- fix Readme mismatches
 ## 1.0.0
 
 ### Major Changes

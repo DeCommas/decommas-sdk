@@ -94,7 +94,7 @@ The DeCommas API SDK currently has these namespaces:
 
 - `address`: All methods related to specific address info: ERC20 balances, NFT balances, transactions history etc.
 - `metadata`: All methods related to specific token info: ERC20 token metadata, NFT token metadata
-- `transaction`: All methods related to specific transaction: transaction details, ERC20 transfers inside transaction, NFT transfers inside transaction
+- `tx`: All methods related to specific transaction: transaction details, ERC20 transfers inside transaction, NFT transfers inside transaction
 
 ```ts
 import { Decommas, ChainName } from '@decommas/sdk';
@@ -121,7 +121,7 @@ const getNamespacesUseCases = async () => {
   const tokens = await decommas.address.getTokens(getTokensParams);
   console.log(tokens);
 
-  const transactionDetails = await decommas.transaction.getDetail(getTransactionDetailParams);
+  const transactionDetails = await decommas.tx.getDetail(getTransactionDetailParams);
   console.log(transactionDetails);
 
   const nftMetadata = await decommas.metadata.getNft(getNftParams);
@@ -166,7 +166,7 @@ The `metadata` namespace contains all metadata-related methods:
 
 ## DeCommas transaction namespace
 
-The `transaction` namespace contains all transaction-related methods:
+The `tx` namespace contains all transaction-related methods:
 
 - `getErc20TransfersByTx({ chainName, txHash })`: Gets ERC20 transfers made in transaction.
 - `getNftTransfersByTx({ chainName, txHash })`: Gets NFT transfers made in transaction.

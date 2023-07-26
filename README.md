@@ -136,21 +136,22 @@ getNamespacesUseCases();
 The `address` namespace contains all address-related methods:
 
 - `getCoins({ address })`: Gets native coins balances.
-- `getTokens({ address, limit?, offset?, chains? })`: Gets ERC20 tokens balances.
+- `getTokens({ address, limit?, offset?, chains?, verified? })`: Gets ERC20 tokens balances.
 - `getNfts({ address, limit?, offset?, chains? })`: Gets NFTs balances.
 - `getErc20Transfers({ address, limit?, offset?, chains? })`: Gets ERC20 transfers from and to address.
 - `getNftTransfers({ address, limit?, offset?, chains? })`: Gets NFTs transfers from and to address.
 - `getTransactions({ address, limit?, offset?, chains? })`: Gets transactions made from address.
 
 > ### Pagination and Filters
-> - All methods in `address` namespace, except `getCoins`, accept `limit` and `offset` params. By default `limit: 25` and `offset: 1`. Max value for `limit` is `100`.
+> - All methods in `address` namespace, except `getCoins`, accept `limit` and `offset` params. By default `limit: 20` and `offset: 1`. Max value for `limit` is `100`.
 > - All methods in `address` namespace accept `chains` param to make request only for spicific chains. To avoid misspels in chain names we recommend to use `ChainName` enum includet into this SDK:
 > ```ts
 > import { Decommas, ChainName } from '@decommas/sdk';
 > const exampleAddressNamespaceParams = {
 >   address: '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045',
->   limit: 25,
+>   limit: 20,
 >   offset: 1,
+>   verified: true,
 >   chains: [ChainName.OPTIMISM, ChainName.MAINNET],
 > };
 >```

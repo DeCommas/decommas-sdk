@@ -9,7 +9,10 @@ import {
   mockErc20TransfersByTxResponse,
   mockErc20TransfersByTxResponseRaw,
 } from "@mocks/transaction/erc20transfersByTx.mock";
-import { mockNftTransfersByTxResponseRaw } from "@mocks/transaction/nftTransfersByTx.mock";
+import {
+  mockNftTransfersByTxResponse,
+  mockNftTransfersByTxResponseRaw,
+} from "@mocks/transaction/nftTransfersByTx.mock";
 
 describe("Transaction", () => {
   test("getDetail", async () => {
@@ -49,11 +52,11 @@ describe("Transaction", () => {
     const transaction = new Transaction(httpRequestMock);
 
     expect(
-      await transaction.getErc20TransfersByTx({
+      await transaction.getNftTransfersByTx({
         chainName: ChainName.BSC,
         txHash:
           "0xbe055f412ea0cb0af6cd6e1bd72bc755e671ebe6b60e31e8c780364e59e4d7e3",
       })
-    ).toStrictEqual(mockErc20TransfersByTxResponse);
+    ).toStrictEqual(mockNftTransfersByTxResponse);
   });
 });

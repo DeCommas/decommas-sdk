@@ -24,6 +24,7 @@ export const mockTxDetailResponseRaw: TGetTxDetailResponseRaw = {
     method_hash: "0xe99a3f80",
     method: "matchOrders",
     transaction_tags: [],
+    deployed_contract: "0xce74a760b754f7717e7a62e389d4b153aa753e0e",
   },
 };
 
@@ -45,4 +46,5 @@ export const mockTxDetailResponse: TGetTxDetailResponse = {
   methodHash: "0xe99a3f80",
   method: "matchOrders",
   transactionTags: [],
+  deployedContract: "0xce74a760b754f7717e7a62e389d4b153aa753e0e",
 };

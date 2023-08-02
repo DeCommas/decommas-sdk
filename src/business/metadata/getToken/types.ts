@@ -8,10 +8,11 @@ export type TTokenMetadataRaw = {
   name: string;
   decimals: number;
   symbol: string;
-  logo_url: string;
-  actual_price: string;
+  logo_url: string | null;
+  actual_price: string | null;
   is_verified: boolean;
   is_stable: boolean;
+  is_protocol_token: boolean;
 };
 
 export type TTokenMetadata = {
@@ -25,6 +26,7 @@ export type TTokenMetadata = {
   actualPrice: string;
   isVerified: boolean;
   isStable: boolean;
+  isProtocolToken: boolean;
 };
 
 export type TGetTokenMetadataRequest = {

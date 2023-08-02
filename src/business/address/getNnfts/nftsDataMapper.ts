@@ -11,6 +11,7 @@ export const nftsDataMapper = (
       contractAddress: raw.contract_address,
       tokenId: raw.token_id,
       amount: raw.amount,
+      contractType: raw.contract_type,
     })),
   };
 };

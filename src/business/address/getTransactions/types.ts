@@ -19,6 +19,10 @@ export type TTransactionRaw = {
   method_hash: string;
   status: boolean;
   transaction_tags: string[];
+  deployed_contract: string;
+  gas_price: string;
+  gas_used: string;
+  block_base_fee_per_gas: string;
 };
 
 export type TTransaction = {
@@ -35,6 +39,10 @@ export type TTransaction = {
   methodHash: string;
   status: boolean;
   transactionTags: string[];
+  deployedContract: string;
+  gasPrice: string;
+  gasUsed: string;
+  blockBaseFeePerGas: string;
 };
 
 export type TGetTransactionsRequest = PaginatedRequest<{

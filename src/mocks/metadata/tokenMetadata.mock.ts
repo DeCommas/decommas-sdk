@@ -18,6 +18,7 @@ export const mockTokenMetadataResponseRaw: TGetTokenMetadataResponseRaw = {
     actual_price: "1",
     is_verified: true,
     is_stable: true,
+    is_protocol_token: true,
   },
 };
 
@@ -33,4 +34,5 @@ export const mockTokenMetadataResponse: TGetTokenMetadataResponse = {
   actualPrice: "1",
   isVerified: true,
   isStable: true,
+  isProtocolToken: true,
 };

@@ -22,5 +22,6 @@ export const txDetailDataMapper = (
     methodHash: raw.method_hash,
     method: raw.method,
     transactionTags: raw.transaction_tags,
+    deployedContract: raw.deployed_contract,
   };
 };

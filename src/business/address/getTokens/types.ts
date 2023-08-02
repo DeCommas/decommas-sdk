@@ -23,6 +23,7 @@ export type TTokenRaw = {
   is_verified: boolean;
   is_stable: boolean;
   amount: string;
+  is_protocol_token: boolean;
 };
 
 export type TToken = {
@@ -37,6 +38,7 @@ export type TToken = {
   isVerified: boolean;
   isStable: boolean;
   amount: string;
+  isProtocolToken: boolean;
 };
 
 export type TGetTokensResponseRaw = PaginatedResponseRaw<TTokenRaw>;

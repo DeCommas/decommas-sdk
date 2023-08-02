@@ -20,6 +20,7 @@ export const mockTokensResponseRaw: TGetTokensResponseRaw = {
       is_verified: true,
       is_stable: true,
       amount: "10000000",
+      is_protocol_token: true,
     },
   ],
 };
@@ -40,6 +41,7 @@ export const mockTokensResponse: TGetTokensResponse = {
       isVerified: true,
       isStable: true,
       amount: "10000000",
+      isProtocolToken: true,
     },
   ],
 };

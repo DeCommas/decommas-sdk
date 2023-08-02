@@ -18,6 +18,10 @@ export const transactionsDataMapper = (
       methodHash: raw.method_hash,
       status: raw.status,
       transactionTags: raw.transaction_tags,
+      deployedContract: raw.deployed_contract,
+      gasPrice: raw.gas_price,
+      gasUsed: raw.gas_used,
+      blockBaseFeePerGas: raw.block_base_fee_per_gas,
     })),
   };
 };

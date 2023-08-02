@@ -5,7 +5,7 @@ import {
   PaginatedResponseRaw,
 } from "@infrastructure/network";
 
-export type TNftTransfersByTxRaw = {
+export type TNftTransferByTxRaw = {
   block_number: number;
   block_timestamp: number;
   from_address: TAddress;
@@ -17,7 +17,7 @@ export type TNftTransfersByTxRaw = {
   contract_type: string;
 };
 
-export type TNftTransfersByTx = {
+export type TNftTransferByTx = {
   blockNumber: number;
   blockTimestamp: number;
   fromAddress: TAddress;
@@ -35,12 +35,12 @@ export type TGetNftTransfersByTxRequest = PaginatedRequest<{
 }>;
 
 export type TGetNftTransfersByTxResponseRaw = Omit<
-  PaginatedResponseRaw<TNftTransfersByTxRaw>,
+  PaginatedResponseRaw<TNftTransferByTxRaw>,
   "count"
 >;
 
 export type TGetNftTransfersByTxResponse = Omit<
-  PaginatedResponse<TNftTransfersByTx>,
+  PaginatedResponse<TNftTransferByTx>,
   "count"
 >;
 

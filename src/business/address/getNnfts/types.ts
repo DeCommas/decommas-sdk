@@ -11,6 +11,7 @@ export type TNftRaw = {
   contract_address: TAddress;
   token_id: string;
   amount: string;
+  contract_type: string;
 };
 
 export type TNft = {
@@ -19,6 +20,7 @@ export type TNft = {
   contractAddress: TAddress;
   tokenId: string;
   amount: string;
+  contractType: string;
 };
 
 export type TGetNftsRequest = PaginatedRequest<{

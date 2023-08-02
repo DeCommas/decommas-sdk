@@ -14,9 +14,10 @@ export const tokenMetadataDataMapper = (
     name: raw.name,
     decimals: raw.decimals,
     symbol: raw.symbol,
-    logoUrl: raw.logo_url,
-    actualPrice: raw.actual_price,
+    logoUrl: raw.logo_url ?? "",
+    actualPrice: raw.actual_price ?? "",
     isVerified: raw.is_verified,
     isStable: raw.is_stable,
+    isProtocolToken: raw.is_protocol_token,
   };
 };

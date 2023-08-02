@@ -15,6 +15,7 @@ export const tokensDataMapper = (
     isVerified: raw.is_verified,
     isStable: raw.is_stable,
     amount: raw.amount,
+    isProtocolToken: raw.is_protocol_token,
   }));
 
   return {

@@ -19,6 +19,7 @@ export type TTxDetailRaw = {
   method_hash: string;
   method: string;
   transaction_tags: string[];
+  deployed_contract: string;
 };
 
 export type TTxDetail = {
@@ -39,6 +40,7 @@ export type TTxDetail = {
   methodHash: string;
   method: string;
   transactionTags: string[];
+  deployedContract: string;
 };
 
 export type TGetTxDetailRequest = {

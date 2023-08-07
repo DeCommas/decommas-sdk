@@ -4,7 +4,7 @@ import {
   mockTxDetailResponseRaw,
 } from "@mocks/transaction/txDetail.mock";
 import { ChainName } from "@lib/types";
-import { Transaction } from "@business/transaction/Transaction";
+import { Transaction } from "@business/namespaces/transaction/Transaction";
 import {
   mockErc20TransfersByTxResponse,
   mockErc20TransfersByTxResponseRaw,

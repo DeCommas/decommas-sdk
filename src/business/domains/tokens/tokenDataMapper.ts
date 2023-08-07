@@ -1,12 +1,6 @@
-import {
-  TGetTokenMetadataResponse,
-  TGetTokenMetadataResponseRaw,
-} from "./types";
+import { TToken, TTokenRaw } from "@business/domains/tokens/types";
 
-export const tokenMetadataDataMapper = (
-  responseRaw: TGetTokenMetadataResponseRaw
-): TGetTokenMetadataResponse => {
-  const raw = responseRaw.result;
+export const tokenDataMapper = (raw: TTokenRaw): TToken => {
   return {
     chainName: raw.chain_name,
     chainId: raw.chain_id,

@@ -1,7 +1,7 @@
 import {
   TGetNftTransfersByTxResponse,
   TGetNftTransfersByTxResponseRaw,
-} from "@business/transaction/getNftTransfersByTx/types";
+} from "@business/namespaces/transaction/getNftTransfersByTx/types";
 
 export const mockNftTransfersByTxResponseRaw: TGetNftTransfersByTxResponseRaw =
   {

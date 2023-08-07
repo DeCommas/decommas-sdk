@@ -39,4 +39,13 @@ describe("Metadata", () => {
       })
     ).toStrictEqual(mockTokenMetadataResponse);
   });
+
+  test("getCoins", async () => {
+    const httpRequestMock: IHttpRequest = {
+      fetch: jest.fn().mockReturnValue(mockTokenMetadataResponseRaw),
+    };
+    const metadata = new Metadata(httpRequestMock);
+
+    expect(await metadata.getCoins()).toStrictEqual(mockTokenMetadataResponse);
+  });
 });

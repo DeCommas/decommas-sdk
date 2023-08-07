@@ -2,7 +2,7 @@ import { ChainName } from "@lib/types";
 import {
   TGetTransactionsResponse,
   TGetTransactionsResponseRaw,
-} from "@business/address/getTransactions/types";
+} from "@business/namespaces/address/getTransactions/types";
 
 export const mockTransactionsResponseRaw: TGetTransactionsResponseRaw = {
   status: 200,

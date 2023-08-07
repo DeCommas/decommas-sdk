@@ -2,7 +2,7 @@ import { ChainName } from "@lib/types";
 import {
   TGetNftTransfersResponse,
   TGetNftTransfersResponseRaw,
-} from "@business/address/getNftTransfers/types";
+} from "@business/namespaces/address/getNftTransfers/types";
 
 export const mockNftTransfersResponseRaw: TGetNftTransfersResponseRaw = {
   status: 200,

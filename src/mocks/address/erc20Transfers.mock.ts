@@ -2,7 +2,7 @@ import { ChainName } from "@lib/types";
 import {
   TGetErc20TransfersResponse,
   TGetErc20TransfersResponseRaw,
-} from "@business/address/getErc20Transfers/types";
+} from "@business/namespaces/address/getErc20Transfers/types";
 
 export const mockErc20TransfersResponseRaw: TGetErc20TransfersResponseRaw = {
   status: 200,

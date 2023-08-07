@@ -1,8 +1,6 @@
 import { ChainName } from "@lib/types";
-import {
-  TGetTokenMetadataResponse,
-  TGetTokenMetadataResponseRaw,
-} from "@business/metadata/getToken/types";
+import { TGetTokenMetadataResponseRaw } from "@business/namespaces/metadata/getToken/types";
+import { TToken } from "@business/domains/tokens/types";
 
 export const mockTokenMetadataResponseRaw: TGetTokenMetadataResponseRaw = {
   status: 200,
@@ -22,7 +20,7 @@ export const mockTokenMetadataResponseRaw: TGetTokenMetadataResponseRaw = {
   },
 };
 
-export const mockTokenMetadataResponse: TGetTokenMetadataResponse = {
+export const mockTokenMetadataResponse: TToken = {
   chainName: ChainName.MAINNET,
   chainId: 1,
   address: "0xdac17f958d2ee523a2206206994597c13d831ec7",

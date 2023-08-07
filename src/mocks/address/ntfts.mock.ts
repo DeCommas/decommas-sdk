@@ -1,7 +1,7 @@
 import {
   TGetNftsResponse,
   TGetNftsResponseRaw,
-} from "@business/address/getNnfts/types";
+} from "@business/namespaces/address/getNnfts/types";
 import { ChainName } from "@lib/types";
 
 export const mockNftsResponseRaw: TGetNftsResponseRaw = {

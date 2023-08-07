@@ -27,13 +27,13 @@ import {
   TGetErc20Transfers,
   TGetErc20TransfersRequest,
   TGetErc20TransfersResponseRaw,
-} from "@business/address/getErc20Transfers/types";
+} from "@business/namespaces/address/getErc20Transfers/types";
 import { erc20TransfersDataMapper } from "./getErc20Transfers/erc20TransfersDataMapper";
 import {
   TGetNftTransfers,
   TGetNftTransfersRequest,
   TGetNftTransfersResponseRaw,
-} from "@business/address/getNftTransfers/types";
+} from "@business/namespaces/address/getNftTransfers/types";
 import { nftTransfersDataMapper } from "./getNftTransfers/nftTransfersDataMapper";
 
 interface IAddress {

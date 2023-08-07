@@ -1,7 +1,7 @@
 import {
   TGetNftMetadataResponse,
   TGetNftMetadataResponseRaw,
-} from "@business/metadata/getNft/types";
+} from "@business/namespaces/metadata/getNft/types";
 
 export const nftMetadataDataMapper = (
   responseRaw: TGetNftMetadataResponseRaw

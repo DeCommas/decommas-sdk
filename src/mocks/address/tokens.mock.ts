@@ -1,14 +1,15 @@
 import {
-  TGetTokensResponseRaw,
   TGetTokensResponse,
-} from "@business/address/getTokens/types";
+  TGetTokensResponseRaw,
+} from "@business/namespaces/address/getTokens/types";
+import { ChainName } from "@lib/types";
 
 export const mockTokensResponseRaw: TGetTokensResponseRaw = {
   count: 22,
   status: 200,
   result: [
     {
-      chain_name: "mainnet",
+      chain_name: ChainName.MAINNET,
       chain_id: 1,
       address: "0xdac17f958d2ee523a2206206994597c13d831ec7",
       name: "Tether USD",
@@ -29,7 +30,7 @@ export const mockTokensResponse: TGetTokensResponse = {
   count: 22,
   result: [
     {
-      chainName: "mainnet",
+      chainName: ChainName.MAINNET,
       chainId: 1,
       address: "0xdac17f958d2ee523a2206206994597c13d831ec7",
       name: "Tether USD",

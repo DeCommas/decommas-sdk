@@ -2,9 +2,13 @@ import { ChainName } from "@lib/types";
 import {
   TGetCoinsResponse,
   TGetCoinsResponseRaw,
-} from "@business/address/getCoins/types";
+} from "@business/namespaces/address/getCoins/types";
+import {
+  TGetCoinsMetadataResponse,
+  TGetCoinsMetadataResponseRaw,
+} from "@business/namespaces/metadata/getCoins/types";
 
-export const mockCoinsResponseRaw: TGetCoinsResponseRaw = {
+export const mockCoinsMetadataResponseRaw: TGetCoinsMetadataResponseRaw = {
   count: 22,
   status: 200,
   result: [
@@ -16,13 +20,12 @@ export const mockCoinsResponseRaw: TGetCoinsResponseRaw = {
       logo_url:
         "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
       decimals: 18,
-      amount: "38368326268114187",
       actual_price: "1869.17",
     },
   ],
 };
 
-export const mockCoinsResponse: TGetCoinsResponse = {
+export const mockCoinsMetadataResponse: TGetCoinsMetadataResponse = {
   count: 22,
   result: [
     {
@@ -33,8 +36,28 @@ export const mockCoinsResponse: TGetCoinsResponse = {
       logoUrl:
         "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
       decimals: 18,
-      amount: "38368326268114187",
       actualPrice: "1869.17",
     },
   ],
+};
+
+export const mockCoinsResponseRaw: TGetCoinsResponseRaw = {
+  count: 22,
+  status: 200,
+  result: mockCoinsMetadataResponseRaw.result.map((item) => {
+    return {
+      ...item,
+      amount: "38368326268114187",
+    };
+  }),
+};
+
+export const mockCoinsResponse: TGetCoinsResponse = {
+  count: 22,
+  result: mockCoinsMetadataResponse.result.map((item) => {
+    return {
+      ...item,
+      amount: "38368326268114187",
+    };
+  }),
 };

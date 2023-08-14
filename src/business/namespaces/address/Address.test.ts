@@ -5,8 +5,8 @@ import {
   mockNftsResponseRaw,
 } from "@mocks/address/ntfts.mock";
 import {
-  mockTokensResponse,
-  mockTokensResponseRaw,
+  mockTokensWithAmountResponse,
+  mockTokensWithAmountResponseRaw,
 } from "@mocks/address/tokens.mock";
 import {
   mockCoinsResponse,
@@ -28,7 +28,7 @@ import {
 describe("Address", () => {
   test("getTokens", async () => {
     const httpRequestMock: IHttpRequest = {
-      fetch: jest.fn().mockReturnValue(mockTokensResponseRaw),
+      fetch: jest.fn().mockReturnValue(mockTokensWithAmountResponseRaw),
     };
     const address = new Address(httpRequestMock);
 
@@ -37,7 +37,7 @@ describe("Address", () => {
         address: "0x0000000000000000000000000000000000000000",
         verified: true,
       })
-    ).toStrictEqual(mockTokensResponse);
+    ).toStrictEqual(mockTokensWithAmountResponse);
   });
 
   test("getNfts", async () => {

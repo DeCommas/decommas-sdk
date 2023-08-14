@@ -3,8 +3,13 @@ import {
   TGetTokensResponseRaw,
 } from "@business/namespaces/address/getTokens/types";
 import { ChainName } from "@lib/types";
+import {
+  PaginatedResponse,
+  PaginatedResponseRaw,
+} from "@infrastructure/network";
+import { TToken, TTokenRaw } from "@business/domains/tokens/types";
 
-export const mockTokensResponseRaw: TGetTokensResponseRaw = {
+export const mockTokensResponseRaw: PaginatedResponseRaw<TTokenRaw> = {
   count: 22,
   status: 200,
   result: [
@@ -20,13 +25,12 @@ export const mockTokensResponseRaw: TGetTokensResponseRaw = {
       actual_price: "0.999985",
       is_verified: true,
       is_stable: true,
-      amount: "10000000",
       is_protocol_token: true,
     },
   ],
 };
 
-export const mockTokensResponse: TGetTokensResponse = {
+export const mockTokensResponse: PaginatedResponse<TToken> = {
   count: 22,
   result: [
     {
@@ -41,8 +45,28 @@ export const mockTokensResponse: TGetTokensResponse = {
       actualPrice: "0.999985",
       isVerified: true,
       isStable: true,
-      amount: "10000000",
       isProtocolToken: true,
     },
   ],
+};
+
+export const mockTokensWithAmountResponseRaw: TGetTokensResponseRaw = {
+  count: 22,
+  status: 200,
+  result: mockTokensResponseRaw.result.map((r) => {
+    return {
+      ...r,
+      amount: "10000000",
+    };
+  }),
+};
+
+export const mockTokensWithAmountResponse: TGetTokensResponse = {
+  count: 22,
+  result: mockTokensResponse.result.map((r) => {
+    return {
+      ...r,
+      amount: "10000000",
+    };
+  }),
 };

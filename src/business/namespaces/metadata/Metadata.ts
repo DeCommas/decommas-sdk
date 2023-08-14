@@ -13,6 +13,7 @@ import {
 import { tokenDataMapper } from "../../domains/tokens/tokenDataMapper";
 import {
   TGetTokensMetadata,
+  TGetTokensMetadataRequest,
   TGetTokensMetadataResponseRaw,
 } from "@business/namespaces/metadata/getTokens/types";
 import { coinsMetadataDataMapper } from "@business/namespaces/metadata/getCoins/coinsMetadataDataMapper";
@@ -57,6 +58,17 @@ export class Metadata implements IMetadata {
       );
 
     return tokenDataMapper(responseRaw.result);
+  }
+
+  public async getTokens(request?: TGetTokensMetadataRequest) {
+    const responseRaw =
+      await this.httpRequest.fetch<TGetTokensMetadataResponseRaw>(
+        `all_tokens_metadata`,
+        {
+          networks: request?.chains,
+        }
+      );
+    return responseRaw.result.map((item) => tokenDataMapper(item));
   }
 
   public async getTokensBySymbol(request: TGetTokensMetadataBySymbolRequest) {

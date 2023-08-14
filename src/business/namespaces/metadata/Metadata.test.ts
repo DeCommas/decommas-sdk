@@ -13,6 +13,10 @@ import {
   mockTokensResponse,
   mockTokensResponseRaw,
 } from "@mocks/address/tokens.mock";
+import {
+  mockCoinsMetadataResponse,
+  mockCoinsMetadataResponseRaw,
+} from "@mocks/address/coins.mock";
 
 describe("Metadata", () => {
   test("getNft", async () => {
@@ -74,10 +78,10 @@ describe("Metadata", () => {
 
   test("getCoins", async () => {
     const httpRequestMock: IHttpRequest = {
-      fetch: jest.fn().mockReturnValue(mockTokenMetadataResponseRaw),
+      fetch: jest.fn().mockReturnValue(mockCoinsMetadataResponseRaw),
     };
     const metadata = new Metadata(httpRequestMock);
 
-    expect(await metadata.getCoins()).toStrictEqual(mockTokenMetadataResponse);
+    expect(await metadata.getCoins()).toStrictEqual(mockCoinsMetadataResponse);
   });
 });

@@ -19,9 +19,9 @@ export const txDetailDataMapper = (
     gasPrice: raw.gas_price,
     gasUsed: raw.gas_used,
     blockBaseFeePerGas: raw.block_base_fee_per_gas,
-    methodHash: raw.method_hash,
-    method: raw.method,
+    methodHash: raw.method_hash ?? "",
+    method: raw.method ?? "",
     transactionTags: raw.transaction_tags,
-    deployedContract: raw.deployed_contract,
+    deployedContract: raw.deployed_contract ?? "",
   };
 };

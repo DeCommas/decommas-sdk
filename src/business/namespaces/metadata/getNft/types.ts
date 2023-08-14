@@ -6,11 +6,11 @@ export type TNftMetadataRaw = {
   chain_id: number;
   contract_address: TAddress;
   token_id: string;
-  name: string;
-  image_url: string;
-  animation_url: null | string;
+  name: string | null;
+  image_url: string | null;
+  animation_url: string | null;
   contract_type: string;
-  collection_name: string;
+  collection_name: string | null;
   collection_verified: boolean;
 };
 

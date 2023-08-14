@@ -16,8 +16,8 @@ export type TErc20TransferRaw = {
   token_address: TAddress;
   amount: string;
   transaction_hash: string;
-  method: string;
-  method_hash: string;
+  method: string | null;
+  method_hash: string | null;
 };
 
 export type TErc20Transfer = {

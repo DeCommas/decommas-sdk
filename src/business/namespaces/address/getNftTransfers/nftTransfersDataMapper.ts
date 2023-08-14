@@ -17,8 +17,8 @@ export const nftTransfersDataMapper = (
       contractType: raw.contract_type,
       amount: raw.amount,
       transactionHash: raw.transaction_hash,
-      method: raw.method,
-      methodHash: raw.method_hash,
+      method: raw.method ?? "",
+      methodHash: raw.method_hash ?? "",
     })),
   };
 };

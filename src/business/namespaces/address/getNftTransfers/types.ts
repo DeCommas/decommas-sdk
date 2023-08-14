@@ -18,8 +18,8 @@ export type TNftTransferRaw = {
   contract_type: string;
   amount: string;
   transaction_hash: string;
-  method: string;
-  method_hash: string;
+  method: string | null;
+  method_hash: string | null;
 };
 
 export type TNftTransfer = {

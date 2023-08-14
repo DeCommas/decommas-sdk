@@ -5,7 +5,7 @@ export const tokenDataMapper = (raw: TTokenRaw): TToken => {
     chainName: raw.chain_name,
     chainId: raw.chain_id,
     address: raw.address,
-    name: raw.name,
+    name: raw.name ?? "",
     decimals: raw.decimals,
     symbol: raw.symbol,
     logoUrl: raw.logo_url ?? "",

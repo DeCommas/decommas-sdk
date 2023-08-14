@@ -5,9 +5,9 @@ export type TCoinRaw = {
   chain_id: number;
   name: string;
   symbol: string;
-  logo_url: string;
+  logo_url: string | null;
   decimals: number;
-  actual_price: string;
+  actual_price: string | null;
 };
 
 export type TCoin = {

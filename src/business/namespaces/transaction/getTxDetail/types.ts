@@ -16,10 +16,10 @@ export type TTxDetailRaw = {
   gas_price: string;
   gas_used: string;
   block_base_fee_per_gas: string;
-  method_hash: string;
-  method: string;
+  method_hash: string | null;
+  method: string | null;
   transaction_tags: string[];
-  deployed_contract: string;
+  deployed_contract: string | null;
 };
 
 export type TTxDetail = {

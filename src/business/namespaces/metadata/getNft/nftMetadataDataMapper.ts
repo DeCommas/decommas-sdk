@@ -12,11 +12,11 @@ export const nftMetadataDataMapper = (
     chainId: raw.chain_id,
     contractAddress: raw.contract_address,
     tokenId: raw.token_id,
-    name: raw.name,
-    imageUrl: raw.image_url,
+    name: raw.name ?? "",
+    imageUrl: raw.image_url ?? "",
     animationUrl: raw.animation_url ?? "",
     contractType: raw.contract_type,
-    collectionName: raw.collection_name,
+    collectionName: raw.collection_name ?? "",
     collectionVerified: raw.collection_verified,
   };
 };

@@ -9,6 +9,10 @@ import {
   mockTokenMetadataResponse,
   mockTokenMetadataResponseRaw,
 } from "@mocks/metadata/tokenMetadata.mock";
+import {
+  mockTokensResponse,
+  mockTokensResponseRaw,
+} from "@mocks/address/tokens.mock";
 
 describe("Metadata", () => {
   test("getNft", async () => {
@@ -38,6 +42,34 @@ describe("Metadata", () => {
         contractAddress: "0x0000000000000000000000000000000000000000",
       })
     ).toStrictEqual(mockTokenMetadataResponse);
+  });
+
+  test("getToken", async () => {
+    const httpRequestMock: IHttpRequest = {
+      fetch: jest.fn().mockReturnValue(mockTokenMetadataResponseRaw),
+    };
+    const metadata = new Metadata(httpRequestMock);
+
+    expect(
+      await metadata.getToken({
+        chainName: ChainName.MAINNET,
+        contractAddress: "0x0000000000000000000000000000000000000000",
+      })
+    ).toStrictEqual(mockTokenMetadataResponse);
+  });
+
+  test("getTokensBySymbol", async () => {
+    const httpRequestMock: IHttpRequest = {
+      fetch: jest.fn().mockReturnValue(mockTokensResponseRaw),
+    };
+    const metadata = new Metadata(httpRequestMock);
+
+    expect(
+      await metadata.getTokensBySymbol({
+        chains: [ChainName.MAINNET],
+        symbol: "USDC",
+      })
+    ).toStrictEqual(mockTokensResponse);
   });
 
   test("getCoins", async () => {

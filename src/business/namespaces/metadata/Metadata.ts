@@ -13,7 +13,6 @@ import {
 import { tokenDataMapper } from "../../domains/tokens/tokenDataMapper";
 import {
   TGetTokensMetadata,
-  TGetTokensMetadataRequest,
   TGetTokensMetadataResponseRaw,
 } from "@business/namespaces/metadata/getTokens/types";
 import { coinsMetadataDataMapper } from "@business/namespaces/metadata/getCoins/coinsMetadataDataMapper";
@@ -22,11 +21,16 @@ import {
   TGetCoinsMetadataRequest,
   TGetCoinsMetadataResponseRaw,
 } from "@business/namespaces/metadata/getCoins/types";
+import {
+  TGetTokensMetadataBySymbol,
+  TGetTokensMetadataBySymbolRequest,
+} from "@business/namespaces/metadata/getTokensBySymbol/types";
 
 interface IMetadata {
   getNft: TGetNftMetadata;
   getToken: TGetTokenMetadata;
   getTokens: TGetTokensMetadata;
+  getTokensBySymbol: TGetTokensMetadataBySymbol;
   getCoins: TGetCoinsMetadata;
 }
 
@@ -55,15 +59,19 @@ export class Metadata implements IMetadata {
     return tokenDataMapper(responseRaw.result);
   }
 
-  public async getTokens(request?: TGetTokensMetadataRequest) {
+  public async getTokensBySymbol(request: TGetTokensMetadataBySymbolRequest) {
     const responseRaw =
       await this.httpRequest.fetch<TGetTokensMetadataResponseRaw>(
-        `all_tokens_metadata`,
+        `tokens_by_symbol/${request.symbol}`,
         {
           networks: request?.chains,
         }
       );
-    return responseRaw.result.map((item) => tokenDataMapper(item));
+
+    return {
+      count: responseRaw.count,
+      result: responseRaw.result.map((tokenRaw) => tokenDataMapper(tokenRaw)),
+    };
   }
 
   public async getCoins(request?: TGetCoinsMetadataRequest) {

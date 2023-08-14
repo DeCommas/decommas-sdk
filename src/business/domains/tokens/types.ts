@@ -4,7 +4,7 @@ export type TTokenRaw = {
   chain_name: ChainName;
   chain_id: number;
   address: TAddress;
-  name: string;
+  name: string | null;
   decimals: number;
   symbol: string;
   logo_url: string | null;

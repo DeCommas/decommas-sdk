@@ -6,8 +6,8 @@ export const coinDataMapper = (raw: TCoinRaw): TCoin => {
     chainId: raw.chain_id,
     name: raw.name,
     symbol: raw.symbol,
-    logoUrl: raw.logo_url,
+    logoUrl: raw.logo_url ?? "",
     decimals: raw.decimals,
-    actualPrice: raw.actual_price,
+    actualPrice: raw.actual_price ?? "",
   };
 };

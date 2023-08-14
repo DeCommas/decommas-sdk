@@ -15,11 +15,11 @@ export type TTransactionRaw = {
   to_address: string;
   value: string;
   fee: string;
-  method: string;
-  method_hash: string;
+  method: string | null;
+  method_hash: string | null;
   status: boolean;
   transaction_tags: string[];
-  deployed_contract: string;
+  deployed_contract: string | null;
   gas_price: string;
   gas_used: string;
   block_base_fee_per_gas: string;

@@ -2,7 +2,7 @@ import { ChainName } from "@lib/types";
 import {
   TGetTransactionsResponse,
   TGetTransactionsResponseRaw,
-} from "@business/address/getTransactions/types";
+} from "@business/namespaces/address/getTransactions/types";
 
 export const mockTransactionsResponseRaw: TGetTransactionsResponseRaw = {
   status: 200,
@@ -21,6 +21,10 @@ export const mockTransactionsResponseRaw: TGetTransactionsResponseRaw = {
       method_hash: "0x87b21efc",
       status: true,
       transaction_tags: ["approve"],
+      deployed_contract: "0xce74a760b754f7717e7a62e389d4b153aa753e0e",
+      gas_price: "30032808611",
+      gas_used: "24102",
+      block_base_fee_per_gas: "29932808611",
     },
   ],
 };
@@ -41,6 +45,10 @@ export const mockTransactionsResponse: TGetTransactionsResponse = {
       methodHash: "0x87b21efc",
       status: true,
       transactionTags: ["approve"],
+      deployedContract: "0xce74a760b754f7717e7a62e389d4b153aa753e0e",
+      gasPrice: "30032808611",
+      gasUsed: "24102",
+      blockBaseFeePerGas: "29932808611",
     },
   ],
 };

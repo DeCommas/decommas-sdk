@@ -1,7 +1,7 @@
 import {
   TGetErc20TransfersByTxResponse,
   TGetErc20TransfersByTxResponseRaw,
-} from "@business/transaction/getErc20TransfersByTx/types";
+} from "@business/namespaces/transaction/getErc20TransfersByTx/types";
 
 export const mockErc20TransfersByTxResponseRaw: TGetErc20TransfersByTxResponseRaw =
   {

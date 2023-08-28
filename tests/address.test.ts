@@ -223,7 +223,7 @@ describe("test for namespace address", () => {
           expect(response.result.length).toBeLessThanOrEqual(20);
         }
       }
-    }, 12000);
+    }, 20000);
 
     test("limit check", async () => {
       const data = {

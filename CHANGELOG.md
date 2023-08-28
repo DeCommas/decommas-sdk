@@ -6,6 +6,18 @@
 
 ### Minor Changes
 
+## 1.2.1
+
+### Major Changes
+- added `metadata.getCoins` method
+- added `metadata.getTokens` method
+- added `metadata.getTokensBySymbol` method
+- added chainames for Bae and opBNB
+
+### Minor Changes
+- fix typing for all methods
+- add more tests
+
 ## 1.1.0
 
 ### Major Changes

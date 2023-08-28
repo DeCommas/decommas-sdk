@@ -159,10 +159,13 @@ The `address` namespace contains all address-related methods:
 
 ## DeCommas metadata namespace
 
-The `metadata` namespace contains all metadata-related methods:
+The `metadata` namespace contains all metadata-related methods and helpful utils:
 
 - `getNft({ chainName, contractAddress, tokenId })`: Gets NFT metadata: image, collection name etc.
 - `getToken({ chainName, contractAddress })`: Gets ERC20 token metadata: symbol, current price etc.
+- `getCoins()`: Gets native coins metadata for all supported networks.
+- `getTokens({ chains? })`: Gets list of ERC20 tokens for specified networks.
+- `metadata.getTokensBySymbol({ symbol, chains? })`: Gets token addresses in specified networks by token symbol.
 
 ## DeCommas transaction namespace
 

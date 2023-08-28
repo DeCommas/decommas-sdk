@@ -22,7 +22,7 @@
     "dev": "tsc && tsc-alias --watch",
     "test": "jest",
     "lint": "eslint --ext .ts .",
-    "publish": "yarn lint && yarn test && yarn build && npm publish",
+    "publish": "yarn lint && yarn build && yarn test && npm publish",
     "type:check:src": "tsc --project tsconfig.build.json --noEmit",
     "test:unit": "jest src",
     "test:e2e": "jest tests"

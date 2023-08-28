@@ -30,8 +30,7 @@
           "@lib/*": ["./src/lib/*"],
           "@business/*": ["./src/business/*"],
           "@infrastructure/*": ["./src/infrastructure/*"],
-          "@mocks/*": ["./src/mocks/*"],
-          "@decommas/sdk": ["./*"]
+          "@mocks/*": ["./src/mocks/*"]
       },
     },
     "include": ["src/**/*", "tests/**/*"]

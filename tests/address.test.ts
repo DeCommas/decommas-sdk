@@ -1,4 +1,4 @@
-import { Decommas, ChainName } from "@decommas/sdk";
+import { Decommas, ChainName } from "../src";
 import { matchersWithOptions } from "jest-json-schema";
 import * as utils from "./utils";
 import * as schema from "./schema/address";

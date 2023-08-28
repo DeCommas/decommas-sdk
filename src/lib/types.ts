@@ -7,6 +7,8 @@ export enum ChainName {
   GNOSIS = "gnosis",
   FANTOM = "fantom",
   POLYGON = "polygon",
+  BASE = "base",
+  OPBNB = "opbnb",
 }
 
 export type TAddress = string;

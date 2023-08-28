@@ -31,7 +31,7 @@
           "@business/*": ["./src/business/*"],
           "@infrastructure/*": ["./src/infrastructure/*"],
           "@mocks/*": ["./src/mocks/*"],
-          "@decommas/sdk/*": ["./src/*"]
+          "@decommas/sdk/*": ["./*"]
       },
     },
     "include": ["src/**/*", "tests/**/*"]

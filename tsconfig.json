@@ -33,5 +33,5 @@
           "@mocks/*": ["./src/mocks/*"]
       },
     },
-    "include": ["src/**/*"]
+    "include": ["src/**/*", "tests/**/*"]
 }

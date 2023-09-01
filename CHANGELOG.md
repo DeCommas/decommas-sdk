@@ -12,7 +12,7 @@
 - added `metadata.getCoins` method
 - added `metadata.getTokens` method
 - added `metadata.getTokensBySymbol` method
-- added chainames for Bae and opBNB
+- added chainames for Base and opBNB
 
 ### Minor Changes
 - fix typing for all methods

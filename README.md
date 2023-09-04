@@ -14,6 +14,8 @@ Supported chains (mainnet only):
 - **Avalanche**
 - **Fantom**
 - **Gnosis(ex-xDai)**
+- **Base**
+- **opBNB**
 
 ## Quick start
 

@@ -6,6 +6,11 @@
 
 ### Minor Changes
 
+## 1.2.2
+
+### Minor Changes
+- added Base and opBNB to readme
+
 ## 1.2.1
 
 ### Major Changes

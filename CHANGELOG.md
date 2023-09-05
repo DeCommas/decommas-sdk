@@ -6,6 +6,11 @@
 
 ### Minor Changes
 
+## 1.3.1
+
+### Minor Changes
+- minor tests fixes
+
 ## 1.2.2
 
 ### Minor Changes

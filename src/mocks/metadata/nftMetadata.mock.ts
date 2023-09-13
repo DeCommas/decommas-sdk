@@ -1,4 +1,4 @@
-import { ChainName } from "@lib/types";
+import { EvmChainName } from "@lib/chains";
 import {
   TGetNftMetadataResponse,
   TGetNftMetadataResponseRaw,
@@ -7,7 +7,7 @@ import {
 export const mockNftMetadataResponseRaw: TGetNftMetadataResponseRaw = {
   status: 200,
   result: {
-    chain_name: ChainName.MAINNET,
+    chain_name: EvmChainName.MAINNET,
     chain_id: 1,
     contract_address: "0x76be3b62873462d2142405439777e971754e8e77",
     token_id: "10709",
@@ -22,7 +22,7 @@ export const mockNftMetadataResponseRaw: TGetNftMetadataResponseRaw = {
 };
 
 export const mockNftMetadataResponse: TGetNftMetadataResponse = {
-  chainName: ChainName.MAINNET,
+  chainName: EvmChainName.MAINNET,
   chainId: 1,
   contractAddress: "0x76be3b62873462d2142405439777e971754e8e77",
   tokenId: "10709",

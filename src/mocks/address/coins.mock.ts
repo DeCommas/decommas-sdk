@@ -1,4 +1,4 @@
-import { ChainName } from "@lib/types";
+import { EvmChainName } from "@lib/chains";
 import {
   TGetCoinsResponse,
   TGetCoinsResponseRaw,
@@ -13,7 +13,7 @@ export const mockCoinsMetadataResponseRaw: TGetCoinsMetadataResponseRaw = {
   status: 200,
   result: [
     {
-      chain_name: ChainName.MAINNET,
+      chain_name: EvmChainName.MAINNET,
       chain_id: 1,
       name: "ethereum",
       symbol: "ETH",
@@ -29,7 +29,7 @@ export const mockCoinsMetadataResponse: TGetCoinsMetadataResponse = {
   count: 22,
   result: [
     {
-      chainName: ChainName.MAINNET,
+      chainName: EvmChainName.MAINNET,
       chainId: 1,
       name: "ethereum",
       symbol: "ETH",

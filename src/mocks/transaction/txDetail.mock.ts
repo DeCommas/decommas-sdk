@@ -1,4 +1,4 @@
-import { ChainName } from "@lib/types";
+import { EvmChainName } from "@lib/chains";
 import {
   TGetTxDetailResponse,
   TGetTxDetailResponseRaw,
@@ -7,7 +7,7 @@ import {
 export const mockTxDetailResponseRaw: TGetTxDetailResponseRaw = {
   status: 200,
   result: {
-    chain_name: ChainName.MAINNET,
+    chain_name: EvmChainName.MAINNET,
     chain_id: 1,
     block_number: 13545048,
     block_timestamp: 1635958557,
@@ -29,7 +29,7 @@ export const mockTxDetailResponseRaw: TGetTxDetailResponseRaw = {
 };
 
 export const mockTxDetailResponse: TGetTxDetailResponse = {
-  chainName: ChainName.MAINNET,
+  chainName: EvmChainName.MAINNET,
   chainId: 1,
   blockNumber: 13545048,
   blockTimestamp: 1635958557,

@@ -1,4 +1,4 @@
-import { ChainName } from "@lib/types";
+import { EvmChainName } from "@lib/chains";
 import {
   TGetTransactionsResponse,
   TGetTransactionsResponseRaw,
@@ -8,7 +8,7 @@ export const mockTransactionsResponseRaw: TGetTransactionsResponseRaw = {
   status: 200,
   result: [
     {
-      chain_name: ChainName.MAINNET,
+      chain_name: EvmChainName.MAINNET,
       chain_id: 10,
       hash: "0x07cae200e50f9e53ffee9846dcec4a3a30773d064a2966746361ecd9ee2d1e27",
       block_number: 106147107,
@@ -32,7 +32,7 @@ export const mockTransactionsResponseRaw: TGetTransactionsResponseRaw = {
 export const mockTransactionsResponse: TGetTransactionsResponse = {
   result: [
     {
-      chainName: ChainName.MAINNET,
+      chainName: EvmChainName.MAINNET,
       chainId: 10,
       hash: "0x07cae200e50f9e53ffee9846dcec4a3a30773d064a2966746361ecd9ee2d1e27",
       blockNumber: 106147107,

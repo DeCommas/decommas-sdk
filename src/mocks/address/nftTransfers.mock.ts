@@ -1,4 +1,4 @@
-import { ChainName } from "@lib/types";
+import { EvmChainName } from "@lib/chains";
 import {
   TGetNftTransfersResponse,
   TGetNftTransfersResponseRaw,
@@ -8,7 +8,7 @@ export const mockNftTransfersResponseRaw: TGetNftTransfersResponseRaw = {
   status: 200,
   result: [
     {
-      chain_name: ChainName.MAINNET,
+      chain_name: EvmChainName.MAINNET,
       chain_id: 137,
       block_number: 44570085,
       block_timestamp: 1688247708,
@@ -30,7 +30,7 @@ export const mockNftTransfersResponseRaw: TGetNftTransfersResponseRaw = {
 export const mockNftTransfersResponse: TGetNftTransfersResponse = {
   result: [
     {
-      chainName: ChainName.MAINNET,
+      chainName: EvmChainName.MAINNET,
       chainId: 137,
       blockNumber: 44570085,
       blockTimestamp: 1688247708,

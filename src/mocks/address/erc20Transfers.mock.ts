@@ -1,4 +1,4 @@
-import { ChainName } from "@lib/types";
+import { EvmChainName } from "@lib/chains";
 import {
   TGetErc20TransfersResponse,
   TGetErc20TransfersResponseRaw,
@@ -8,7 +8,7 @@ export const mockErc20TransfersResponseRaw: TGetErc20TransfersResponseRaw = {
   status: 200,
   result: [
     {
-      chain_name: ChainName.MAINNET,
+      chain_name: EvmChainName.MAINNET,
       chain_id: 10,
       block_number: 106147116,
       block_timestamp: 1687893009,
@@ -28,7 +28,7 @@ export const mockErc20TransfersResponseRaw: TGetErc20TransfersResponseRaw = {
 export const mockErc20TransfersResponse: TGetErc20TransfersResponse = {
   result: [
     {
-      chainName: ChainName.MAINNET,
+      chainName: EvmChainName.MAINNET,
       chainId: 10,
       blockNumber: 106147116,
       blockTimestamp: 1687893009,

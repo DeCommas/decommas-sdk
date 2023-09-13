@@ -1,8 +1,9 @@
-import { ChainName, TAddress } from "@lib/types";
+import { TAddress } from "@lib/types";
 import { ApiResponse } from "@infrastructure/network";
+import { EvmChainName } from "@lib/chains";
 
 export type TTxDetailRaw = {
-  chain_name: ChainName;
+  chain_name: EvmChainName;
   chain_id: number;
   block_number: number;
   block_timestamp: number;
@@ -23,7 +24,7 @@ export type TTxDetailRaw = {
 };
 
 export type TTxDetail = {
-  chainName: ChainName;
+  chainName: EvmChainName;
   chainId: number;
   blockNumber: number;
   blockTimestamp: number;
@@ -44,7 +45,7 @@ export type TTxDetail = {
 };
 
 export type TGetTxDetailRequest = {
-  chainName: ChainName;
+  chainName: EvmChainName;
   txHash: string;
 };
 

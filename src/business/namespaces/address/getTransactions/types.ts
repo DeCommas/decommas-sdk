@@ -1,12 +1,13 @@
-import { ChainName, TAddress } from "@lib/types";
+import { TAddress } from "@lib/types";
 import {
   PaginatedRequest,
   PaginatedResponse,
   PaginatedResponseRaw,
 } from "@infrastructure/network";
+import { EvmChainName } from "@lib/chains";
 
 export type TTransactionRaw = {
-  chain_name: ChainName;
+  chain_name: EvmChainName;
   chain_id: number;
   hash: string;
   block_number: number;
@@ -26,7 +27,7 @@ export type TTransactionRaw = {
 };
 
 export type TTransaction = {
-  chainName: ChainName;
+  chainName: EvmChainName;
   chainId: number;
   hash: string;
   blockNumber: number;
@@ -47,7 +48,7 @@ export type TTransaction = {
 
 export type TGetTransactionsRequest = PaginatedRequest<{
   address: TAddress;
-  chains?: ChainName[];
+  chains?: EvmChainName[];
 }>;
 
 export type TGetTransactionsResponseRaw = Omit<

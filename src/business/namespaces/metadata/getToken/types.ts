@@ -1,9 +1,10 @@
-import { ChainName, TAddress } from "@lib/types";
+import { TAddress } from "@lib/types";
 import { ApiResponse } from "@infrastructure/network";
 import { TToken, TTokenRaw } from "@business/domains/tokens/types";
+import { EvmChainName } from "@lib/chains";
 
 export type TGetTokenMetadataRequest = {
-  chainName: ChainName;
+  chainName: EvmChainName;
   contractAddress: TAddress;
 };
 

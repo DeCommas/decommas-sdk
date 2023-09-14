@@ -1,9 +1,9 @@
 {
   "name": "@decommas/sdk",
-  "version": "1.3.1",
+  "version": "1.4.1",
   "description": "DeCommas API SDK",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "distCJS/index.js",
+  "types": "distCJS/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/decommas/decommas-sdk/dl-sdk"
@@ -18,18 +18,24 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf dist && tsc -p tsconfig.build.json  && tsc-alias",
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:cjs": "rimraf distCJS && tsc -p tsconfig.build.cjs.json  && tsc-alias -p tsconfig.build.cjs.json",
+    "build:esm": "rimraf distESM && tsc -p tsconfig.build.esm.json  && tsc-alias -p tsconfig.build.esm.json",
     "dev": "tsc && tsc-alias --watch",
     "test": "jest",
     "lint": "eslint --ext .ts .",
     "publish": "yarn lint && yarn build && yarn test && npm publish",
-    "type:check:src": "tsc --project tsconfig.build.json --noEmit",
+    "type:check:src": "tsc --project tsconfig.build.cjs.json --noEmit",
     "test:unit": "jest src",
     "test:e2e": "jest tests"
   },
   "engines": {
     "node": ">=18.0.0"
   },
+  "exports": {".": {
+    "require": "./distCJS/index.js",
+    "import": "./distESM/index.js"
+  }},
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
     "@types/jest": "^29.5.2",

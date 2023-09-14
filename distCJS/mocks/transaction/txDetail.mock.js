@@ -1,0 +1,47 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.mockTxDetailResponse = exports.mockTxDetailResponseRaw = void 0;
+const chains_1 = require("../../lib/chains");
+exports.mockTxDetailResponseRaw = {
+    status: 200,
+    result: {
+        chain_name: chains_1.EvmChainName.MAINNET,
+        chain_id: 1,
+        block_number: 13545048,
+        block_timestamp: 1635958557,
+        hash: "0x48cd7f0228f198efa9792274269173d1bba7165b0e7354a06839e6bbee8ed7cb",
+        transaction_index: 319,
+        from_address: "0xcc0216867bffcbf2db30918bc6215ab762a16a38",
+        to_address: "0x9757f2d2b135150bbeb65308d4a91804107cd8d6",
+        value: "256250000000000000",
+        fee: "53273357143475458",
+        status: true,
+        gas_price: "166210188331",
+        gas_used: "320518",
+        block_base_fee_per_gas: "130243738299",
+        method_hash: "0xe99a3f80",
+        method: "matchOrders",
+        transaction_tags: [],
+        deployed_contract: "0xce74a760b754f7717e7a62e389d4b153aa753e0e",
+    },
+};
+exports.mockTxDetailResponse = {
+    chainName: chains_1.EvmChainName.MAINNET,
+    chainId: 1,
+    blockNumber: 13545048,
+    blockTimestamp: 1635958557,
+    hash: "0x48cd7f0228f198efa9792274269173d1bba7165b0e7354a06839e6bbee8ed7cb",
+    transactionIndex: 319,
+    fromAddress: "0xcc0216867bffcbf2db30918bc6215ab762a16a38",
+    toAddress: "0x9757f2d2b135150bbeb65308d4a91804107cd8d6",
+    value: "256250000000000000",
+    fee: "53273357143475458",
+    status: true,
+    gasPrice: "166210188331",
+    gasUsed: "320518",
+    blockBaseFeePerGas: "130243738299",
+    methodHash: "0xe99a3f80",
+    method: "matchOrders",
+    transactionTags: [],
+    deployedContract: "0xce74a760b754f7717e7a62e389d4b153aa753e0e",
+};

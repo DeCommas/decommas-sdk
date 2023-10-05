@@ -9,6 +9,7 @@ export enum ChainName {
   POLYGON = "polygon",
   BASE = "base",
   OPBNB = "opbnb",
+  LINEA = "linea",
 }
 
 export type TAddress = string;

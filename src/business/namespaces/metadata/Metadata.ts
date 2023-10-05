@@ -26,6 +26,12 @@ import {
   TGetTokensMetadataBySymbol,
   TGetTokensMetadataBySymbolRequest,
 } from "@business/namespaces/metadata/getTokensBySymbol/types";
+import {
+  TGetTokenHolders,
+  TGetTokenHoldersRequest,
+  TGetTokenHoldersResponseRaw,
+} from "@business/namespaces/metadata/getTokenHolders/types";
+import { tokenHoldersDataMapper } from "@business/namespaces/metadata/getTokenHolders/tokenHoldersDataMapper";
 
 interface IMetadata {
   getNft: TGetNftMetadata;
@@ -33,6 +39,7 @@ interface IMetadata {
   getTokens: TGetTokensMetadata;
   getTokensBySymbol: TGetTokensMetadataBySymbol;
   getCoins: TGetCoinsMetadata;
+  getTokenHolders: TGetTokenHolders;
 }
 
 export class Metadata implements IMetadata {
@@ -95,5 +102,17 @@ export class Metadata implements IMetadata {
         }
       );
     return coinsMetadataDataMapper(responseRaw);
+  }
+
+  public async getTokenHolders(request: TGetTokenHoldersRequest) {
+    const responseRaw =
+      await this.httpRequest.fetch<TGetTokenHoldersResponseRaw>(
+        `token_holders/${request.chainName}/${request.contractAddress}`,
+        {
+          limit: request.limit,
+          offset: request.offset,
+        }
+      );
+    return tokenHoldersDataMapper(responseRaw);
   }
 }

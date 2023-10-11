@@ -1,8 +1,9 @@
-import { ChainName, TAddress } from "@lib/types";
+import { TAddress } from "@lib/types";
 import { ApiResponse } from "@infrastructure/network";
+import { EvmChainName } from "@lib/chains";
 
 export type TNftMetadataRaw = {
-  chain_name: ChainName;
+  chain_name: EvmChainName;
   chain_id: number;
   contract_address: TAddress;
   token_id: string;
@@ -15,7 +16,7 @@ export type TNftMetadataRaw = {
 };
 
 export type TNftMetadata = {
-  chainName: ChainName;
+  chainName: EvmChainName;
   chainId: number;
   contractAddress: TAddress;
   tokenId: string;
@@ -28,7 +29,7 @@ export type TNftMetadata = {
 };
 
 export type TGetNftMetadataRequest = {
-  chainName: ChainName;
+  chainName: EvmChainName;
   contractAddress: TAddress;
   tokenId: string;
 };

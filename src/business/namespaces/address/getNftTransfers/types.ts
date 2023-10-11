@@ -1,12 +1,13 @@
-import { ChainName, TAddress } from "@lib/types";
+import { TAddress } from "@lib/types";
 import {
   PaginatedRequest,
   PaginatedResponse,
   PaginatedResponseRaw,
 } from "@infrastructure/network";
+import { EvmChainName } from "@lib/chains";
 
 export type TNftTransferRaw = {
-  chain_name: ChainName;
+  chain_name: EvmChainName;
   chain_id: number;
   block_number: number;
   block_timestamp: number;
@@ -23,7 +24,7 @@ export type TNftTransferRaw = {
 };
 
 export type TNftTransfer = {
-  chainName: ChainName;
+  chainName: EvmChainName;
   chainId: number;
   blockNumber: number;
   blockTimestamp: number;
@@ -41,7 +42,7 @@ export type TNftTransfer = {
 
 export type TGetNftTransfersRequest = PaginatedRequest<{
   address: TAddress;
-  chains?: ChainName[];
+  chains?: EvmChainName[];
 }>;
 
 export type TGetNftTransfersResponseRaw = Omit<

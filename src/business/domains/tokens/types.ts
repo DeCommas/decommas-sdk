@@ -1,7 +1,8 @@
-import { ChainName, TAddress, TWithAmount } from "@lib/types";
+import { TAddress, TWithAmount } from "@lib/types";
+import { EvmChainName } from "@lib/chains";
 
 export type TTokenRaw = {
-  chain_name: ChainName;
+  chain_name: EvmChainName;
   chain_id: number;
   address: TAddress;
   name: string | null;
@@ -15,7 +16,7 @@ export type TTokenRaw = {
 };
 
 export type TToken = {
-  chainName: ChainName;
+  chainName: EvmChainName;
   chainId: number;
   address: TAddress;
   name: string;

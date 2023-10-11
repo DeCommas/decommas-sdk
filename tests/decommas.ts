@@ -1,5 +1,5 @@
 import { config } from "dotenv";
-import { Decommas, ChainName } from "../src";
+import { Decommas, EvmChainName } from "../src";
 import { getEnumValues } from "./utils";
 
 config();
@@ -7,4 +7,4 @@ config();
 const { X_DECOMMAS_KEY } = process.env;
 export const decommas = new Decommas(X_DECOMMAS_KEY);
 
-export const chainNames = getEnumValues(ChainName);
+export const chainNames = getEnumValues(EvmChainName);

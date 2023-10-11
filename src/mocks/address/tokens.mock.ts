@@ -2,7 +2,7 @@ import {
   TGetTokensResponse,
   TGetTokensResponseRaw,
 } from "@business/namespaces/address/getTokens/types";
-import { ChainName } from "@lib/types";
+import { EvmChainName } from "@lib/chains";
 import {
   PaginatedResponse,
   PaginatedResponseRaw,
@@ -14,7 +14,7 @@ export const mockTokensResponseRaw: PaginatedResponseRaw<TTokenRaw> = {
   status: 200,
   result: [
     {
-      chain_name: ChainName.MAINNET,
+      chain_name: EvmChainName.MAINNET,
       chain_id: 1,
       address: "0xdac17f958d2ee523a2206206994597c13d831ec7",
       name: "Tether USD",
@@ -34,7 +34,7 @@ export const mockTokensResponse: PaginatedResponse<TToken> = {
   count: 22,
   result: [
     {
-      chainName: ChainName.MAINNET,
+      chainName: EvmChainName.MAINNET,
       chainId: 1,
       address: "0xdac17f958d2ee523a2206206994597c13d831ec7",
       name: "Tether USD",

@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig",
+  "exclude": [
+    "**/*.test.ts", "tests"
+  ],
+  "compilerOptions": {
+    "outDir": "distCJS",
+    "module": "commonjs"
+  }
+}

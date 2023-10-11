@@ -9,7 +9,7 @@ export default {
   coverageDirectory: "coverage",
   coverageProvider: "v8",
   preset: "ts-jest",
-  testPathIgnorePatterns: ["dist"],
+  testPathIgnorePatterns: ["distCJM", "distESM"],
   moduleNameMapper: {
     "^@lib/(.*)$": "<rootDir>/src/lib/$1",
     "^@business/(.*)$": "<rootDir>/src/business/$1",

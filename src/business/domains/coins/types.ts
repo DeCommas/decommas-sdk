@@ -1,7 +1,8 @@
-import { ChainName, TWithAmount } from "@lib/types";
+import { TWithAmount } from "@lib/types";
+import { EvmChainName } from "@lib/chains";
 
 export type TCoinRaw = {
-  chain_name: ChainName;
+  chain_name: EvmChainName;
   chain_id: number;
   name: string;
   symbol: string;
@@ -11,7 +12,7 @@ export type TCoinRaw = {
 };
 
 export type TCoin = {
-  chainName: ChainName;
+  chainName: EvmChainName;
   chainId: number;
   name: string;
   symbol: string;

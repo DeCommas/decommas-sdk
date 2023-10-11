@@ -1,5 +1,5 @@
 export { Decommas } from "./Decommas";
-export { ChainName } from "@lib/types";
+export * from "@lib/chains";
 export type { TAddress } from "@lib/types";
 
 export type { TErc20Transfer } from "@business/namespaces/address/getErc20Transfers/types";

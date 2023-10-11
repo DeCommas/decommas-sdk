@@ -1,4 +1,4 @@
-import { ChainName } from "../src";
+import { EvmChainName } from "../src";
 import { matchersWithOptions } from "jest-json-schema";
 import { checkResponse } from "./utils";
 import * as schema from "./schema/tx";
@@ -13,7 +13,7 @@ expect.extend(
 describe("test namespace transaction", () => {
   test("getErc20TransfersByTx", async () => {
     const data = {
-      chainName: ChainName.MAINNET,
+      chainName: EvmChainName.MAINNET,
       txHash:
         "0xf242769b6e2c784fccf4007623b520e67c57b2741ad15c4e16ba00f11acb8ab7",
     };
@@ -25,7 +25,7 @@ describe("test namespace transaction", () => {
 
   test("getNftTransfersByTx", async () => {
     const data = {
-      chainName: ChainName.MAINNET,
+      chainName: EvmChainName.MAINNET,
       txHash:
         "0x0d691b19523986847beff7c6af41353fe7a20bddcf3a82ae0c81e1a82e6428d8",
     };
@@ -37,7 +37,7 @@ describe("test namespace transaction", () => {
 
   test("getDetail", async () => {
     const data = {
-      chainName: ChainName.MAINNET,
+      chainName: EvmChainName.MAINNET,
       txHash:
         "0xf242769b6e2c784fccf4007623b520e67c57b2741ad15c4e16ba00f11acb8ab7",
     };

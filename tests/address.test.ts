@@ -1,9 +1,8 @@
-import { Decommas, ChainName } from "../src";
+import { Decommas, EvmChainName } from "../src";
 import { matchersWithOptions } from "jest-json-schema";
 import * as utils from "./utils";
 import * as schema from "./schema/address";
 import { config } from "dotenv";
-import { getEnumValues } from "./utils";
 import { chainNames } from "./decommas";
 
 expect.extend(
@@ -31,7 +30,6 @@ describe("test for namespace address", () => {
     });
 
     test("checking all networks", async () => {
-      const chainNames = getEnumValues(ChainName);
       for (const chain of chainNames) {
         await utils.sleep();
 
@@ -53,7 +51,7 @@ describe("test for namespace address", () => {
     test("massive chain check", async () => {
       const data = {
         address: wallet,
-        chains: [ChainName.ARBITRUM, ChainName.OPTIMISM],
+        chains: [EvmChainName.ARBITRUM, EvmChainName.OPTIMISM],
         limit: 100,
       };
 
@@ -119,7 +117,7 @@ describe("test for namespace address", () => {
       utils.checkResponse(response, schema.schema_200_tokens);
 
       const resultHasVerifiedTrue = response.result.some(
-        (chains) => chains.isVerified == false
+        (chains) => !chains.isVerified
       );
 
       expect(resultHasVerifiedTrue).toBe(false);
@@ -129,7 +127,7 @@ describe("test for namespace address", () => {
     test("massive chain check", async () => {
       const data = {
         address: wallet,
-        chains: [ChainName.POLYGON, ChainName.GNOSIS],
+        chains: [EvmChainName.POLYGON, EvmChainName.GNOSIS],
         limit: 100,
       };
 
@@ -185,7 +183,7 @@ describe("test for namespace address", () => {
     test("massive chain check", async () => {
       const data = {
         address: wallet,
-        chains: [ChainName.FANTOM, ChainName.BSC],
+        chains: [EvmChainName.FANTOM, EvmChainName.BSC],
         limit: 100,
       };
 
@@ -241,7 +239,7 @@ describe("test for namespace address", () => {
     test("massive chain check", async () => {
       const data = {
         address: wallet,
-        chains: [ChainName.FANTOM, ChainName.AVALANCHE],
+        chains: [EvmChainName.FANTOM, EvmChainName.AVALANCHE],
         limit: 100,
       };
 
@@ -297,7 +295,7 @@ describe("test for namespace address", () => {
     test("massive chain check", async () => {
       const data = {
         address: wallet,
-        chains: [ChainName.OPTIMISM, ChainName.BSC],
+        chains: [EvmChainName.OPTIMISM, EvmChainName.BSC],
         limit: 100,
       };
 
@@ -353,7 +351,7 @@ describe("test for namespace address", () => {
     test("massive chain check", async () => {
       const data = {
         address: wallet,
-        chains: [ChainName.MAINNET, ChainName.BSC],
+        chains: [EvmChainName.MAINNET, EvmChainName.BSC],
         limit: 100,
       };
 

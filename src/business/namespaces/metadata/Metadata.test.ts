@@ -3,7 +3,7 @@ import {
   mockNftMetadataResponse,
   mockNftMetadataResponseRaw,
 } from "@mocks/metadata/nftMetadata.mock";
-import { ChainName } from "@lib/types";
+import { EvmChainName } from "@lib/chains";
 import { Metadata } from "./Metadata";
 import {
   mockTokenMetadataResponse,
@@ -27,7 +27,7 @@ describe("Metadata", () => {
 
     expect(
       await address.getNft({
-        chainName: ChainName.MAINNET,
+        chainName: EvmChainName.MAINNET,
         contractAddress: "0x0000000000000000000000000000000000000000",
         tokenId: "111",
       })
@@ -42,7 +42,7 @@ describe("Metadata", () => {
 
     expect(
       await metadata.getToken({
-        chainName: ChainName.MAINNET,
+        chainName: EvmChainName.MAINNET,
         contractAddress: "0x0000000000000000000000000000000000000000",
       })
     ).toStrictEqual(mockTokenMetadataResponse);
@@ -56,7 +56,7 @@ describe("Metadata", () => {
 
     expect(
       await metadata.getToken({
-        chainName: ChainName.MAINNET,
+        chainName: EvmChainName.MAINNET,
         contractAddress: "0x0000000000000000000000000000000000000000",
       })
     ).toStrictEqual(mockTokenMetadataResponse);
@@ -70,7 +70,7 @@ describe("Metadata", () => {
 
     expect(
       await metadata.getTokensBySymbol({
-        chains: [ChainName.MAINNET],
+        chains: [EvmChainName.MAINNET],
         symbol: "USDC",
       })
     ).toStrictEqual(mockTokensResponse);

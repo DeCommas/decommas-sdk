@@ -1,4 +1,4 @@
-import { ChainName, TAddress } from "@lib/types";
+import { TAddress } from "@lib/types";
 import {
   PaginatedResponse,
   PaginatedResponseRaw,
@@ -7,10 +7,11 @@ import {
   TCoinWithAmount,
   TCoinWithAmountRaw,
 } from "@business/domains/coins/types";
+import { EvmChainName } from "@lib/chains";
 
 export type TGetCoinsRequest = {
   address: TAddress;
-  chains?: ChainName[];
+  chains?: EvmChainName[];
 };
 
 export type TGetCoinsResponseRaw = PaginatedResponseRaw<TCoinWithAmountRaw>;

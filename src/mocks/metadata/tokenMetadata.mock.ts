@@ -1,11 +1,11 @@
-import { ChainName } from "@lib/types";
+import { EvmChainName } from "@lib/chains";
 import { TGetTokenMetadataResponseRaw } from "@business/namespaces/metadata/getToken/types";
 import { TToken } from "@business/domains/tokens/types";
 
 export const mockTokenMetadataResponseRaw: TGetTokenMetadataResponseRaw = {
   status: 200,
   result: {
-    chain_name: ChainName.MAINNET,
+    chain_name: EvmChainName.MAINNET,
     chain_id: 1,
     address: "0xdac17f958d2ee523a2206206994597c13d831ec7",
     name: "Tether USD",
@@ -21,7 +21,7 @@ export const mockTokenMetadataResponseRaw: TGetTokenMetadataResponseRaw = {
 };
 
 export const mockTokenMetadataResponse: TToken = {
-  chainName: ChainName.MAINNET,
+  chainName: EvmChainName.MAINNET,
   chainId: 1,
   address: "0xdac17f958d2ee523a2206206994597c13d831ec7",
   name: "Tether USD",

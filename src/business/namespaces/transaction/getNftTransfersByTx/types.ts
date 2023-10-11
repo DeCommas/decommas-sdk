@@ -1,9 +1,10 @@
-import { ChainName, TAddress } from "@lib/types";
+import { TAddress } from "@lib/types";
 import {
   PaginatedRequest,
   PaginatedResponse,
   PaginatedResponseRaw,
 } from "@infrastructure/network";
+import { EvmChainName } from "@lib/chains";
 
 export type TNftTransferByTxRaw = {
   block_number: number;
@@ -31,7 +32,7 @@ export type TNftTransferByTx = {
 
 export type TGetNftTransfersByTxRequest = PaginatedRequest<{
   txHash: string;
-  chainName: ChainName;
+  chainName: EvmChainName;
 }>;
 
 export type TGetNftTransfersByTxResponseRaw = Omit<

@@ -1,9 +1,10 @@
-import { ChainName, TAddress } from "@lib/types";
+import { TAddress } from "@lib/types";
 import {
   PaginatedRequest,
   PaginatedResponse,
   PaginatedResponseRaw,
 } from "@infrastructure/network";
+import { EvmChainName } from "@lib/chains";
 
 export type TErc20TransferByTxRaw = {
   block_number: number;
@@ -27,7 +28,7 @@ export type TErc20TransferByTx = {
 
 export type TGetErc20TransfersByTxRequest = PaginatedRequest<{
   txHash: string;
-  chainName: ChainName;
+  chainName: EvmChainName;
 }>;
 
 export type TGetErc20TransfersByTxResponseRaw = Omit<

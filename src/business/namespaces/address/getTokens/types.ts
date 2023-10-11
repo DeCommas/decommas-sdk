@@ -3,16 +3,16 @@ import {
   PaginatedResponse,
   PaginatedResponseRaw,
 } from "@infrastructure/network";
-import { ChainName } from "@lib/types";
 import {
   TTokenWithAmountRaw,
   TTokenWithAmount,
 } from "@business/domains/tokens/types";
+import { EvmChainName } from "@lib/chains";
 
 export type TGetTokensRequest = PaginatedRequest<{
   address: string;
   verified?: boolean;
-  chains?: ChainName[];
+  chains?: EvmChainName[];
 }>;
 
 export type TGetTokensResponseRaw = PaginatedResponseRaw<TTokenWithAmountRaw>;

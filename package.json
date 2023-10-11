@@ -15,12 +15,12 @@
   "author": "Decommas",
   "license": "MIT",
   "files": [
-    "dist"
+    "distESM", "distCJS"
   ],
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",
-    "build:cjs": "rimraf distCJS && tsc -p tsconfig.build.cjs.json  && tsc-alias -p tsconfig.build.cjs.json",
-    "build:esm": "rimraf distESM && tsc -p tsconfig.build.esm.json  && tsc-alias -p tsconfig.build.esm.json",
+    "build:cjs": "rimraf distCJS && tsc -p tsconfig.build.cjs.json && tsc-alias -p tsconfig.build.cjs.json",
+    "build:esm": "rimraf distESM && tsc -p tsconfig.build.esm.json && tsc-alias -p tsconfig.build.esm.json",
     "dev": "tsc && tsc-alias --watch",
     "test": "jest",
     "lint": "eslint --ext .ts .",

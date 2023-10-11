@@ -94,6 +94,7 @@ export class Metadata implements IMetadata {
           networks: request?.chains,
         }
       );
+
     return coinsMetadataDataMapper(responseRaw);
   }
 }

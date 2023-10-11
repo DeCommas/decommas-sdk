@@ -1,5 +1,6 @@
-import { ChainName, TAddress } from "@lib/types";
+import { TAddress } from "@lib/types";
 import { PaginatedRequest } from "@infrastructure/network";
+import { ChainName } from "@lib/chains";
 
 export type TTokenHolderRaw = {
   holder_address: TAddress;

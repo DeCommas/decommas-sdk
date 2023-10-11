@@ -30,6 +30,7 @@ export enum EvmChainId {
   OPBNB = 204,
   OPTIMISM = 10,
   POLYGON = 137,
+  LINEA = 59144,
 }
 
 export const EvmChainIdToNameMap: Record<EvmChainId, EvmChainName> = {
@@ -43,6 +44,7 @@ export const EvmChainIdToNameMap: Record<EvmChainId, EvmChainName> = {
   [EvmChainId.GNOSIS]: EvmChainName.GNOSIS,
   [EvmChainId.OPBNB]: EvmChainName.OPBNB,
   [EvmChainId.BASE]: EvmChainName.BASE,
+  [EvmChainId.LINEA]: EvmChainName.LINEA,
 };
 
 export const EvmChainNameToIdMap: Record<EvmChainName, EvmChainId> = {
@@ -56,6 +58,7 @@ export const EvmChainNameToIdMap: Record<EvmChainName, EvmChainId> = {
   [EvmChainName.GNOSIS]: EvmChainId.GNOSIS,
   [EvmChainName.OPBNB]: EvmChainId.OPBNB,
   [EvmChainName.BASE]: EvmChainId.BASE,
+  [EvmChainName.LINEA]: EvmChainId.LINEA,
 };
 
 export enum ChainType {

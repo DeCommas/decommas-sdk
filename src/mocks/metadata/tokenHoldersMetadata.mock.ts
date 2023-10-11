@@ -1,8 +1,8 @@
-import { ChainName } from "@lib/types";
 import {
   TGetTokenHoldersResponse,
   TGetTokenHoldersResponseRaw,
 } from "@business/namespaces/metadata/getTokenHolders/types";
+import { EvmChainName } from "@lib/chains";
 
 export const mockTokenHoldersMetadataResponseRaw: TGetTokenHoldersResponseRaw =
   {
@@ -14,7 +14,7 @@ export const mockTokenHoldersMetadataResponseRaw: TGetTokenHoldersResponseRaw =
         decimals: "6",
         actual_price: "1.001",
         chain_id: "1",
-        chain_name: ChainName.MAINNET,
+        chain_name: EvmChainName.MAINNET,
       },
     ],
   };
@@ -26,6 +26,6 @@ export const mockTokenHoldersMetadataResponse: TGetTokenHoldersResponse = [
     decimals: 6,
     actualPrice: "1.001",
     chainId: 1,
-    chainName: ChainName.MAINNET,
+    chainName: EvmChainName.MAINNET,
   },
 ];

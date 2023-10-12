@@ -43,7 +43,7 @@ getVitalikERC20Balances();
 And this is it! Now you're ready to build your own project. You can use `decommas.address.getCoins` and `decommas.address.getTokens` freely for development purposes.
 
 ### Quick start with API key
-> When your app is ready for some battle-tests, or you'd like to use all DeCommas API functionality, sugin up on [our dashboard](https://dashboard.decommas.io/) to get API key. It's still free to use but allows calls to all API methods and increases rate limits.
+> When your app is ready for some battle-tests, or you'd like to use all DeCommas API functionality, sign up on [our dashboard](https://build.decommas.io/) by pressing "Get Started" to get API key. It's still free to use but allows calls to all API methods and increases rate limits.
 
 
 ```ts

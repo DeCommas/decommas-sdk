@@ -27,6 +27,19 @@ describe("test namespace metadata", () => {
     expect(response.chainId).toBe(56);
   });
 
+  test("getTokenHolders", async () => {
+    for (const chainName of chainNames) {
+      const data = {
+        chainName,
+        contractAddress: "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+      };
+
+      const response = await decommas.metadata.getTokenHolders(data);
+      //console.log(response);
+      checkResponse(response, schema.schema_200_getTokenHolders);
+    }
+  });
+
   test("getToken", async () => {
     const data = {
       chainName: EvmChainName.ARBITRUM,

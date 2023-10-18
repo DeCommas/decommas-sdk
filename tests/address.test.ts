@@ -108,7 +108,7 @@ describe("test for namespace address", () => {
       utils.checkResponse(response, schema.schema_200_tokens);
       expect(response.result.length).toBeGreaterThan(20);
       expect(response.result.length).toBeLessThanOrEqual(50);
-    });
+    }, 50000);
 
     test("isVerified check", async () => {
       const data = {

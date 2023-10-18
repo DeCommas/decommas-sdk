@@ -16,6 +16,7 @@ Supported chains (mainnet only):
 - **Gnosis(ex-xDai)**
 - **Base**
 - **opBNB**
+- **Linea**
 
 ## Quick start
 
@@ -167,7 +168,8 @@ The `metadata` namespace contains all metadata-related methods and helpful utils
 - `getToken({ chainName, contractAddress })`: Gets ERC20 token metadata: symbol, current price etc.
 - `getCoins()`: Gets native coins metadata for all supported networks.
 - `getTokens({ chains? })`: Gets list of ERC20 tokens for specified networks.
-- `metadata.getTokensBySymbol({ symbol, chains? })`: Gets token addresses in specified networks by token symbol.
+- `getTokensBySymbol({ symbol, chains? })`: Gets token addresses in specified networks by token symbol.
+- `getTokenHolders({ chainName, contractAddress })`: Gets specified token holders sorted by amount.
 
 ## DeCommas transaction namespace
 

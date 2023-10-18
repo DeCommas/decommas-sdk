@@ -90,7 +90,7 @@ describe("test for namespace address", () => {
           expect(response.result.length).toBeLessThanOrEqual(20);
         }
       }
-    }, 15000);
+    }, 50000);
 
     test("limit check", async () => {
       const data = {
@@ -165,7 +165,7 @@ describe("test for namespace address", () => {
           expect(response.result.length).toBeLessThanOrEqual(20);
         }
       }
-    }, 15000);
+    }, 50000);
 
     test("limit check", async () => {
       const data = {

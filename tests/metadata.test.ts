@@ -35,7 +35,6 @@ describe("test namespace metadata", () => {
       };
 
       const response = await decommas.metadata.getTokenHolders(data);
-      //console.log(response);
       checkResponse(response, schema.schema_200_getTokenHolders);
     }
   });

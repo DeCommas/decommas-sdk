@@ -17,6 +17,10 @@ import {
   mockCoinsMetadataResponse,
   mockCoinsMetadataResponseRaw,
 } from "@mocks/address/coins.mock";
+import {
+  mockTokenHoldersMetadataResponse,
+  mockTokenHoldersMetadataResponseRaw,
+} from "@mocks/metadata/tokenHoldersMetadata.mock";
 
 describe("Metadata", () => {
   test("getNft", async () => {
@@ -83,5 +87,18 @@ describe("Metadata", () => {
     const metadata = new Metadata(httpRequestMock);
 
     expect(await metadata.getCoins()).toStrictEqual(mockCoinsMetadataResponse);
+  });
+
+  test("getTokenHolders", async () => {
+    const httpRequestMock: IHttpRequest = {
+      fetch: jest.fn().mockReturnValue(mockTokenHoldersMetadataResponseRaw),
+    };
+
+    const metadata = new Metadata(httpRequestMock);
+    const response = await metadata.getTokenHolders({
+      chainName: EvmChainName.MAINNET,
+      contractAddress: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    });
+    expect(response).toStrictEqual(mockTokenHoldersMetadataResponse);
   });
 });

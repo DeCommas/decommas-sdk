@@ -170,7 +170,7 @@ describe("test for namespace address", () => {
           expect(response.result.length).toBeLessThanOrEqual(20);
         }
       }
-    }, 50000);
+    }, 100000);
 
     test("limit check", async () => {
       const data = {

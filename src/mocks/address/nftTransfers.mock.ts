@@ -23,6 +23,10 @@ export const mockNftTransfersResponseRaw: TGetNftTransfersResponseRaw = {
         "0xd56e8d4d606499f0e2001d9d04ea5d79ba668ef24ab58c529e97f36e3ddbffe7",
       method: "mintBatch",
       method_hash: "0x927f59ba",
+      fee: "1729918146273732",
+      gas_price: "5545107081",
+      gas_used: "311972",
+      block_base_fee_per_gas: "5245107081",
     },
   ],
 };
@@ -45,6 +49,10 @@ export const mockNftTransfersResponse: TGetNftTransfersResponse = {
         "0xd56e8d4d606499f0e2001d9d04ea5d79ba668ef24ab58c529e97f36e3ddbffe7",
       method: "mintBatch",
       methodHash: "0x927f59ba",
+      fee: "1729918146273732",
+      gasPrice: "5545107081",
+      gasUsed: "311972",
+      blockBaseFeePerGas: "5245107081",
     },
   ],
 };

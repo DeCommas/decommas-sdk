@@ -19,6 +19,10 @@ export type TErc20TransferRaw = {
   transaction_hash: string;
   method: string | null;
   method_hash: string | null;
+  fee: string;
+  gas_price: string;
+  gas_used: string;
+  block_base_fee_per_gas: string;
 };
 
 export type TErc20Transfer = {
@@ -34,6 +38,10 @@ export type TErc20Transfer = {
   transactionHash: string;
   method: string;
   methodHash: string;
+  fee: string;
+  gasPrice: string;
+  gasUsed: string;
+  blockBaseFeePerGas: string;
 };
 
 export type TGetErc20TransfersRequest = PaginatedRequest<{

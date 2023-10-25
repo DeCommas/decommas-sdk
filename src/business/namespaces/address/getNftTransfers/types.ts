@@ -21,6 +21,10 @@ export type TNftTransferRaw = {
   transaction_hash: string;
   method: string | null;
   method_hash: string | null;
+  fee: string;
+  gas_price: string;
+  gas_used: string;
+  block_base_fee_per_gas: string;
 };
 
 export type TNftTransfer = {
@@ -38,6 +42,10 @@ export type TNftTransfer = {
   transactionHash: string;
   method: string;
   methodHash: string;
+  fee: string;
+  gasPrice: string;
+  gasUsed: string;
+  blockBaseFeePerGas: string;
 };
 
 export type TGetNftTransfersRequest = PaginatedRequest<{

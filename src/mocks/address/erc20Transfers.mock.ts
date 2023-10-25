@@ -21,6 +21,10 @@ export const mockErc20TransfersResponseRaw: TGetErc20TransfersResponseRaw = {
         "0xfd1fd95846d51531702861e8a131997e3ef2ba4ca00f6fc364902927a0b704c4",
       method: "deposit",
       method_hash: "0xe2bbb158",
+      fee: "1729918146273732",
+      gas_price: "5545107081",
+      gas_used: "311972",
+      block_base_fee_per_gas: "5245107081",
     },
   ],
 };
@@ -41,6 +45,10 @@ export const mockErc20TransfersResponse: TGetErc20TransfersResponse = {
         "0xfd1fd95846d51531702861e8a131997e3ef2ba4ca00f6fc364902927a0b704c4",
       method: "deposit",
       methodHash: "0xe2bbb158",
+      fee: "1729918146273732",
+      gasPrice: "5545107081",
+      gasUsed: "311972",
+      blockBaseFeePerGas: "5245107081",
     },
   ],
 };

@@ -19,6 +19,10 @@ export const nftTransfersDataMapper = (
       transactionHash: raw.transaction_hash,
       method: raw.method ?? "",
       methodHash: raw.method_hash ?? "",
+      fee: raw.fee,
+      gasPrice: raw.gas_price,
+      gasUsed: raw.gas_used,
+      blockBaseFeePerGas: raw.block_base_fee_per_gas,
     })),
   };
 };

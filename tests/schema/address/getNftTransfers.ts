@@ -1,74 +1,90 @@
 export const schema_200_getNftTransfers = {
-  type: 'object',
+  type: "object",
   properties: {
     result: {
-      type: 'array',
+      type: "array",
       items: {
-        type: 'object',
+        type: "object",
         properties: {
           chainName: {
-            type: 'string',
+            type: "string",
           },
           chainId: {
-            type: 'number',
+            type: "number",
           },
           blockNumber: {
-            type: 'number',
+            type: "number",
           },
           blockTimestamp: {
-            type: 'number',
+            type: "number",
           },
           logIndex: {
-            type: 'number',
+            type: "number",
           },
           fromAddress: {
-            type: 'string',
+            type: "string",
           },
           toAddress: {
-            type: 'string',
+            type: "string",
           },
           contractAddress: {
-            type: 'string',
+            type: "string",
           },
           amount: {
-            type: 'string',
+            type: "string",
           },
           tokenId: {
-            type: 'string',
+            type: "string",
           },
           contractType: {
-            type: 'string',
+            type: "string",
           },
           transactionHash: {
-            type: 'string',
+            type: "string",
           },
           method: {
-            type: 'string',
+            type: "string",
           },
           methodHash: {
-            type: 'string',
+            type: "string",
+          },
+          fee: {
+            type: "string",
+          },
+          gasPrice: {
+            type: "string",
+          },
+          gasUsed: {
+            type: "string",
+          },
+          blockBaseFeePerGas: {
+            type: "string",
           },
         },
         required: [
-          'chainName',
-          'chainId',
-          'blockNumber',
-          'blockTimestamp',
-          'logIndex',
-          'fromAddress',
-          'toAddress',
-          'contractAddress',
-          'tokenId',
-          'contractType',
-          'amount',
-          'transactionHash',
-          'method',
-          'methodHash',
+          "chainName",
+          "chainId",
+          "blockNumber",
+          "blockTimestamp",
+          "logIndex",
+          "fromAddress",
+          "toAddress",
+          "contractAddress",
+          "tokenId",
+          "contractType",
+          "amount",
+          "transactionHash",
+          "method",
+          "methodHash",
+          "fee",
+          "gasPrice",
+          "gasUsed",
+          "blockBaseFeePerGas",
         ],
         additionalProperties: false,
       },
     },
   },
-  required: ['result'],
+  required: ["result"],
   additionalProperties: false,
 };

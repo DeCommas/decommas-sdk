@@ -50,7 +50,7 @@ export type TNftTransfer = {
 
 export type TGetNftTransfersRequest = PaginatedRequest<{
   address: TAddress;
-  chains?: EvmChainName[];
+  chain?: EvmChainName;
 }>;
 
 export type TGetNftTransfersResponseRaw = Omit<

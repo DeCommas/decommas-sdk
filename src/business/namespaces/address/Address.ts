@@ -95,7 +95,7 @@ export class Address implements IAddress {
       await this.httpRequest.fetch<TGetTransactionsResponseRaw>(
         `transactions/${request.address}`,
         {
-          networks: request.chains,
+          networks: request.chain,
           limit: request.limit,
           offset: request.offset,
         }
@@ -109,7 +109,7 @@ export class Address implements IAddress {
       await this.httpRequest.fetch<TGetErc20TransfersResponseRaw>(
         `transfers_erc20/${request.address}`,
         {
-          networks: request.chains,
+          networks: request.chain,
           limit: request.limit,
           offset: request.offset,
         }
@@ -123,7 +123,7 @@ export class Address implements IAddress {
       await this.httpRequest.fetch<TGetNftTransfersResponseRaw>(
         `transfers_nft/${request.address}`,
         {
-          networks: request.chains,
+          networks: request.chain,
           limit: request.limit,
           offset: request.offset,
         }

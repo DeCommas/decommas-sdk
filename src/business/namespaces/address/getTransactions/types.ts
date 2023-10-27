@@ -48,7 +48,7 @@ export type TTransaction = {
 
 export type TGetTransactionsRequest = PaginatedRequest<{
   address: TAddress;
-  chains?: EvmChainName[];
+  chain?: EvmChainName;
 }>;
 
 export type TGetTransactionsResponseRaw = Omit<

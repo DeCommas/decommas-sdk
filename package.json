@@ -1,6 +1,6 @@
 {
   "name": "@decommas/sdk",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "description": "DeCommas API SDK",
   "main": "distCJS/index.js",
   "types": "distCJS/index.d.ts",

@@ -46,7 +46,7 @@ export type TErc20Transfer = {
 
 export type TGetErc20TransfersRequest = PaginatedRequest<{
   address: TAddress;
-  chains?: EvmChainName[];
+  chain?: EvmChainName;
 }>;
 
 export type TGetErc20TransfersResponseRaw = Omit<

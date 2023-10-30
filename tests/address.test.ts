@@ -207,16 +207,16 @@ describe("test for namespace address", () => {
     // test("checking all networks", async () => {
     //   for (const chain of chainNames) {
     //     await utils.sleep();
-    //
+
     //     const data = {
     //       address: wallet,
-    //       chains: [chain],
+    //       chain: chain,
     //     };
-    //
+
     //     const response = await decommas.address.getTransactions(data);
-    //
+
     //     utils.checkResponse(response, schema.schema_200_transactions);
-    //
+
     //     if (response.result.length > 0) {
     //       expect(response?.result[0]?.chainName).toBe(chain);
     //       expect(response.result.length).toBeLessThanOrEqual(20);
@@ -236,27 +236,6 @@ describe("test for namespace address", () => {
       expect(response.result.length).toBeGreaterThan(20);
       expect(response.result.length).toBeLessThanOrEqual(50);
     });
-
-    test("massive chain check", async () => {
-      const data = {
-        address: wallet,
-        chains: [EvmChainName.FANTOM, EvmChainName.AVALANCHE],
-        limit: 100,
-      };
-
-      const response = await decommas.address.getTransactions(data);
-
-      utils.checkResponse(response, schema.schema_200_transactions);
-
-      const expectedNetworks = ["fantom", "avalanche"];
-      const receivedNetworks = response.result.map((chain) => chain.chainName);
-      const unexpectedNetworks = receivedNetworks.filter(
-        (chain) => !expectedNetworks.includes(chain)
-      );
-
-      expect(unexpectedNetworks).toEqual([]);
-      expect(response.result.length).toBeLessThanOrEqual(100);
-    });
   });
 
   describe("getErc20Transfers", () => {
@@ -266,7 +245,7 @@ describe("test for namespace address", () => {
 
         const data = {
           address: wallet,
-          chains: [chain],
+          chain: chain,
         };
 
         const response = await decommas.address.getErc20Transfers(data);
@@ -292,27 +271,6 @@ describe("test for namespace address", () => {
       expect(response.result.length).toBeGreaterThan(20);
       expect(response.result.length).toBeLessThanOrEqual(50);
     });
-
-    test("massive chain check", async () => {
-      const data = {
-        address: wallet,
-        chains: [EvmChainName.OPTIMISM, EvmChainName.BSC],
-        limit: 100,
-      };
-
-      const response = await decommas.address.getErc20Transfers(data);
-
-      utils.checkResponse(response, schema.schema_200_getErc20Transfers);
-
-      const expectedNetworks = ["optimism", "bsc"];
-      const receivedNetworks = response.result.map((chain) => chain.chainName);
-      const unexpectedNetworks = receivedNetworks.filter(
-        (chain) => !expectedNetworks.includes(chain)
-      );
-
-      expect(unexpectedNetworks).toEqual([]);
-      expect(response.result.length).toBeLessThanOrEqual(100);
-    });
   });
 
   describe("getNftTransfers", () => {
@@ -322,7 +280,7 @@ describe("test for namespace address", () => {
 
         const data = {
           address: wallet,
-          chains: [chain],
+          chain: chain,
         };
 
         const response = await decommas.address.getNftTransfers(data);
@@ -347,27 +305,6 @@ describe("test for namespace address", () => {
       utils.checkResponse(response, schema.schema_200_getNftTransfers);
       expect(response.result.length).toBeGreaterThan(20);
       expect(response.result.length).toBeLessThanOrEqual(50);
-    });
-
-    test("massive chain check", async () => {
-      const data = {
-        address: wallet,
-        chains: [EvmChainName.MAINNET, EvmChainName.BSC],
-        limit: 100,
-      };
-
-      const response = await decommas.address.getNftTransfers(data);
-
-      utils.checkResponse(response, schema.schema_200_getNftTransfers);
-
-      const expectedNetworks = ["mainnet", "bsc"];
-      const receivedNetworks = response.result.map((chain) => chain.chainName);
-      const unexpectedNetworks = receivedNetworks.filter(
-        (chain) => !expectedNetworks.includes(chain)
-      );
-
-      expect(unexpectedNetworks).toEqual([]);
-      expect(response.result.length).toBeLessThanOrEqual(100);
     });
   });
 });

@@ -6,6 +6,12 @@
 
 ### Minor Changes
 
+## 1.6.0
+
+### Major Changes
+- `address.getTransactions`, `address.getNftTransfers` and `address.getErc20Transfers` methods now accept only one chain as optional parameter
+
+
 ## 1.3.1
 
 ### Minor Changes

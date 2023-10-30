@@ -301,7 +301,6 @@ describe("test for namespace address", () => {
       };
 
       const response = await decommas.address.getNftTransfers(data);
-      console.log(response);
 
       utils.checkResponse(response, schema.schema_200_getNftTransfers);
       expect(response.result.length).toBeGreaterThan(20);

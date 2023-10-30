@@ -155,7 +155,8 @@ The `address` namespace contains all address-related methods:
 >   limit: 20,
 >   offset: 1,
 >   verified: true,
->   chains: [ChainName.OPTIMISM, ChainName.MAINNET],
+>   chains: [ChainName.OPTIMISM, ChainName.MAINNET], // for getCoins, getTokens, getNfts
+>   chain: ChainName.OPTIMISM, // for getTransactions, getNftTransfers and getErc20Transfers
 > };
 >```
 > By defalult all requests return data for all supported networks.

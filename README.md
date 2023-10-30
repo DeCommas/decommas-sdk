@@ -141,9 +141,9 @@ The `address` namespace contains all address-related methods:
 - `getCoins({ address })`: Gets native coins balances.
 - `getTokens({ address, limit?, offset?, chains?, verified? })`: Gets ERC20 tokens balances.
 - `getNfts({ address, limit?, offset?, chains? })`: Gets NFTs balances.
-- `getErc20Transfers({ address, limit?, offset?, chains? })`: Gets ERC20 transfers from and to address.
-- `getNftTransfers({ address, limit?, offset?, chains? })`: Gets NFTs transfers from and to address.
-- `getTransactions({ address, limit?, offset?, chains? })`: Gets transactions made from address.
+- `getErc20Transfers({ address, limit?, offset?, chain? })`: Gets ERC20 transfers from and to address.
+- `getNftTransfers({ address, limit?, offset?, chain? })`: Gets NFTs transfers from and to address.
+- `getTransactions({ address, limit?, offset?, chain? })`: Gets transactions made from address.
 
 > ### Pagination and Filters
 > - All methods in `address` namespace, except `getCoins`, accept `limit` and `offset` params. By default `limit: 20` and `offset: 1`. Max value for `limit` is `100`.

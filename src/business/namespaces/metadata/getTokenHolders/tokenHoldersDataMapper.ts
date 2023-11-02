@@ -10,9 +10,9 @@ export const tokenHoldersDataMapper = (
     return {
       amount: holder.amount,
       holderAddress: holder.holder_address,
-      decimals: Number(holder.decimals),
+      decimals: holder.decimals,
       actualPrice: holder.actual_price,
-      chainId: Number(holder.chain_id),
+      chainId: holder.chain_id,
       chainName: holder.chain_name,
     };
   });

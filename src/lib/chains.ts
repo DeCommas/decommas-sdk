@@ -10,6 +10,8 @@ export enum EvmChainName {
   OPBNB = "opbnb",
   OPTIMISM = "optimism",
   POLYGON = "polygon",
+  ARBITRUM_NOVA = "arbitrum_nova",
+  POLYGON_ZKEVM = "polygon_zkevm",
 }
 
 export enum SolanaChainName {
@@ -31,6 +33,8 @@ export enum EvmChainId {
   OPTIMISM = 10,
   POLYGON = 137,
   LINEA = 59144,
+  ARBITRUM_NOVA = 42170,
+  POLYGON_ZKEVM = 1101,
 }
 
 export const EvmChainIdToNameMap: Record<EvmChainId, EvmChainName> = {
@@ -45,6 +49,8 @@ export const EvmChainIdToNameMap: Record<EvmChainId, EvmChainName> = {
   [EvmChainId.OPBNB]: EvmChainName.OPBNB,
   [EvmChainId.BASE]: EvmChainName.BASE,
   [EvmChainId.LINEA]: EvmChainName.LINEA,
+  [EvmChainId.ARBITRUM_NOVA]: EvmChainName.ARBITRUM_NOVA,
+  [EvmChainId.POLYGON_ZKEVM]: EvmChainName.POLYGON_ZKEVM,
 };
 
 export const EvmChainNameToIdMap: Record<EvmChainName, EvmChainId> = {
@@ -59,6 +65,8 @@ export const EvmChainNameToIdMap: Record<EvmChainName, EvmChainId> = {
   [EvmChainName.OPBNB]: EvmChainId.OPBNB,
   [EvmChainName.BASE]: EvmChainId.BASE,
   [EvmChainName.LINEA]: EvmChainId.LINEA,
+  [EvmChainName.ARBITRUM_NOVA]: EvmChainId.ARBITRUM_NOVA,
+  [EvmChainName.POLYGON_ZKEVM]: EvmChainId.POLYGON_ZKEVM,
 };
 
 export enum ChainType {

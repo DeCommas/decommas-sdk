@@ -1,35 +1,35 @@
 export const schema_200_getTokenHolders = {
   type: "array",
-  items: {
-    type: "object",
-    properties: {
-      holderAddress: {
-        type: "string",
+  items: [
+    {
+      type: "object",
+      properties: {
+        amount: {
+          type: "string",
+        },
+        holderAddress: {
+          type: "string",
+        },
+        decimals: {
+          type: "integer",
+        },
+        actualPrice: {},
+        chainId: {
+          type: "integer",
+        },
+        chainName: {
+          type: "string",
+        },
       },
-      amount: {
-        type: "string",
-      },
-      decimals: {
-        type: "number",
-      },
-      actualPrice: {
-        type: "string",
-      },
-      chainName: {
-        type: "string",
-      },
-      chainId: {
-        type: "number",
-      },
+      required: [
+        "amount",
+        "holderAddress",
+        "decimals",
+        "actualPrice",
+        "chainId",
+        "chainName",
+      ],
     },
-    required: [
-      "holderAddress",
-      "amount",
-      "decimals",
-      "actualPrice",
-      "chainName",
-      "chainId",
-    ],
-    additionalProperties: false,
-  },
+  ],
+  additionalProperties: false,
 };

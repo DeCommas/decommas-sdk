@@ -1,5 +1,6 @@
 import { EvmChainName } from "../src";
 import { matchersWithOptions } from "jest-json-schema";
+import { contractsConfig } from "./config";
 import { checkResponse } from "./utils";
 import * as schema from "./schema/metadata";
 import { decommas, chainNames } from "./decommas";
@@ -29,13 +30,35 @@ describe("test namespace metadata", () => {
 
   test("getTokenHolders", async () => {
     for (const chainName of chainNames) {
+      const contractAddress = contractsConfig[chainName].tokenContract;
+
       const data = {
         chainName,
-        contractAddress: "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+        contractAddress,
       };
 
       const response = await decommas.metadata.getTokenHolders(data);
+
       checkResponse(response, schema.schema_200_getTokenHolders);
+    }
+  });
+
+  test("getNftHolders", async () => {
+    for (const chainName of chainNames) {
+      const nftContracts = [
+        contractsConfig[chainName].nftContract721,
+        contractsConfig[chainName].nftContract1155,
+      ];
+
+      for (const contractAddress of nftContracts) {
+        const data = {
+          chainName,
+          contractAddress,
+        };
+
+        const response = await decommas.metadata.getTokenHolders(data);
+        checkResponse(response, schema.schema_200_getTokenHolders);
+      }
     }
   });
 

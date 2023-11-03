@@ -1,52 +1,52 @@
 export const schema_200_getTokenMetadata = {
-  type: 'object',
+  type: "object",
   properties: {
     chainName: {
-      type: 'string',
+      type: "string",
     },
     chainId: {
-      type: 'integer',
+      type: "integer",
     },
     address: {
-      type: 'string',
+      type: "string",
     },
     decimals: {
-      type: 'integer',
+      type: "integer",
     },
     name: {
-      type: 'string',
+      type: "string",
     },
     logoUrl: {
-      type: 'string',
+      type: "string",
     },
     symbol: {
-      type: 'string',
+      type: "string",
     },
     actualPrice: {
-      type: 'string',
+      type: "string",
     },
     isVerified: {
-      type: 'boolean',
+      type: "boolean",
     },
     isStable: {
-      type: 'boolean',
+      type: "boolean",
     },
     isProtocolToken: {
-      type: 'boolean',
+      type: "boolean",
     },
   },
   required: [
-    'chainName',
-    'chainId',
-    'address',
-    'decimals',
-    'name',
-    'logoUrl',
-    'symbol',
-    'actualPrice',
-    'isVerified',
-    'isStable',
-    'isProtocolToken',
+    "chainName",
+    "chainId",
+    "address",
+    "decimals",
+    "name",
+    "logoUrl",
+    "symbol",
+    "actualPrice",
+    "isVerified",
+    "isStable",
+    "isProtocolToken",
   ],
   additionalProperties: false,
 };

@@ -1,65 +1,65 @@
 export const schema_200_getTokenBySymbol = {
-  type: 'object',
+  type: "object",
   properties: {
     count: {
-      type: 'number',
+      type: "number",
     },
     result: {
-      type: 'array',
+      type: "array",
       items: {
-        type: 'object',
+        type: "object",
         properties: {
           chainName: {
-            type: 'string',
+            type: "string",
           },
           chainId: {
-            type: 'number',
+            type: "number",
           },
           address: {
-            type: 'string',
+            type: "string",
           },
           name: {
-            type: 'string',
+            type: "string",
           },
           decimals: {
-            type: 'number',
+            type: "number",
           },
           symbol: {
-            type: 'string',
+            type: "string",
           },
           logoUrl: {
-            type: 'string',
+            type: "string",
           },
           actualPrice: {
-            type: 'string',
+            type: "string",
           },
           isVerified: {
-            type: 'boolean',
+            type: "boolean",
           },
           isStable: {
-            type: 'boolean',
+            type: "boolean",
           },
           isProtocolToken: {
-            type: 'boolean',
+            type: "boolean",
           },
         },
         required: [
-          'chainName',
-          'chainId',
-          'address',
-          'name',
-          'decimals',
-          'symbol',
-          'logoUrl',
-          'actualPrice',
-          'isVerified',
-          'isStable',
-          'isProtocolToken',
+          "chainName",
+          "chainId",
+          "address",
+          "name",
+          "decimals",
+          "symbol",
+          "logoUrl",
+          "actualPrice",
+          "isVerified",
+          "isStable",
+          "isProtocolToken",
         ],
         additionalProperties: false,
       },
     },
   },
-  required: ['count', 'result'],
+  required: ["count", "result"],
   additionalProperties: false,
 };

@@ -11,9 +11,9 @@ export const mockTokenHoldersMetadataResponseRaw: TGetTokenHoldersResponseRaw =
       {
         holder_address: "0xcee284f754e854890e311e3280b767f80797180d",
         amount: "660923098076049",
-        decimals: "6",
+        decimals: 6,
         actual_price: "1.001",
-        chain_id: "1",
+        chain_id: 1,
         chain_name: EvmChainName.MAINNET,
       },
     ],

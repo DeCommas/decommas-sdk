@@ -1,49 +1,49 @@
 export const schema_200_getAllCoins = {
-  type: 'object',
+  type: "object",
   properties: {
     count: {
-      type: 'number',
+      type: "number",
     },
     result: {
-      type: 'array',
+      type: "array",
       items: {
-        type: 'object',
+        type: "object",
         properties: {
           chainName: {
-            type: 'string',
+            type: "string",
           },
           chainId: {
-            type: 'number',
+            type: "number",
           },
           name: {
-            type: 'string',
+            type: "string",
           },
           symbol: {
-            type: 'string',
+            type: "string",
           },
           logoUrl: {
-            type: 'string',
+            type: "string",
           },
           decimals: {
-            type: 'number',
+            type: "number",
           },
           actualPrice: {
-            type: 'string',
+            type: "string",
           },
         },
         required: [
-          'chainName',
-          'chainId',
-          'name',
-          'symbol',
-          'logoUrl',
-          'decimals',
-          'actualPrice',
+          "chainName",
+          "chainId",
+          "name",
+          "symbol",
+          "logoUrl",
+          "decimals",
+          "actualPrice",
         ],
         additionalProperties: false,
       },
     },
   },
-  required: ['count', 'result'],
+  required: ["count", "result"],
   additionalProperties: false,
 };

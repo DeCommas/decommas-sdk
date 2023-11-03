@@ -6,6 +6,12 @@
 
 ### Minor Changes
 
+## 1.7.0
+
+### Major Changes
+- `metadata.getNftHolders` method added
+- support for Polygon zkEVM and Arbitrum Nova added
+
 ## 1.6.0
 
 ### Major Changes

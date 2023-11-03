@@ -17,6 +17,8 @@ Supported chains (mainnet only):
 - **Base**
 - **opBNB**
 - **Linea**
+- **Polygon zkEVM**
+- **Arbitrum Nova**
 
 ## Quick start
 
@@ -171,6 +173,7 @@ The `metadata` namespace contains all metadata-related methods and helpful utils
 - `getTokens({ chains? })`: Gets list of ERC20 tokens for specified networks.
 - `getTokensBySymbol({ symbol, chains? })`: Gets token addresses in specified networks by token symbol.
 - `getTokenHolders({ chainName, contractAddress })`: Gets specified token holders sorted by amount.
+- `getNftHolders({ chainName, contractAddress })`: Gets specified NFT holders sorted by amount.
 
 ## DeCommas transaction namespace
 

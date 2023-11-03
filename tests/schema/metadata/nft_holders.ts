@@ -1,4 +1,4 @@
-export const schema_200_getTokenHolders = {
+export const schema_200_getNftHolders = {
   type: "array",
   items: [
     {
@@ -10,12 +10,6 @@ export const schema_200_getTokenHolders = {
         holderAddress: {
           type: "string",
         },
-        decimals: {
-          type: "integer",
-        },
-        actualPrice: {
-          type: ["string", "null"],
-        },
         chainId: {
           type: "integer",
         },
@@ -23,14 +17,7 @@ export const schema_200_getTokenHolders = {
           type: "string",
         },
       },
-      required: [
-        "amount",
-        "holderAddress",
-        "decimals",
-        "actualPrice",
-        "chainId",
-        "chainName",
-      ],
+      required: ["amount", "holderAddress", "chainId", "chainName"],
     },
   ],
   additionalProperties: false,

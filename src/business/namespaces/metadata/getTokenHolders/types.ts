@@ -5,9 +5,9 @@ import { ChainName } from "@lib/chains";
 export type TTokenHolderRaw = {
   holder_address: TAddress;
   amount: string;
-  decimals: string;
+  decimals: number;
   actual_price: string;
-  chain_id: string;
+  chain_id: number;
   chain_name: ChainName;
 };
 

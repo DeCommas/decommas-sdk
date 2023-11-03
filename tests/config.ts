@@ -1,12 +1,12 @@
 import { EvmChainName } from "../src";
 
-export const contractsConfig: {
-  [key in EvmChainName]: {
-    tokenContract: string;
-    nftContract721: string;
-    nftContract1155: string;
-  };
-} = {
+export type ContractInfo = {
+  tokenContract: string;
+  nftContract721: string;
+  nftContract1155: string;
+};
+
+export const contractsConfig: Record<EvmChainName, ContractInfo> = {
   [EvmChainName.ARBITRUM]: {
     tokenContract: "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
     nftContract721: "0x9d911c2dd24dc8b95e329b4acc7a4552f806d1a8",

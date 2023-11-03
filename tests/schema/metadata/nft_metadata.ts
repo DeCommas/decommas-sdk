@@ -1,48 +1,48 @@
 export const schema_200_getNftMetadata = {
-  type: 'object',
+  type: "object",
   properties: {
     chainName: {
-      type: 'string',
+      type: "string",
     },
     chainId: {
-      type: 'number',
+      type: "number",
     },
     contractAddress: {
-      type: 'string',
+      type: "string",
     },
     tokenId: {
-      type: 'string',
+      type: "string",
     },
     name: {
-      type: 'string',
+      type: "string",
     },
     imageUrl: {
-      type: 'string',
+      type: "string",
     },
     animationUrl: {
-      type: 'string',
+      type: "string",
     },
     contractType: {
-      type: 'string',
+      type: "string",
     },
     collectionName: {
-      type: 'string',
+      type: "string",
     },
     collectionVerified: {
-      type: 'boolean',
+      type: "boolean",
     },
   },
   required: [
-    'chainName',
-    'chainId',
-    'contractAddress',
-    'tokenId',
-    'name',
-    'imageUrl',
-    'animationUrl',
-    'contractType',
-    'collectionName',
-    'collectionVerified',
+    "chainName",
+    "chainId",
+    "contractAddress",
+    "tokenId",
+    "name",
+    "imageUrl",
+    "animationUrl",
+    "contractType",
+    "collectionName",
+    "collectionVerified",
   ],
   additionalProperties: false,
 };

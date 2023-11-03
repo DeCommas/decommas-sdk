@@ -1,9 +1,9 @@
-import { EvmChainName } from '../src';
-import { matchersWithOptions } from 'jest-json-schema';
-import { contractsConfig } from './config';
-import { checkResponse } from './utils';
-import * as schema from './schema/metadata';
-import { decommas, chainNames } from './decommas';
+import { EvmChainName } from "../src";
+import { matchersWithOptions } from "jest-json-schema";
+import { contractsConfig } from "./config";
+import { checkResponse } from "./utils";
+import * as schema from "./schema/metadata";
+import { decommas, chainNames } from "./decommas";
 
 expect.extend(
   matchersWithOptions({
@@ -11,12 +11,12 @@ expect.extend(
   })
 );
 
-describe('test namespace metadata', () => {
-  test('getNft', async () => {
+describe("test namespace metadata", () => {
+  test("getNft", async () => {
     const data = {
       chainName: EvmChainName.BSC,
-      contractAddress: '0x0d133a9afdd9018348adc097335b8dfdb6746a09',
-      tokenId: '586430227848038019174374300982845652912257441249',
+      contractAddress: "0x0d133a9afdd9018348adc097335b8dfdb6746a09",
+      tokenId: "586430227848038019174374300982845652912257441249",
     };
 
     const response = await decommas.metadata.getNft(data);
@@ -28,7 +28,7 @@ describe('test namespace metadata', () => {
     expect(response.chainId).toBe(56);
   });
 
-  test('getTokenHolders', async () => {
+  test("getTokenHolders", async () => {
     for (const chainName of chainNames) {
       const contractAddress = contractsConfig[chainName].tokenContract;
 
@@ -42,7 +42,7 @@ describe('test namespace metadata', () => {
     }
   }, 20000);
 
-  test('getNftHolders', async () => {
+  test("getNftHolders", async () => {
     for (const chainName of chainNames) {
       const nftContracts = [
         contractsConfig[chainName].nftContract721,
@@ -61,10 +61,10 @@ describe('test namespace metadata', () => {
     }
   }, 20000);
 
-  test('getToken', async () => {
+  test("getToken", async () => {
     const data = {
       chainName: EvmChainName.ARBITRUM,
-      contractAddress: '0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9',
+      contractAddress: "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
     };
 
     const response = await decommas.metadata.getToken(data);
@@ -75,8 +75,8 @@ describe('test namespace metadata', () => {
     expect(response.chainId).toBe(42161);
   });
 
-  describe('test getCoins(all coins from db) metadata', () => {
-    test('check each chain', async () => {
+  describe("test getCoins(all coins from db) metadata", () => {
+    test("check each chain", async () => {
       for (const chain of chainNames) {
         const data = {
           chains: [chain],
@@ -88,7 +88,7 @@ describe('test namespace metadata', () => {
       }
     }, 10000);
 
-    test('check massive chains', async () => {
+    test("check massive chains", async () => {
       const data = {
         chains: [EvmChainName.ARBITRUM, EvmChainName.AVALANCHE],
       };
@@ -107,8 +107,8 @@ describe('test namespace metadata', () => {
     });
   });
 
-  describe('test getTokens(all tokens from db) metadata', () => {
-    test('check each chain', async () => {
+  describe("test getTokens(all tokens from db) metadata", () => {
+    test("check each chain", async () => {
       for (const chain of chainNames) {
         const data = {
           chains: [chain],
@@ -120,7 +120,7 @@ describe('test namespace metadata', () => {
       }
     }, 10000);
 
-    test('check massive chains', async () => {
+    test("check massive chains", async () => {
       const data = {
         chains: [EvmChainName.POLYGON, EvmChainName.FANTOM],
       };
@@ -139,11 +139,11 @@ describe('test namespace metadata', () => {
     });
   });
 
-  describe('GET token by symbol', () => {
-    test('check each chain', async () => {
+  describe("GET token by symbol", () => {
+    test("check each chain", async () => {
       for (const chain of chainNames) {
         const data = {
-          symbol: 'USDT',
+          symbol: "USDT",
           chains: [chain],
         };
 
@@ -152,7 +152,7 @@ describe('test namespace metadata', () => {
         checkResponse(response, schema.schema_200_getTokenBySymbol);
         expect(
           response.result.every(
-            (token) => token.symbol.toUpperCase() === 'USDT'
+            (token) => token.symbol.toUpperCase() === "USDT"
           )
         );
         expect(
@@ -161,9 +161,9 @@ describe('test namespace metadata', () => {
       }
     }, 10000);
 
-    test('check massive chains', async () => {
+    test("check massive chains", async () => {
       const data = {
-        symbol: 'USDC',
+        symbol: "USDC",
         chains: [EvmChainName.POLYGON, EvmChainName.FANTOM],
       };
 
@@ -179,7 +179,7 @@ describe('test namespace metadata', () => {
 
       expect(unexpectedNetworks).toEqual([]);
       expect(
-        response.result.every((token) => token.symbol.toUpperCase() === 'USDC')
+        response.result.every((token) => token.symbol.toUpperCase() === "USDC")
       );
     });
   });

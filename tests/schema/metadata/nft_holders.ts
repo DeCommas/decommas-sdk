@@ -1,23 +1,23 @@
 export const schema_200_getNftHolders = {
-  type: 'array',
+  type: "array",
   items: [
     {
-      type: 'object',
+      type: "object",
       properties: {
         amount: {
-          type: 'string',
+          type: "string",
         },
         holderAddress: {
-          type: 'string',
+          type: "string",
         },
         chainId: {
-          type: 'integer',
+          type: "integer",
         },
         chainName: {
-          type: 'string',
+          type: "string",
         },
       },
-      required: ['amount', 'holderAddress', 'chainId', 'chainName'],
+      required: ["amount", "holderAddress", "chainId", "chainName"],
     },
   ],
   additionalProperties: false,

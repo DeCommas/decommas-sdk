@@ -1,54 +1,54 @@
 export const schema_200_getAllTokens = {
-  type: 'array',
+  type: "array",
   items: {
-    type: 'object',
+    type: "object",
     properties: {
       chainName: {
-        type: 'string',
+        type: "string",
       },
       chainId: {
-        type: 'number',
+        type: "number",
       },
       name: {
-        type: 'string',
+        type: "string",
       },
       symbol: {
-        type: 'string',
+        type: "string",
       },
       logoUrl: {
-        type: 'string',
+        type: "string",
       },
       decimals: {
-        type: 'number',
+        type: "number",
       },
       actualPrice: {
-        type: 'string',
+        type: "string",
       },
       isVerified: {
-        type: 'boolean',
+        type: "boolean",
       },
       isStable: {
-        type: 'boolean',
+        type: "boolean",
       },
       address: {
-        type: 'string',
+        type: "string",
       },
       isProtocolToken: {
-        type: 'boolean',
+        type: "boolean",
       },
     },
     required: [
-      'chainName',
-      'chainId',
-      'name',
-      'symbol',
-      'logoUrl',
-      'decimals',
-      'actualPrice',
-      'isVerified',
-      'isStable',
-      'address',
-      'isProtocolToken',
+      "chainName",
+      "chainId",
+      "name",
+      "symbol",
+      "logoUrl",
+      "decimals",
+      "actualPrice",
+      "isVerified",
+      "isStable",
+      "address",
+      "isProtocolToken",
     ],
     additionalProperties: false,
   },

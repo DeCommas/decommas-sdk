@@ -203,26 +203,25 @@ describe("test for namespace address", () => {
   });
 
   describe("getTransactions", () => {
-    // api method doesn't work correctly at this moment
-    // test("checking all networks", async () => {
-    //   for (const chain of chainNames) {
-    //     await utils.sleep();
+    test("checking all networks", async () => {
+      for (const chain of chainNames) {
+        await utils.sleep();
 
-    //     const data = {
-    //       address: wallet,
-    //       chain: chain,
-    //     };
+        const data = {
+          address: wallet,
+          chain: chain,
+        };
 
-    //     const response = await decommas.address.getTransactions(data);
+        const response = await decommas.address.getTransactions(data);
 
-    //     utils.checkResponse(response, schema.schema_200_transactions);
+        utils.checkResponse(response, schema.schema_200_transactions);
 
-    //     if (response.result.length > 0) {
-    //       expect(response?.result[0]?.chainName).toBe(chain);
-    //       expect(response.result.length).toBeLessThanOrEqual(20);
-    //     }
-    //   }
-    // }, 50000);
+        if (response.result.length > 0) {
+          expect(response?.result[0]?.chainName).toBe(chain);
+          expect(response.result.length).toBeLessThanOrEqual(20);
+        }
+      }
+    }, 50000);
 
     test("limit check", async () => {
       const data = {

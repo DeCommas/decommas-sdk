@@ -26,6 +26,7 @@ export const mockTokensResponseRaw: PaginatedResponseRaw<TTokenRaw> = {
       is_verified: true,
       is_stable: true,
       is_protocol_token: true,
+      total_supply: "22"
     },
   ],
 };
@@ -46,6 +47,7 @@ export const mockTokensResponse: PaginatedResponse<TToken> = {
       isVerified: true,
       isStable: true,
       isProtocolToken: true,
+      totalSupply: "22"
     },
   ],
 };

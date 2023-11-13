@@ -1,7 +1,7 @@
 import { TToken, TTokenRaw } from "@business/domains/tokens/types";
 
 export const tokenDataMapper = (raw: TTokenRaw): TToken => {
-  return {
+  const commonData = {
     chainName: raw.chain_name,
     chainId: raw.chain_id,
     address: raw.address,
@@ -14,4 +14,10 @@ export const tokenDataMapper = (raw: TTokenRaw): TToken => {
     isStable: raw.is_stable,
     isProtocolToken: raw.is_protocol_token,
   };
+  return raw.total_supply
+    ? {
+        ...commonData,
+        totalSupply: raw.total_supply,
+      }
+    : commonData;
 };

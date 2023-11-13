@@ -38,6 +38,8 @@ import {
   TGetNftHoldersResponseRaw,
 } from "@business/namespaces/metadata/getNftHolders/types";
 import { nftHoldersDataMapper } from "@business/namespaces/metadata/getNftHolders/nftHoldersDataMapper";
+import { TGetNftCollectionMetadataRequest, TGetNftCollectionMetadataResponseRaw } from "./getNftCollection/types";
+import { nftCollectionMetadataDataMapper } from "./getNftCollection/nftCollectionMetadataDataMapper";
 
 interface IMetadata {
   getNft: TGetNftMetadata;
@@ -63,6 +65,15 @@ export class Metadata implements IMetadata {
       );
 
     return nftMetadataDataMapper(responseRaw);
+  }
+
+  public async getNftCollection(request: TGetNftCollectionMetadataRequest) {
+    const responseRaw =
+      await this.httpRequest.fetch<TGetNftCollectionMetadataResponseRaw>(
+        `nft_collection_metadata/${request.chainName}/${request.contractAddress}`
+      );
+
+    return nftCollectionMetadataDataMapper(responseRaw);
   }
 
   public async getToken(request: TGetTokenMetadataRequest) {

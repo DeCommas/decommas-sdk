@@ -25,6 +25,7 @@ import {
   mockNftHoldersMetadataResponse,
   mockNftHoldersMetadataResponseRaw,
 } from "@mocks/metadata/nftHoldersMetadata.mock";
+import { mockNftCollectionMetadataResponse, mockNftCollectionMetadataResponseRaw } from "@mocks/metadata/nftCollectionMetadata.mock";
 
 describe("Metadata", () => {
   test("getNft", async () => {
@@ -40,6 +41,20 @@ describe("Metadata", () => {
         tokenId: "111",
       })
     ).toStrictEqual(mockNftMetadataResponse);
+  });
+
+  test("getNftCollection", async () => {
+    const httpRequestMock: IHttpRequest = {
+      fetch: jest.fn().mockReturnValue(mockNftCollectionMetadataResponseRaw),
+    };
+    const address = new Metadata(httpRequestMock);
+
+    expect(
+      await address.getNftCollection({
+        chainName: EvmChainName.MAINNET,
+        contractAddress: "0x0000000000000000000000000000000000000000",
+      })
+    ).toStrictEqual(mockNftCollectionMetadataResponse);
   });
 
   test("getToken", async () => {

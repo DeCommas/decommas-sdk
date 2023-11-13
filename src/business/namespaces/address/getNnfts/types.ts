@@ -13,6 +13,7 @@ export type TNftRaw = {
   token_id: string;
   amount: string;
   contract_type: string;
+  collection_verified: boolean;
 };
 
 export type TNft = {
@@ -22,11 +23,13 @@ export type TNft = {
   tokenId: string;
   amount: string;
   contractType: string;
+  collectionVerified: boolean;
 };
 
 export type TGetNftsRequest = PaginatedRequest<{
   address: TAddress;
   chains?: EvmChainName[];
+  verified?: boolean;
 }>;
 
 export type TGetNftsResponseRaw = PaginatedResponseRaw<TNftRaw>;

@@ -12,6 +12,7 @@ export const nftsDataMapper = (
       tokenId: raw.token_id,
       amount: raw.amount,
       contractType: raw.contract_type,
+      collectionVerified: raw.collection_verified,
     })),
   };
 };

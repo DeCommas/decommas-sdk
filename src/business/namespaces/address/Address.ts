@@ -84,6 +84,7 @@ export class Address implements IAddress {
         networks: request.chains,
         limit: request.limit,
         offset: request.offset,
+        verified: request.verified || false
       }
     );
 

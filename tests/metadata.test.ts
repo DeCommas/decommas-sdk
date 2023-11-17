@@ -55,6 +55,20 @@ describe("test namespace metadata", () => {
     }, 20000);
   });
 
+  test("getNftCollection", async () => {
+    const data = {
+      chainName: EvmChainName.MAINNET,
+      contractAddress: "0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85",
+    };
+
+    const response = await decommas.metadata.getNftCollection(data);
+
+    checkResponse(response, schema.schema_200_getNftCollectionMetadata);
+    expect(response.chainName).toBe(EvmChainName.MAINNET);
+    expect(response.contractAddress).toBe(data.contractAddress);
+    expect(response.chainId).toBe(1);
+  });
+
   test("getTokenHolders", async () => {
     for (const chainName of chainNames) {
       const contractAddress = contractsConfig[chainName].tokenContract;

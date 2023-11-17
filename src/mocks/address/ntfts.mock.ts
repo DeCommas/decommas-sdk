@@ -15,6 +15,7 @@ export const mockNftsResponseRaw: TGetNftsResponseRaw = {
       token_id: "10397",
       amount: "1",
       contract_type: "ERC-1155",
+      collection_verified: false,
     },
   ],
 };
@@ -29,6 +30,7 @@ export const mockNftsResponse: TGetNftsResponse = {
       tokenId: "10397",
       amount: "1",
       contractType: "ERC-1155",
+      collectionVerified: false,
     },
   ],
 };

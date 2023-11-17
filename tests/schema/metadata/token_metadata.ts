@@ -34,6 +34,9 @@ export const schema_200_getTokenMetadata = {
     isProtocolToken: {
       type: "boolean",
     },
+    totalSupply: {
+      type: 'string',
+    },
   },
   required: [
     "chainName",
@@ -47,6 +50,8 @@ export const schema_200_getTokenMetadata = {
     "isVerified",
     "isStable",
     "isProtocolToken",
+    // Данное поле есть в ответе /token_metadata, но нет в ответах /all_tokens_metadata и /tokens_by_symbol
+    // "totalSupply",
   ],
   additionalProperties: false,
 };

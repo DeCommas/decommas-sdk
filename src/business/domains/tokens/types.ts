@@ -13,6 +13,7 @@ export type TTokenRaw = {
   is_verified: boolean;
   is_stable: boolean;
   is_protocol_token: boolean;
+  total_supply?: string;
 };
 
 export type TToken = {
@@ -27,6 +28,7 @@ export type TToken = {
   isVerified: boolean;
   isStable: boolean;
   isProtocolToken: boolean;
+  totalSupply?: string;
 };
 
 export type TTokenWithAmountRaw = TWithAmount<TTokenRaw>;

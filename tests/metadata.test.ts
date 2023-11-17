@@ -55,18 +55,41 @@ describe("test namespace metadata", () => {
     }, 20000);
   });
 
-  test("getNftCollection", async () => {
-    const data = {
-      chainName: EvmChainName.MAINNET,
-      contractAddress: "0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85",
-    };
+  describe("test getNftCollection", () => {
+    test("getNftCollection_Erc-721", async () => {
+      for (const chainName of chainNames) {
+        const Contracts = [contractsConfig[chainName].nftContract721];
+        for (const contractAddress of Contracts) {
+          const data = {
+            chainName: chainName,
+            contractAddress: contractAddress,
+          };
 
-    const response = await decommas.metadata.getNftCollection(data);
+          const response = await decommas.metadata.getNftCollection(data);
 
-    checkResponse(response, schema.schema_200_getNftCollectionMetadata);
-    expect(response.chainName).toBe(EvmChainName.MAINNET);
-    expect(response.contractAddress).toBe(data.contractAddress);
-    expect(response.chainId).toBe(1);
+          checkResponse(response, schema.schema_200_getNftCollectionMetadata);
+          expect(response.chainName).toBe(chainName);
+          expect(response.contractAddress).toBe(data.contractAddress);
+        }
+      }
+    });
+    test("getNftCollection_Erc-1155", async () => {
+      for (const chainName of chainNames) {
+        const Contracts = [contractsConfig[chainName].nftContract1155];
+        for (const contractAddress of Contracts) {
+          const data = {
+            chainName: chainName,
+            contractAddress: contractAddress,
+          };
+
+          const response = await decommas.metadata.getNftCollection(data);
+
+          checkResponse(response, schema.schema_200_getNftCollectionMetadata);
+          expect(response.chainName).toBe(chainName);
+          expect(response.contractAddress).toBe(data.contractAddress);
+        }
+      }
+    });
   });
 
   test("getTokenHolders", async () => {

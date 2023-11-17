@@ -35,6 +35,8 @@ import {
   TGetNftTransfersResponseRaw,
 } from "@business/namespaces/address/getNftTransfers/types";
 import { nftTransfersDataMapper } from "./getNftTransfers/nftTransfersDataMapper";
+import { TGetProtocolsRequest, TGetProtocolsResponseRaw } from "./getProtocols/types";
+import { protocolsDataMapper } from "./getProtocols/protocolsDataMapper";
 
 interface IAddress {
   getTokens: TGetTokens;
@@ -131,5 +133,19 @@ export class Address implements IAddress {
       );
 
     return nftTransfersDataMapper(responseRaw);
+  }
+
+  public async getProtocols(request: TGetProtocolsRequest) {
+    const responseRaw =
+      await this.httpRequest.fetch<TGetProtocolsResponseRaw>(
+        `protocols/${request.address}`,
+        {
+          networks: request.chain,
+          limit: request.limit,
+          offset: request.offset,
+        }
+      );
+
+    return protocolsDataMapper(responseRaw);
   }
 }

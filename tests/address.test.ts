@@ -307,4 +307,39 @@ describe("test for namespace address", () => {
       expect(response.result.length).toBeLessThanOrEqual(50);
     });
   });
+
+  describe("getProtocols", () => {
+    test("checking all networks", async () => {
+      for (const chain of chainNames) {
+        await utils.sleep();
+
+        const data = {
+          address: wallet,
+          chain: chain,
+        };
+
+        const response = await decommas.address.getProtocols(data);
+
+        utils.checkResponse(response, schema.schema_200_getProtocols);
+
+        if (response.result.length > 0) {
+          expect(response?.result[0]?.chainName).toBe(chain);
+          expect(response.result.length).toBeLessThanOrEqual(20);
+        }
+      }
+    }, 20000);
+
+    test("limit check", async () => {
+      const data = {
+        address: wallet,
+        // TODO test with wallet with more than 20 protocols
+        limit: 20,
+      };
+
+      const response = await decommas.address.getProtocols(data);
+
+      utils.checkResponse(response, schema.schema_200_getProtocols);
+      expect(response.result.length).toBeLessThanOrEqual(20);
+    });
+  });
 });

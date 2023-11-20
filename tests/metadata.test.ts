@@ -60,10 +60,7 @@ describe("test namespace metadata", () => {
       for (const chainName of chainNames) {
         const Contracts = [contractsConfig[chainName].nftContract721];
         for (const contractAddress of Contracts) {
-          const data = {
-            chainName: chainName,
-            contractAddress: contractAddress,
-          };
+          const data = { chainName, contractAddress };
 
           const response = await decommas.metadata.getNftCollection(data);
 
@@ -77,10 +74,7 @@ describe("test namespace metadata", () => {
       for (const chainName of chainNames) {
         const Contracts = [contractsConfig[chainName].nftContract1155];
         for (const contractAddress of Contracts) {
-          const data = {
-            chainName: chainName,
-            contractAddress: contractAddress,
-          };
+          const data = { chainName, contractAddress };
 
           const response = await decommas.metadata.getNftCollection(data);
 

@@ -16,6 +16,7 @@ config();
 const { X_DECOMMAS_KEY } = process.env;
 const decommas = new Decommas(X_DECOMMAS_KEY);
 const wallet = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
+const walletProtocols = "0xBBEb25f04BDF7D2573325270a32Ba3B4A7ae5F52";
 
 describe("test for namespace address", () => {
   describe("getCoins", () => {
@@ -328,7 +329,7 @@ describe("test for namespace address", () => {
   describe("getProtocols", () => {
     test("valid request", async () => {
       const data = {
-        address: wallet,
+        address: walletProtocols,
       };
 
       const response = await decommas.address.getProtocols(data);
@@ -341,16 +342,17 @@ describe("test for namespace address", () => {
         await utils.sleep();
 
         const data = {
-          address: "0xBBEb25f04BDF7D2573325270a32Ba3B4A7ae5F52",
+          address: walletProtocols,
           chains: chain,
         };
 
         const response = await decommas.address.getProtocols(data);
+        console.dir(response, { depth: null });
 
         utils.checkResponse(response, schema.schema_200_protocols);
 
-        if (response.result.length > 0) {
-          expect(response?.result[0]?.chainName).toBe(chain);
+        if (response.result?.length > 0) {
+          expect(response.result[0]?.chainName).toBe(chain);
           expect(response.result.length).toBeLessThanOrEqual(20);
         }
       }
@@ -358,14 +360,14 @@ describe("test for namespace address", () => {
 
     test("massive chain check", async () => {
       const data = {
-        address: wallet,
+        address: walletProtocols,
         chains: [EvmChainName.ARBITRUM, EvmChainName.OPTIMISM],
         limit: 100,
       };
 
-      const response = await decommas.address.getCoins(data);
+      const response = await decommas.address.getProtocols(data);
 
-      utils.checkResponse(response, schema.schema_200_coins);
+      utils.checkResponse(response, schema.schema_200_protocols);
 
       const expectedNetworks = ["arbitrum", "optimism"];
       const receivedNetworks = response.result.map((chain) => chain.chainName);
@@ -379,10 +381,10 @@ describe("test for namespace address", () => {
     });
     test("limit check", async () => {
       const data = {
-        address: wallet,
+        address: walletProtocols,
         // TODO test with wallet with more than 20 protocols
         limit: 20,
-        chain: EvmChainName.ARBITRUM,
+        chains: EvmChainName.ARBITRUM,
       };
 
       const response = await decommas.address.getProtocols(data);

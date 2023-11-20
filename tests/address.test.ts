@@ -342,12 +342,11 @@ describe("test for namespace address", () => {
         await utils.sleep();
 
         const data = {
-          address: wallet,
+          address: walletProtocols,
           chains: [chain],
         };
 
         const response = await decommas.address.getProtocols(data);
-        console.dir(response, { depth: null });
 
         utils.checkResponse(response, schema.schema_200_protocols);
 

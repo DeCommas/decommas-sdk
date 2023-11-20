@@ -25,9 +25,6 @@ export const schema_200_getNftCollectionMetadata = {
     contractType: {
       type: "string",
     },
-    contractType: {
-      type: "string",
-    },
   },
   required: [
     "chainName",

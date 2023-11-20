@@ -29,6 +29,7 @@ describe("test namespace metadata", () => {
 
           expect(response.tokenId).toBe(tokenId);
           expect(response.chainName).toBe(chainName);
+          expect(response.contractType).toBe("ERC-721");
           expect(response.contractAddress).toBe(contractAddress);
         }
       }
@@ -49,6 +50,7 @@ describe("test namespace metadata", () => {
 
           expect(response.tokenId).toBe(tokenId);
           expect(response.chainName).toBe(chainName);
+          expect(response.contractType).toBe("ERC-1155");
           expect(response.contractAddress).toBe(contractAddress);
         }
       }
@@ -66,6 +68,7 @@ describe("test namespace metadata", () => {
 
           checkResponse(response, schema.schema_200_getNftCollectionMetadata);
           expect(response.chainName).toBe(chainName);
+          expect(response.contractType).toBe("ERC-721");
           expect(response.contractAddress).toBe(data.contractAddress);
         }
       }
@@ -80,6 +83,7 @@ describe("test namespace metadata", () => {
 
           checkResponse(response, schema.schema_200_getNftCollectionMetadata);
           expect(response.chainName).toBe(chainName);
+          expect(response.contractType).toBe("ERC-1155");
           expect(response.contractAddress).toBe(data.contractAddress);
         }
       }

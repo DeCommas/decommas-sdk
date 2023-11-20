@@ -16,6 +16,7 @@ config();
 const { X_DECOMMAS_KEY } = process.env;
 const decommas = new Decommas(X_DECOMMAS_KEY);
 const wallet = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
+const walletProtocols = "0xBBEb25f04BDF7D2573325270a32Ba3B4A7ae5F52";
 
 describe("test for namespace address", () => {
   describe("getCoins", () => {
@@ -117,7 +118,7 @@ describe("test for namespace address", () => {
       utils.checkResponse(response, schema.schema_200_tokens);
 
       const resultHasVerifiedTrue = response.result.some(
-        (chains) => !chains.isVerified
+        (item) => !item.isVerified
       );
 
       expect(resultHasVerifiedTrue).toBe(false);
@@ -179,6 +180,25 @@ describe("test for namespace address", () => {
       expect(response.result.length).toBeGreaterThan(20);
       expect(response.result.length).toBeLessThanOrEqual(50);
     });
+    test("isVerified check", async () => {
+      const data = {
+        address: wallet,
+        chains: [EvmChainName.POLYGON],
+        limit: 100,
+        verified: true,
+      };
+
+      const response = await decommas.address.getNfts(data);
+
+      utils.checkResponse(response, schema.schema_200_nfts);
+
+      const resultHasVerifiedTrue = response.result.some(
+        (item) => !item.collectionVerified
+      );
+
+      expect(resultHasVerifiedTrue).toBe(false);
+      expect(response.result.length).toBeLessThanOrEqual(100);
+    });
 
     test("massive chain check", async () => {
       const data = {
@@ -203,26 +223,25 @@ describe("test for namespace address", () => {
   });
 
   describe("getTransactions", () => {
-    // api method doesn't work correctly at this moment
-    // test("checking all networks", async () => {
-    //   for (const chain of chainNames) {
-    //     await utils.sleep();
+    test("checking all networks", async () => {
+      for (const chain of chainNames) {
+        await utils.sleep();
 
-    //     const data = {
-    //       address: wallet,
-    //       chain: chain,
-    //     };
+        const data = {
+          address: wallet,
+          chain: chain,
+        };
 
-    //     const response = await decommas.address.getTransactions(data);
+        const response = await decommas.address.getTransactions(data);
 
-    //     utils.checkResponse(response, schema.schema_200_transactions);
+        utils.checkResponse(response, schema.schema_200_transactions);
 
-    //     if (response.result.length > 0) {
-    //       expect(response?.result[0]?.chainName).toBe(chain);
-    //       expect(response.result.length).toBeLessThanOrEqual(20);
-    //     }
-    //   }
-    // }, 50000);
+        if (response.result.length > 0) {
+          expect(response?.result[0]?.chainName).toBe(chain);
+          expect(response.result.length).toBeLessThanOrEqual(20);
+        }
+      }
+    }, 50000);
 
     test("limit check", async () => {
       const data = {
@@ -307,38 +326,69 @@ describe("test for namespace address", () => {
       expect(response.result.length).toBeLessThanOrEqual(50);
     });
   });
-
   describe("getProtocols", () => {
+    test("valid request", async () => {
+      const data = {
+        address: walletProtocols,
+      };
+
+      const response = await decommas.address.getProtocols(data);
+
+      utils.checkResponse(response, schema.schema_200_protocols);
+    });
+
     test("checking all networks", async () => {
       for (const chain of chainNames) {
         await utils.sleep();
 
         const data = {
-          address: wallet,
+          address: walletProtocols,
           chains: [chain],
         };
 
         const response = await decommas.address.getProtocols(data);
 
-        utils.checkResponse(response, schema.schema_200_getProtocols);
+        utils.checkResponse(response, schema.schema_200_protocols);
 
-        if (response.result.length > 0) {
-          expect(response?.result[0]?.chainName).toBe(chain);
+        if (response.result?.length > 0) {
+          expect(response.result[0]?.chainName).toBe(chain);
           expect(response.result.length).toBeLessThanOrEqual(20);
         }
       }
     }, 20000);
 
-    test("limit check", async () => {
+    test("massive chain check", async () => {
       const data = {
-        address: wallet,
-        // TODO test with wallet with more than 20 protocols
-        limit: 20,
+        address: walletProtocols,
+        chains: [EvmChainName.ARBITRUM, EvmChainName.OPTIMISM],
+        limit: 100,
       };
 
       const response = await decommas.address.getProtocols(data);
 
-      utils.checkResponse(response, schema.schema_200_getProtocols);
+      utils.checkResponse(response, schema.schema_200_protocols);
+
+      const expectedNetworks = ["arbitrum", "optimism"];
+      const receivedNetworks = response.result.map((chain) => chain.chainName);
+
+      const unexpectedNetworks = receivedNetworks.filter(
+        (chain) => !expectedNetworks.includes(chain)
+      );
+
+      expect(unexpectedNetworks).toEqual([]);
+      expect(response.result.length).toBeLessThanOrEqual(100);
+    });
+    test("limit check", async () => {
+      const data = {
+        address: walletProtocols,
+        // TODO test with wallet with more than 20 protocols
+        limit: 20,
+        chains: [EvmChainName.ARBITRUM],
+      };
+
+      const response = await decommas.address.getProtocols(data);
+
+      utils.checkResponse(response, schema.schema_200_protocols);
       expect(response.result.length).toBeLessThanOrEqual(20);
     });
   });

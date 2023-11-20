@@ -1,8 +1,8 @@
-export const schema_200_getProtocols = {
+export const schema_200_protocols = {
   type: "object",
   properties: {
     count: {
-      type: 'number',
+      type: "number",
     },
     result: {
       type: "array",
@@ -22,22 +22,24 @@ export const schema_200_getProtocols = {
             type: "string",
           },
           protocolLogo: {
-            type: "string",
+            type: ["string", "null"],
           },
           position: {
-            type: 'object',
+            type: "object",
             properties: {
               assetUsdValue: {
                 type: "string",
               },
-              debtUsdValue:{
+              debtUsdValue: {
                 type: "string",
               },
               netUsdValue: {
                 type: "string",
               },
-            }
-          }
+            },
+            required: ["assetUsdValue", "debtUsdValue", "netUsdValue"],
+            additionalProperties: false,
+          },
         },
         required: [
           "chainName",
@@ -51,6 +53,6 @@ export const schema_200_getProtocols = {
       },
     },
   },
-  required: ['count', 'result'],
+  required: ["count", "result"],
   additionalProperties: false,
 };

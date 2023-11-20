@@ -14,16 +14,16 @@ export const schema_200_getTokenMetadata = {
       type: "integer",
     },
     name: {
-      type: "string",
+      type: ["string", "null"],
     },
     logoUrl: {
-      type: "string",
+      type: ["string", "null"],
     },
     symbol: {
       type: "string",
     },
     actualPrice: {
-      type: "string",
+      type: ["string", "null"],
     },
     isVerified: {
       type: "boolean",
@@ -35,7 +35,7 @@ export const schema_200_getTokenMetadata = {
       type: "boolean",
     },
     totalSupply: {
-      type: 'string',
+      type: ["string", "null"],
     },
   },
   required: [
@@ -50,8 +50,7 @@ export const schema_200_getTokenMetadata = {
     "isVerified",
     "isStable",
     "isProtocolToken",
-    // Данное поле есть в ответе /token_metadata, но нет в ответах /all_tokens_metadata и /tokens_by_symbol
-    // "totalSupply",
+    "totalSupply",
   ],
   additionalProperties: false,
 };

@@ -12,46 +12,93 @@ expect.extend(
 );
 
 describe("test namespace metadata", () => {
-  test("getNft", async () => {
-    const data = {
-      chainName: EvmChainName.BSC,
-      contractAddress: "0x0d133a9afdd9018348adc097335b8dfdb6746a09",
-      tokenId: "586430227848038019174374300982845652912257441249",
-    };
+  describe("test getNft", () => {
+    test("getNft_Erc-721", async () => {
+      for (const chainName of chainNames) {
+        const Contracts = [contractsConfig[chainName].nftContract721];
+        for (const contractAddress of Contracts) {
+          const tokenId = contractsConfig[chainName].tokenId721;
+          const data = {
+            chainName,
+            contractAddress,
+            tokenId,
+          };
+          const response = await decommas.metadata.getNft(data);
 
-    const response = await decommas.metadata.getNft(data);
+          checkResponse(response, schema.schema_200_getNftMetadata);
 
-    checkResponse(response, schema.schema_200_getNftMetadata);
-    expect(response.chainName).toBe(EvmChainName.BSC);
-    expect(response.contractAddress).toBe(data.contractAddress);
-    expect(response.tokenId).toBe(data.tokenId);
-    expect(response.chainId).toBe(56);
+          expect(response.tokenId).toBe(tokenId);
+          expect(response.chainName).toBe(chainName);
+          expect(response.contractType).toBe("ERC-721");
+          expect(response.contractAddress).toBe(contractAddress);
+        }
+      }
+    }, 20000);
+    test("getNft_Erc-1155", async () => {
+      for (const chainName of chainNames) {
+        const Contracts = [contractsConfig[chainName].nftContract1155];
+        for (const contractAddress of Contracts) {
+          const tokenId = contractsConfig[chainName].tokenId1155;
+          const data = {
+            chainName,
+            contractAddress,
+            tokenId,
+          };
+          const response = await decommas.metadata.getNft(data);
+
+          checkResponse(response, schema.schema_200_getNftMetadata);
+
+          expect(response.tokenId).toBe(tokenId);
+          expect(response.chainName).toBe(chainName);
+          expect(response.contractType).toBe("ERC-1155");
+          expect(response.contractAddress).toBe(contractAddress);
+        }
+      }
+    }, 20000);
   });
 
-  test("getNftCollection", async () => {
-    const data = {
-      chainName: EvmChainName.MAINNET,
-      contractAddress: "0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85",
-    };
+  describe("test getNftCollection", () => {
+    test("getNftCollection_Erc-721", async () => {
+      for (const chainName of chainNames) {
+        const Contracts = [contractsConfig[chainName].nftContract721];
+        for (const contractAddress of Contracts) {
+          const data = { chainName, contractAddress };
 
-    const response = await decommas.metadata.getNftCollection(data);
+          const response = await decommas.metadata.getNftCollection(data);
 
-    checkResponse(response, schema.schema_200_getNftCollectionMetadata);
-    expect(response.chainName).toBe(EvmChainName.MAINNET);
-    expect(response.contractAddress).toBe(data.contractAddress);
-    expect(response.chainId).toBe(1);
+          checkResponse(response, schema.schema_200_getNftCollectionMetadata);
+          expect(response.chainName).toBe(chainName);
+          expect(response.contractType).toBe("ERC-721");
+          expect(response.contractAddress).toBe(data.contractAddress);
+        }
+      }
+    });
+    test("getNftCollection_Erc-1155", async () => {
+      for (const chainName of chainNames) {
+        const Contracts = [contractsConfig[chainName].nftContract1155];
+        for (const contractAddress of Contracts) {
+          const data = { chainName, contractAddress };
+
+          const response = await decommas.metadata.getNftCollection(data);
+
+          checkResponse(response, schema.schema_200_getNftCollectionMetadata);
+          expect(response.chainName).toBe(chainName);
+          expect(response.contractType).toBe("ERC-1155");
+          expect(response.contractAddress).toBe(data.contractAddress);
+        }
+      }
+    });
   });
 
   test("getTokenHolders", async () => {
     for (const chainName of chainNames) {
       const contractAddress = contractsConfig[chainName].tokenContract;
-
       const data = {
         chainName,
         contractAddress,
       };
-
       const response = await decommas.metadata.getTokenHolders(data);
+
       checkResponse(response, schema.schema_200_getTokenHolders);
     }
   }, 20000);
@@ -68,26 +115,28 @@ describe("test namespace metadata", () => {
           chainName,
           contractAddress,
         };
-
         const response = await decommas.metadata.getNftHolders(data);
+
         checkResponse(response, schema.schema_200_getNftHolders);
       }
     }
   }, 20000);
 
   test("getToken", async () => {
-    const data = {
-      chainName: EvmChainName.ARBITRUM,
-      contractAddress: "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
-    };
+    for (const chainName of chainNames) {
+      const contractAddress = contractsConfig[chainName].tokenContract;
+      const data = {
+        chainName,
+        contractAddress,
+      };
+      const response = await decommas.metadata.getToken(data);
 
-    const response = await decommas.metadata.getToken(data);
+      checkResponse(response, schema.schema_200_getTokenMetadata);
 
-    checkResponse(response, schema.schema_200_getTokenMetadata);
-    expect(response.chainName).toBe(EvmChainName.ARBITRUM);
-    expect(response.address).toBe(data.contractAddress);
-    expect(response.chainId).toBe(42161);
-  });
+      expect(response.chainName).toBe(chainName);
+      expect(response.address).toBe(contractAddress);
+    }
+  }, 20000);
 
   describe("test getCoins(all coins from db) metadata", () => {
     test("check each chain", async () => {
@@ -95,7 +144,6 @@ describe("test namespace metadata", () => {
         const data = {
           chains: [chain],
         };
-
         const response = await decommas.metadata.getCoins(data);
 
         checkResponse(response, schema.schema_200_getAllCoins);
@@ -106,7 +154,6 @@ describe("test namespace metadata", () => {
       const data = {
         chains: [EvmChainName.ARBITRUM, EvmChainName.AVALANCHE],
       };
-
       const response = await decommas.metadata.getCoins(data);
 
       checkResponse(response, schema.schema_200_getAllCoins);
@@ -127,18 +174,16 @@ describe("test namespace metadata", () => {
         const data = {
           chains: [chain],
         };
-
         const response = await decommas.metadata.getTokens(data);
 
         checkResponse(response, schema.schema_200_getAllTokens);
       }
-    }, 10000);
+    }, 50000);
 
     test("check massive chains", async () => {
       const data = {
         chains: [EvmChainName.POLYGON, EvmChainName.FANTOM],
       };
-
       const response = await decommas.metadata.getTokens(data);
 
       checkResponse(response, schema.schema_200_getAllTokens);
@@ -150,20 +195,20 @@ describe("test namespace metadata", () => {
       );
 
       expect(unexpectedNetworks).toEqual([]);
-    });
+    }, 20000);
   });
 
-  describe("GET token by symbol", () => {
+  describe("test getTokensBySymbol", () => {
     test("check each chain", async () => {
       for (const chain of chainNames) {
         const data = {
           symbol: "USDT",
           chains: [chain],
         };
-
         const response = await decommas.metadata.getTokensBySymbol(data);
 
         checkResponse(response, schema.schema_200_getTokenBySymbol);
+
         expect(
           response.result.every(
             (token) => token.symbol.toUpperCase() === "USDT"
@@ -180,7 +225,6 @@ describe("test namespace metadata", () => {
         symbol: "USDC",
         chains: [EvmChainName.POLYGON, EvmChainName.FANTOM],
       };
-
       const response = await decommas.metadata.getTokensBySymbol(data);
 
       checkResponse(response, schema.schema_200_getTokenBySymbol);

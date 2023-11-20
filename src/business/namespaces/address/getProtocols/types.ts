@@ -12,7 +12,7 @@ import { EvmChainName } from "@lib/chains";
 
 export type TGetProtocolsRequest = PaginatedRequest<{
   address: TAddress;
-  chain?: EvmChainName;
+  chains?: EvmChainName[];
 }>;
 
 export type TGetProtocolsResponseRaw = PaginatedResponseRaw<TProtocolRaw>;

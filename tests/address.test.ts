@@ -315,7 +315,7 @@ describe("test for namespace address", () => {
 
         const data = {
           address: wallet,
-          chain: chain,
+          chains: [chain],
         };
 
         const response = await decommas.address.getProtocols(data);

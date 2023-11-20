@@ -342,8 +342,8 @@ describe("test for namespace address", () => {
         await utils.sleep();
 
         const data = {
-          address: walletProtocols,
-          chains: chain,
+          address: wallet,
+          chains: [chain],
         };
 
         const response = await decommas.address.getProtocols(data);
@@ -384,7 +384,7 @@ describe("test for namespace address", () => {
         address: walletProtocols,
         // TODO test with wallet with more than 20 protocols
         limit: 20,
-        chains: EvmChainName.ARBITRUM,
+        chains: [EvmChainName.ARBITRUM],
       };
 
       const response = await decommas.address.getProtocols(data);

@@ -140,7 +140,7 @@ export class Address implements IAddress {
       await this.httpRequest.fetch<TGetProtocolsResponseRaw>(
         `protocols/${request.address}`,
         {
-          networks: request.chain,
+          networks: request.chains,
           limit: request.limit,
           offset: request.offset,
         }

@@ -15,5 +15,6 @@ export const nftCollectionMetadataDataMapper = (
     collectionVerified: raw.collection_verified,
     floorPriceUsd: raw.floor_price_usd,
     marketCapUsd: raw.market_cap_usd,
+    contractType: raw.contract_type,
   };
 };

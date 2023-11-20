@@ -10,6 +10,7 @@ export type TNftCollectionMetadataRaw = {
   collection_verified: boolean;
   floor_price_usd: string;
   market_cap_usd: string;
+  contract_type: string;
 };
 
 export type TNftCollectionMetadata = {
@@ -20,6 +21,7 @@ export type TNftCollectionMetadata = {
   collectionVerified: boolean;
   floorPriceUsd: string;
   marketCapUsd: string;
+  contractType: string;
 };
 
 export type TGetNftCollectionMetadataRequest = {

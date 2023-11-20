@@ -14,6 +14,7 @@ export const mockNftCollectionMetadataResponseRaw: TGetNftCollectionMetadataResp
     collection_verified: false,
     floor_price_usd: "2.4",
     market_cap_usd: "7307032",
+    contract_type: "ERC-721",
   },
 };
 
@@ -25,4 +26,5 @@ export const mockNftCollectionMetadataResponse: TGetNftCollectionMetadataRespons
   collectionVerified: false,
   floorPriceUsd: "2.4",
   marketCapUsd: "7307032",
+  contractType: "ERC-721",
 };

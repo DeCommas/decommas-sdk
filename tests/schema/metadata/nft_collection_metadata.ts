@@ -22,6 +22,9 @@ export const schema_200_getNftCollectionMetadata = {
     marketCapUsd: {
       type: "string",
     },
+    contractType: {
+      type: "string",
+    },
   },
   required: [
     "chainName",
@@ -30,7 +33,8 @@ export const schema_200_getNftCollectionMetadata = {
     "collectionName",
     "collectionVerified",
     "floorPriceUsd",
-    "marketCapUsd"
+    "marketCapUsd",
+    "contractType",
   ],
   additionalProperties: false,
 };

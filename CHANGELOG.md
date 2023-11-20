@@ -6,6 +6,12 @@
 
 ### Minor Changes
 
+## 1.8.0
+### Major Changes
+
+- `metadata.getNftCollection` method added
+- `address.getProtocols` method added
+
 ## 1.7.0
 
 ### Major Changes

@@ -142,10 +142,11 @@ The `address` namespace contains all address-related methods:
 
 - `getCoins({ address })`: Gets native coins balances.
 - `getTokens({ address, limit?, offset?, chains?, verified? })`: Gets ERC20 tokens balances.
-- `getNfts({ address, limit?, offset?, chains? })`: Gets NFTs balances.
+- `getNfts({ address, limit?, offset?, chains?, verified? })`: Gets NFTs balances.
 - `getErc20Transfers({ address, limit?, offset?, chain? })`: Gets ERC20 transfers from and to address.
 - `getNftTransfers({ address, limit?, offset?, chain? })`: Gets NFTs transfers from and to address.
 - `getTransactions({ address, limit?, offset?, chain? })`: Gets transactions made from address.
+- `getProtocols({ address })`: Gets protocols positions
 
 > ### Pagination and Filters
 > - All methods in `address` namespace, except `getCoins`, accept `limit` and `offset` params. By default `limit: 20` and `offset: 1`. Max value for `limit` is `100`.
@@ -168,12 +169,13 @@ The `address` namespace contains all address-related methods:
 The `metadata` namespace contains all metadata-related methods and helpful utils:
 
 - `getNft({ chainName, contractAddress, tokenId })`: Gets NFT metadata: image, collection name etc.
-- `getToken({ chainName, contractAddress })`: Gets ERC20 token metadata: symbol, current price etc.
+- `getToken({ chainName, contractAddress })`: Gets ERC20 token metadata: symbol, current price, total supply etc.
 - `getCoins()`: Gets native coins metadata for all supported networks.
 - `getTokens({ chains? })`: Gets list of ERC20 tokens for specified networks.
 - `getTokensBySymbol({ symbol, chains? })`: Gets token addresses in specified networks by token symbol.
 - `getTokenHolders({ chainName, contractAddress })`: Gets specified token holders sorted by amount.
 - `getNftHolders({ chainName, contractAddress })`: Gets specified NFT holders sorted by amount.
+- `getNftCollection({ chainName, contractAddress })`: Gets NFT Collection metadata
 
 ## DeCommas transaction namespace
 

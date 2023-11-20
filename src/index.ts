@@ -9,6 +9,7 @@ export type { TTransaction } from "@business/namespaces/address/getTransactions/
 export type { TNftMetadata } from "@business/namespaces/metadata/getNft/types";
 export type { TToken } from "@business/domains/tokens/types";
 export type { TCoin, TCoinWithAmount } from "@business/domains/coins/types";
+export type { TProtocol } from "@business/domains/protocols/types";
 
 export type { TErc20TransferByTx } from "@business/namespaces/transaction/getErc20TransfersByTx/types";
 export type { TNftTransferByTx } from "@business/namespaces/transaction/getNftTransfersByTx/types";

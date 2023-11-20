@@ -17,6 +17,7 @@ export const mockTokenMetadataResponseRaw: TGetTokenMetadataResponseRaw = {
     is_verified: true,
     is_stable: true,
     is_protocol_token: true,
+    total_supply: "22"
   },
 };
 
@@ -33,4 +34,5 @@ export const mockTokenMetadataResponse: TToken = {
   isVerified: true,
   isStable: true,
   isProtocolToken: true,
+  totalSupply: "22"
 };

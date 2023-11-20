@@ -27,6 +27,9 @@ export const schema_200_nfts = {
           contractType: {
             type: 'string',
           },
+          collectionVerified: {
+            type: 'boolean'
+          }
         },
         required: [
           'chainName',
@@ -35,6 +38,7 @@ export const schema_200_nfts = {
           'tokenId',
           'contractAddress',
           'contractType',
+          'collectionVerified'
         ],
         additionalProperties: false,
       },
